@@ -1,0 +1,81 @@
+
+(function () {
+    var tel=document.querySelector('#txt_telephone');
+    var tel_error=document.querySelector('#tel_error');
+    var password=document.querySelector('#txt_password');
+    var password_error=document.querySelector('#password_error');
+    var check_agree=document.querySelector('#check_agree');
+    var check_error=document.querySelector('#check_error');
+    var login_btn=document.querySelector('#btn_login')
+
+
+
+    document.querySelector('#eye-check').onclick=function() {
+        if (password.type=='password') {
+            password.type='text';
+        }else {
+            password.type='password'
+        }
+    };
+
+    login_btn.onclick=function () {
+        checkAgree();
+        if(checkTelphone() && checkPassword() && checkAgree()){
+            //    开始提交后台
+            var user={"telephone":tel.value,"password":password.value};
+            postData('http://192.168.2.85:8080/api/user/person',user,function (res) {
+                if(res && res.status_code=='10001'){
+
+                }else {
+                    alert(res.status_text);
+                }
+            })
+        }
+
+    };
+
+    function checkTelphone() {
+        var regMobile=/^1[3,5,8]\d{9}$/;
+        if(tel.value){
+            if(regMobile.test(tel.value)){
+                tel_error.innerText='';
+                return true;
+            }else {
+                tel_error.innerText='*手机号码格式不正确';
+                return false
+            }
+        }else {
+            tel_error.innerText='*手机号码不能为空';
+            return false;
+        }
+    }
+
+    function checkPassword() {
+        var regMobile=/^\w{6,}$/;
+        if(password.value){
+            if(regMobile.test(password.value)){
+                password_error.innerText='';
+                return true;
+            }else {
+                password_error.innerText='*密码必须大于六位';
+                return false;
+            }
+        }else {
+            password_error.innerText='*密码不能为空';
+            return false;
+        }
+    }
+
+    tel.onchange=function () {
+        checkTelphone();
+    };
+
+    password.onchange=function () {
+        checkPassword();
+    };
+
+})();
+
+
+
+

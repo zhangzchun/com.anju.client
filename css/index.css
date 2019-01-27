@@ -1,0 +1,544 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #F8F8F8;
+}
+/*导航*/
+.my_container{
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0;
+    box-sizing: border-box;
+    border-bottom: 0;
+}
+.title{
+    color: #FFFFFF !important;
+    font-size: 30px;
+    padding: 0;
+    margin-top: 15px;
+}
+.title img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.my_nav,my_nav01{
+    height: 80px;
+    padding-top: 16px;
+    box-sizing: border-box;
+}
+.my_nav ul li a{
+    font-size: 16px;
+    color: white !important;
+    font-weight: 500;
+}
+.my_nav ul li .a1:hover{
+    color: #15a616 !important;
+}
+@media (max-width: 767px) {
+    .nav_hidden{
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+
+/*轮播*/
+.carousel{
+    padding: 0;
+}
+.carousel ul{
+    position: relative;
+    left: 0;
+    list-style: none;
+    padding: 0;
+}
+.wrap{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.wrap .btn{
+    position: absolute;
+    top: 35%;
+    z-index: 1;
+    width: 5%;
+    height: 18%;
+    background-color: rgba(0,0,0,.5);
+    cursor: pointer;
+}
+.wrap .left{
+    left: 0;
+}
+.wrap .left div{
+    background: url("../image/left.svg") no-repeat;
+    background-size: contain;
+    background-position: left;
+    width: 100%;
+    height: 100%;
+}
+.wrap .right{
+    right: 0;
+}
+.wrap .right div{
+    background: url("../image/right.svg") no-repeat;
+    background-size: contain;
+    background-position: right;
+    width: 100%;
+    height: 100%;
+}
+.img-list{
+    display: flex;
+    margin: 0;
+    width: 300%;
+    height: 100%;
+}
+
+.img-list li{
+    width: 100%;
+    height: 100%;
+}
+.img-list img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.tab-list-div{
+    position: absolute;
+    z-index: 20;
+    top: 90%;
+    left: 50%;
+    margin-left: -25px;
+}
+.tab-list:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.tab-list li{
+    float: left;
+    transition: 1s;
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+}
+.tab-list li:hover{
+    cursor: pointer;
+}
+.tab-list li:first-child{
+    margin-left: 0;
+}
+.tab-list .on{
+    width: 40px;
+    border-radius: 8px;
+}
+/*搜索*/
+.search{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+.search_criteria{
+    height: 42px;
+    border-radius: 0;
+}
+.search_criteria:hover{
+    background-color: white;
+}
+.search_criteria:focus,
+.search_criteria:active:focus,
+.search_criteria.active:focus,
+.search_criteria.focus,
+.search_criteria:active.focus,
+.search_criteria.active.focus {
+    outline: none;
+    box-shadow: none;
+    background-color: #FFFFFF;
+}
+
+.search_ul{
+    font-size: 12px;
+    border-radius: 0;
+    min-width: 90px ;
+    top: 93%;
+}
+.search_ul li a{
+    display: block;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+.search_ul li a:hover{
+    background-color: #F5F5F5;
+}
+.search_main{
+    border-top: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    box-sizing: border-box;
+    width: 30%;
+}
+#search{
+    width: 100%;
+    border: 0;
+    height: 40px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+#search:focus{
+    border: 0;
+    outline: 0;
+}
+.search_btn{
+    width: 40px;
+    height: 42px;
+    border: solid 1px #ccc;
+    border-left: 0;
+    box-sizing: border-box;
+    background-color: white;
+    text-align: center;
+    padding-top: 6px;
+}
+
+@media (max-width: 768px){
+    .search_btn , .search_criteria{
+        height: 34px;
+    }
+    #search{
+        height: 32px;
+    }
+    .search_btn{
+        padding-top: 4px;
+    }
+}
+
+/*公司*/
+.company{
+    background-color: #FFFFFF;
+}
+.company a{
+    color: #575757;
+}
+.company a:hover{
+    color: #575757;
+    text-decoration: none;
+}
+.company_title{
+    text-align: center;
+    padding: 20px 0px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.span01{
+    color: #444444;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+.content{
+    width: 95%;
+    height: 95%;
+    border-bottom: solid 1px #D2D2D2;
+    margin-bottom: 50px;
+    background-color: white;
+}
+.content:hover{
+    box-shadow: 2px 2px 5px #cccccc;
+}
+
+.company_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.company_logo{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0px 0px 20px #bcbcbc;
+    margin: auto;
+    text-align: center;
+    line-height: 100px;
+    position: relative;
+    top: -50px;
+}
+.company_logo img{
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+.company_name{
+    font-size: 20px;
+    position: relative;
+    top: -30px;
+    text-align: center;
+}
+
+.more{
+    margin-top: 30px;
+    margin-bottom: 80px;
+    text-align: center;
+}
+.more a{
+    font-size: 18px;
+    padding: 5px 50px;
+    display: inline-block;
+    box-sizing: border-box;
+    border: solid 1px #CCC;
+}
+.more a:hover{
+    background-color: #C4AD4F;
+}
+
+@media (max-width: 768px) {
+    .company_main .my_company:nth-child(2)~div{
+        display: none;
+    }
+}
+
+
+
+/*装修日记*/
+.diary{
+    background: url("../image/yzs_bg.jpg") no-repeat;
+    background-size: cover;
+}
+.diary_info{
+    width: 80%;
+    background-color: white;
+    margin: 60px auto;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.diary_header{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.diary_header .user_icon01{
+    width: 80px;
+    height: 80px;
+    margin-right: 38px;
+}
+.diary_header .user_icon01 img{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.diary_header .diary_name{
+    height: 80px;
+    line-height: 30px;
+    padding-top: 2%;
+    box-sizing: border-box;
+}
+.diary_header .diary_name .diary_title{
+    font-size: 18px;
+}
+.diary_image{
+    margin-top: 10px;
+    text-align: center;
+}
+.diary_image img:first-child{
+    margin-right: 20px;
+}
+@media (max-width: 768px){
+    .owner .user_icon02>div{
+        display: none;
+    }
+    .diary_info{
+        display: none;
+    }
+}
+@media (max-width: 992px){
+    .diary_info{
+        display: none;
+    }
+}
+@media (max-width: 1106px){
+    .diary_info .style{
+        display: none;
+    }
+
+    .diary_image img{
+        width: 40%;
+    }
+
+    .diary_info .user_icon01{
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.owner{
+    background-color: #67636B;
+}
+.owner_content{
+    width: 80%;
+    margin: 60px auto;
+    box-sizing: border-box;
+}
+.owner_content .text{
+    margin-bottom: 2%;
+}
+.owner_content .text span{
+    color: #FFFFFF;
+    font-size: 28px;
+    font-weight: 500;
+}
+.owner_content .text p{
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.owner_content .user_icon02{
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+.owner_content .user_icon02 div{
+    width: 80px;
+    height: 80px;
+}
+.owner_content .user_icon02 div img{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.more_diary{
+    text-align: right;
+}
+.more_diary a{
+    color: #FFFFFF;
+    font-size: 16px;
+    display: inline-block;
+    border: solid 1px #FFFFFF;
+    padding: 10px 20px;
+}
+.more_diary a:hover{
+    text-decoration: none;
+    background-color: #C4AD4F;
+}
+
+/*服务*/
+.service_title{
+    padding: 50px 0;
+    text-align: center;
+}
+.service_title span{
+    font-size: 30px;
+}
+
+.service_main{
+    display: flex;
+    padding-bottom: 50px;
+}
+.service_main div{
+    flex: 1;
+    box-sizing: border-box;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.service_main div img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.service_main div .span01{
+    font-size: 16px;
+}
+@media (max-width: 992px){
+    .service{
+        display: none;
+    }
+}
+
+
+/*装修攻略*/
+.strategy{
+    padding-bottom: 100px;
+    background-color: white;
+}
+.strategy_header{
+    padding: 50px 0;
+    text-align: center;
+    line-height: 40px;
+}
+.strategy_header span:first-child{
+    font-size: 36px;
+}
+.strategy_content{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border: solid 1px #CCCCCC;
+    box-sizing: border-box;
+    position: relative;
+}
+.strategy_content .strategy_content_img {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: url("../image/index_zxgl_bg.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.strategy_content .strategy_content_img span{
+    color: #FFFFFF;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.strategy_content .strategy_content_text{
+    flex: 2;
+    padding: 30px 38px;
+    box-sizing: border-box;
+}
+.strategy_content .strategy_content_text a{
+    color: #333333;
+    display: block;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.strategy_content .strategy_content_text a:hover{
+    color: #3e8f3e;
+    text-decoration: none;
+}
+
+
+/*底部*/
+.footer{
+    background-color: #221F1E;
+    text-align: center;
+}
+.footer_link{
+    color: #D8902D;
+    font-size: 16px;
+}
+.footer>div:first-child{
+    padding: 10px 0;
+    border-bottom: solid 1px #777777;
+    box-sizing: border-box;
+}
+.footer>div:last-child{
+    padding: 20px 0 30px 0;
+    box-sizing: border-box;
+}
+.footer>div:last-child p{
+    color: #AFA9A9;
+}
+.footer>div:last-child b{
+    color: #D8902D;
+}

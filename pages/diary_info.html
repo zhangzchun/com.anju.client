@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>日记详情</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/diary_info.css">
+    <link rel="stylesheet" href="../css/nav.css">
+
+</head>
+<body>
+    <!--导航-->
+    <nav class="navbar navbar-default navbar-fixed-top my_container">
+        <div class="container my_nav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" id="nav_btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand title" href="#">安居家装</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse nav_hidden" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#" class="a1">首页</a></li>
+                    <li><a href="#" class="a1">装修公司</a></li>
+                    <li><a href="#" class="a1">装修攻略</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form action="#">
+                            <input type="text" id="search_txt" value="" placeholder="搜索公司、攻略、日记" />
+                            <a href="#" id="search_btn_block" name="submit" ><img src="../image/search_icon.svg" alt=""></a>
+                            <a href="#" id="search_btn_none" name="submit" ><img src="../image/delete.svg" alt=""></a>
+                        </form>
+                    </li>
+                    <li><a href="#" class="a1">登录</a></li>
+                    <li><a href="#" class="a1">注册</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="div01"></div>
+
+    <!--日记主体-->
+    <div class="diary">
+        <div class="diary_header">
+            <div class="user_info">
+                <img src="../image/user_icon06.jpg" alt="">
+                <span>哆啦A梦</span>
+            </div>
+            <div class="diary_info">
+                <div class="col-xs-12 col-md-12 col-md-8 diary_info_left">
+                    <span class="diary_title">简单不折腾~~孩妈17万硬装简约大三居</span>
+                    <span class="diary_time">2019/01/21 14:03</span>
+                    <div class="house_info">
+                        <img src="../image/house.svg" alt="">
+                        <span>房屋信息: </span>
+                        <span class="area">150m²</span>
+                        <span> | </span>
+                        <span class="style">简约 现代</span>
+                        <span> | </span>
+                        <span class="type">清包</span>
+                    </div>
+                    <div class="house_location">
+                        <img src="../image/position.svg" alt="">
+                        <span>所在小区: </span>
+                        <span class="location">苏州市 独墅湖别墅</span>
+                    </div>
+                    <div class="company">
+                        <img src="../image/company.svg" alt="">
+                        <span>装饰公司: </span>
+                        <span class="company_name">苏州美即装饰</span>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-12 col-md-4 diary_info_right">
+                    <div class="number">
+                        <div class="browse_num">
+                            <span>48546</span>
+                            <div>
+                                <img src="../image/browse.svg" alt="">
+                                浏览
+                            </div>
+                        </div>
+
+                        <div class="collect_num">
+                            <span>698</span>
+                            <div id="pg-block-click">
+                                <span class="uncollect-icon"></span>
+                                收藏
+                            </div>
+                        </div>
+
+                        <div class="comment_num">
+                            <span>6985</span>
+                            <div>
+                                <img src="../image/comment.svg" alt="">
+                                评论
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="share">
+                        <span>分享到:</span>
+                        <a href="#"><img src="../image/blog.svg" alt=""></a>
+                        <a href="#"><img src="../image/qq.svg" alt=""></a>
+                        <a href="#"><img src="../image/weixin.svg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="diary_main">
+            <div>
+                <div>
+                    <div class="diary_content">
+                        <div class="side"></div>
+                        <div class="diary_items">
+                            <!--<div class="diary_item">-->
+                                <!--<div class="stage_title">前期<br>准备</div>-->
+                                <!--<div class="stage_content">-->
+                                    <!--<div class="public_time">-->
+                                        <!--<span>2019年01月21日</span>-->
+                                    <!--</div>-->
+                                    <!--<div class="content">-->
+                                        <!--<p>山区小镇，没有一家照相馆的时候，我的小学毕业照是县上的照相师傅到我们完小拍摄的山区小镇，没有一家照相馆的时候，我的小学毕业照是县上的照相师傅到我们完小拍摄的山区小镇，没有一家照相馆的时候，我的小学毕业照是县上的照相师傅到我们完小拍摄的山区小镇，没有一家照相馆的时候，我的小学毕业照是县上的照相师傅到我们完小拍摄的山区小镇，没有一家照相馆的时候，我的小学毕业照是县上的照相师傅到我们完小拍摄的山区小镇，没有一家照相馆的时候，我的小学毕业照是县上的照相师傅到我们完小拍摄的。</p>-->
+                                    <!--</div>-->
+                                    <!--<div class="diary_image">-->
+                                        <!--<img src="../image/diary_01.jpg" alt="">-->
+                                        <!--<img src="../image/diary_02.jpg" alt="">-->
+                                        <!--<img src="../image/diary_03.jpg" alt="">-->
+                                        <!--<img src="../image/diary_04.jpg" alt="">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+                <!--评论-->
+                <div class="comment">
+                    <div class="comment_title">
+                        <div>
+                            <span>发表评论</span>
+                        </div>
+                    </div>
+
+                    <div class="row comment_box">
+                        <div class="public_comment">
+                            <form action="#">
+                                <textarea rows=3 cols=27 id="comment_txt" name="comment_text" placeholder="请发表你的看法~~~"></textarea>
+                                <button type="button" id="comment">发表评论</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!--评论内容-->
+                    <div class="comment_content">
+                        <!--&lt;!&ndash;一层&ndash;&gt;-->
+                        <!--<div class="first_floor">-->
+                        <!--<div class="user_icon">-->
+                        <!--<img src="../image/user_icon01.jpg" alt="">-->
+                        <!--</div>-->
+                        <!--<div class="comment_main">-->
+                        <!--<div class="nickname">-->
+                        <!--<span class="reply_man">小猪佩奇</span>-->
+                        <!--</div>-->
+                        <!--<div class="comment_txt">-->
+                        <!--<p>吃了吗？吃了吗？吃了吗？吃了吗？吃了吗？吃了吗？吃了吗？</p>-->
+                        <!--</div>-->
+                        <!--<div class="comment_footer">-->
+                        <!--<div class="comment_time">-->
+                        <!--<span>2019/01/19</span>-->
+                        <!--</div>-->
+                        <!--<div class="comment_num_reply">-->
+                        <!--<a href="###" class="comment_num">2条评论</a>-->
+                        <!--<a href="###" class="comment_reply">回复</a>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="reply_box hidden">-->
+                        <!--<form action="#">-->
+                        <!--<textarea rows=3 cols=27 class="reply_txt" name="comment_text" placeholder="请发表你的看法~~~"></textarea>-->
+                        <!--<button type="button" class="reply_btn">回复</button>-->
+                        <!--</form>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;二层&ndash;&gt;-->
+                        <!--<div class="second_floor" style="display: none">-->
+                        <!--<div class="user_icon">-->
+                        <!--<img src="../image/user_icon01.jpg" alt="">-->
+                        <!--</div>-->
+                        <!--<div class="comment_main02">-->
+                        <!--<div class="nickname">-->
+                        <!--<span class="reply_man">b搜索</span>-->
+                        <!--<span>回复</span>-->
+                        <!--<span class="promulgator">小猪佩奇</span>-->
+                        <!--</div>-->
+                        <!--<div class="comment_txt">-->
+                        <!--<p>吃了吗？吃了吗？吃了吗？吃了吗？吃了吗？吃了吗？吃了吗？</p>-->
+                        <!--</div>-->
+                        <!--<div class="comment_footer">-->
+                        <!--<div class="comment_time">-->
+                        <!--<span>2019/01/19</span>-->
+                        <!--</div>-->
+                        <!--<div class="comment_num_reply">-->
+                        <!--<a href="###" class="comment_num">2条评论</a>-->
+                        <!--<a href="###" class="comment_reply">回复</a>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="reply_box hidden">-->
+                        <!--<form action="#">-->
+                        <!--<textarea rows=3 cols=27 class="reply_txt" name="comment_text" placeholder="请发表你的看法~~~"></textarea>-->
+                        <!--<button type="button" class="reply_btn02">回复</button>-->
+                        <!--</form>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="sidebar_items">
+                    <div class="sidebar_top">
+                        <span>达人榜</span>
+                    </div>
+                    <div class="sidebar_item">
+                        <div class="icon"><img src="../image/user_icon01.jpg" alt=""></div>
+                        <div class="info">
+                            <span class="name">小猪佩奇</span>
+                            <span class="contribution">月贡献度:2731</span>
+                        </div>
+                    </div>
+                    <div class="sidebar_item">
+                        <div class="icon"><img src="../image/user_icon06.jpg" alt=""></div>
+                        <div class="info">
+                            <span class="name">小猪佩奇</span>
+                            <span class="contribution">月贡献度:2524</span>
+                        </div>
+                    </div>
+                    <div class="sidebar_item">
+                        <div class="icon"><img src="../image/user_icon03.jpg" alt=""></div>
+                        <div class="info">
+                            <span class="name">小猪佩奇</span>
+                            <span class="contribution">月贡献度:2024</span>
+                        </div>
+                    </div>
+                    <div class="sidebar_item">
+                        <div class="icon"><img src="../image/user_icon02.jpg" alt=""></div>
+                        <div class="info">
+                            <span class="name">小猪佩奇</span>
+                            <span class="contribution">月贡献度:1651</span>
+                        </div>
+                    </div>
+                    <div class="sidebar_item">
+                        <div class="icon"><img src="../image/user_icon05.jpg" alt=""></div>
+                        <div class="info">
+                            <span class="name">小猪佩奇</span>
+                            <span class="contribution">月贡献度:1201</span>
+                        </div>
+                    </div>
+                    <div class="sidebar_item">
+                        <div class="icon"><img src="../image/user_icon08.jpg" alt=""></div>
+                        <div class="info">
+                            <span class="name">小猪佩奇</span>
+                            <span class="contribution">月贡献度:891</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="write_diary">
+                    <a href="#">写日记</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--底部-->
+    <div class="container-fluid footer">
+        <div class="row">
+            <div class="col-xs-12">
+                <span class="footer_link">友情链接:</span>
+                <span>/</span>
+                <img src="../image/footer01.png" alt="">
+                <span>/</span>
+                <img src="../image/footer02.png" alt="">
+                <span>/</span>
+                <img src="../image/footer03.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <p>我的网站 版权所有 2008-2014 湘ICP备8888888</p>
+                <p>本页面内容为网站演示数据，前台页面内容都可以在后台修改。</p>
+                <p>Powered by <b>Ctrl ACV</b> 6.1.3 ©2008-2019.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/diary_info.js"></script>
+
+</body>
+</html>

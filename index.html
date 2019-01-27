@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>安居家装</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!--导航-->
+    <nav class="navbar navbar-default navbar-fixed-top my_container">
+        <div class="container my_nav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" id="nav_btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand title" href="#">安居家装</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse nav_hidden" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" class="a1">首页</a></li>
+                    <li class="ss"><a href="#">/</a></li>
+                    <li><a href="#" class="a1">装修公司</a></li>
+                    <li class="ss"><a href="#">/</a></li>
+                    <li><a href="./pages/strategy_list.html" class="a1">装修攻略</a></li>
+                    <li class="ss"><a href="#">/</a></li>
+                    <li><a href="#" class="a1">登录</a></li>
+                    <li class="ss"><a href="#">/</a></li>
+                    <li><a href="#" class="a1">注册</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!--轮播-->
+    <div class="carousel">
+        <div class="wrap">
+            <div class="btn left">
+                <div></div>
+            </div>
+            <div class="btn right">
+                <div></div>
+            </div>
+            <ul class="img-list">
+                <li>
+                    <img src="./image/carousel02.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./image/carousel01.jpg" alt="">
+                </li>
+                <li>
+                    <img src="./image/carousel02.jpg" alt="">
+                </li>
+            </ul>
+            <div class="tab-list-div">
+                <ul class="tab-list">
+                    <li class="on"></li>
+                    <li></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!--搜索-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 search">
+                <div class="dropdown search_header">
+                    <button class="btn btn-default dropdown-toggle search_criteria" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">装修公司<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu search_ul" aria-labelledby="dropdownMenu1">
+                        <li class="li_company"><a href="###">装修公司</a></li>
+                        <li class="li_strategy"><a href="###">装修攻略</a></li>
+                        <li class="li_diary"><a href="###">装修日记</a></li>
+                    </ul>
+                </div>
+                <div class="search_main">
+                    <form action="#">
+                        <input type="text" name="search" id="search"/>
+                    </form>
+                </div>
+                <div class="search_btn">
+                    <img src="./image/search_icon.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--公司-->
+    <div class="container-fluid company">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 company_title">
+                    <span class="span01">装修公司</span>
+                    <span class="span02">——Company——</span>
+                </div>
+            </div>
+            <div class="row company_main">
+                <div class="col-xs-12 col-sm-6 col-md-3 my_company">
+                    <a href="#">
+                        <div class="content">
+                            <div class="company_image">
+                                <img src="./image/company_01.jpg" alt="">
+                            </div>
+                            <div class="company_logo">
+                                <img src="./image/company_logo01.jpg" alt="">
+                            </div>
+                            <div class="company_name">
+                                <span>苏州骏飞装饰</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 my_company">
+                    <a href="#">
+                        <div class="content">
+                            <div class="company_image">
+                                <img src="./image/company_02.jpg" alt="">
+                            </div>
+                            <div class="company_logo">
+                                <img src="./image/company_logo02.jpg" alt="">
+                            </div>
+                            <div class="company_name">
+                                <span>苏州美即装饰</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 my_company">
+                    <a href="#">
+                        <div class="content">
+                            <div class="company_image">
+                                <img src="./image/company_03.jpg" alt="">
+                            </div>
+                            <div class="company_logo">
+                                <img src="./image/company_logo03.jpg" alt="">
+                            </div>
+                            <div class="company_name">
+                                <span>生活家装饰</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 my_company">
+                    <a href="#">
+                        <div class="content">
+                            <div class="company_image">
+                                <img src="./image/company_04.jpg" alt="">
+                            </div>
+                            <div class="company_logo">
+                                <img src="./image/company_logo04.jpg" alt="">
+                            </div>
+                            <div class="company_name">
+                                <span>苏州金迪亚装</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 my_company">
+                    <a href="#">
+                        <div class="content">
+                            <div class="company_image">
+                                <img src="./image/company_05.jpg" alt="">
+                            </div>
+                            <div class="company_logo">
+                                <img src="./image/company_logo05.jpg" alt="">
+                            </div>
+                            <div class="company_name">
+                                <span>广州华宁装饰</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 my_company">
+                    <a href="#">
+                        <div class="content">
+                            <div class="company_image">
+                                <img src="./image/company_06.jpg" alt="">
+                            </div>
+                            <div class="company_logo">
+                                <img src="./image/company_logo06.jpg" alt="">
+                            </div>
+                            <div class="company_name">
+                                <span>水岸轩城装饰</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 my_company">
+                    <a href="#">
+                        <div class="content">
+                            <div class="company_image">
+                                <img src="./image/company_07.jpg" alt="">
+                            </div>
+                            <div class="company_logo">
+                                <img src="./image/company_logo07.jpg" alt="">
+                            </div>
+                            <div class="company_name">
+                                <span>汉阁装饰</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 my_company">
+                    <a href="#">
+                        <div class="content">
+                            <div class="company_image">
+                                <img src="./image/company_08.jpg" alt="">
+                            </div>
+                            <div class="company_logo">
+                                <img src="./image/company_logo08.jpg" alt="">
+                            </div>
+                            <div class="company_name">
+                                <span>易悠阁装饰</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 more">
+                    <a href="#">More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--装修日记-->
+    <div class="container-fluid diary">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-7">
+                <div class="diary_info">
+                    <div class="diary_header">
+                        <div class="user_icon01">
+                            <img src="./image/user_icon01.jpg" alt="">
+                        </div>
+                        <div class="diary_name">
+                            <div class="diary_title">
+                                <span>陈琴_4273·东宇南岸中旅蓝岸5-306（132m²）</span>
+                            </div>
+                            <div class="style">
+                                <span class="style">简约</span>
+                                <span>|</span>
+                                <span class="company">苏州市华尔居装饰工程有限公司</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="diary_text">12月29日：墙面打磨完毕，刷好一底一面，面漆还有一点明天来补完。地暖安装完毕，开三天测试，煤气管买小了，烧水时有啸声，买了6分管改天要换一下。明天下午地板送货，款已付。</div>
+                    <div class="diary_image">
+                        <img src="./image/diary_01.jpg">
+                        <img src="./image/diary_02.jpg">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-5 owner">
+                <div class="owner_content">
+                    <div class="text">
+                        <span>装修日记</span>
+                        <p>业主分享装修历程，还原线下装修体验<br>拆解苏州装修公司服务口碑</p>
+                    </div>
+                    <div class="row user_icon02">
+                        <div>
+                            <img src="./image/user_icon01.jpg" alt="">
+                        </div>
+                        <div>
+                            <img src="./image/user_icon02.jpg" alt="">
+                        </div>
+                        <div>
+                            <img src="./image/user_icon03.jpg" alt="">
+                        </div>
+                        <div>
+                            <img src="./image/user_icon04.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="row user_icon02">
+                        <div>
+                            <img src="./image/user_icon05.jpg" alt="">
+                        </div>
+                        <div>
+                            <img src="./image/user_icon06.jpg" alt="">
+                        </div>
+                        <div>
+                            <img src="./image/user_icon07.jpg" alt="">
+                        </div>
+                        <div>
+                            <img src="./image/user_icon08.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="row user_icon02">
+                        <div>
+                            <img src="./image/user_icon09.jpg" alt="">
+                        </div>
+                        <div>
+                            <img src="./image/user_icon10.jpg" alt="">
+                        </div>
+                        <div>
+                            <img src="./image/user_icon11.jpg" alt="">
+                        </div>
+                        <div>
+                            <img src="./image/user_icon12.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="more_diary">
+                        <a href="#">
+                            查看日记
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--服务-->
+    <div class="container service">
+        <div class="row">
+            <div class="col-xs-12 service_title">
+                <span>服务流程</span>
+            </div>
+        </div>
+        <div class="row service_main">
+            <div>
+                <div class="service_image">
+                    <img src="./image/process_icon1.png" alt="">
+                </div>
+                <div class="service_text">
+                    <span class="span01">在线预约</span>
+                    <span>登记联系方式</span>
+                </div>
+                <div class="service_order">
+                    <img src="./image/icon-round1.png" alt="">
+                </div>
+
+            </div>
+            <div>
+                <div class="service_image">
+                    <img src="./image/process_icon2.png" alt="">
+                </div>
+                <div class="service_text">
+                    <span class="span01">量房沟通</span>
+                    <span>3家装修公司免费量房设计</span>
+                </div>
+                <div class="service_order">
+                    <img src="./image/icon-round2.png" alt="">
+                </div>
+
+            </div>
+            <div>
+                <div class="service_image">
+                    <img src="./image/process_icon3.png" alt="">
+                </div>
+                <div class="service_text">
+                    <span class="span01">对比方案</span>
+                    <span>对比装修公司方案</span>
+                </div>
+                <div class="service_order">
+                    <img src="./image/icon-round3.png" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="service_image">
+                    <img src="./image/process_icon4.png" alt="">
+                </div>
+                <div class="service_text">
+                    <span class="span01">签订合同</span>
+                    <span>签订合同及托管装修款</span>
+                </div>
+                <div class="service_order">
+                    <img src="./image/icon-round4.png" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="service_image">
+                    <img src="./image/process_icon5.png" alt="">
+                </div>
+                <div class="service_text">
+                    <span class="span01">装修施工</span>
+                    <span>工人按排期施工交付</span>
+                </div>
+                <div class="service_order">
+                    <img src="./image/icon-round5.png" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="service_image">
+                    <img src="./image/process_icon6.png" alt="">
+                </div>
+                <div class="service_text">
+                    <span class="span01">竣工验收</span>
+                    <span>验收通过全屋装修指标</span>
+                </div>
+                <div class="service_order">
+                    <img src="./image/icon-round6.png" alt="">
+                </div>
+            </div>
+            <div>
+                <div class="service_image">
+                    <img src="./image/process_icon7.png" alt="">
+                </div>
+                <div class="service_text">
+                    <span class="span01">享受保障</span>
+                    <span>享受合同约定质保</span>
+                </div><div class="service_order">
+                    <img src="./image/icon-round7.png" alt="">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--攻略-->
+    <div class="container-fluid strategy">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 strategy_header">
+                    <span>—— 装修攻略 ——</span><br>
+                    <span>学习装修经验与交流苏州装修相关问题，小白晋级达人就靠它</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 strategy_content">
+                    <div class="strategy_content_img">
+                        <img src="./image/strategy.svg" alt="">
+                        <span>苏州装修攻略</span>
+                    </div>
+                    <div class="strategy_content_text">
+                        <a href="#">164平四室两厅两卫装修设计简约风方案</a>
+                        <a href="#">三室两厅两卫5万装修的3个注意事项</a>
+                        <a href="#">装修中式客厅的技巧到底有哪一些</a>
+                        <a href="#">50平方装修该怎么样更省钱 有什么攻略</a>
+                        <a href="#">卫生间地砖往上渗水怎么办 下面三点千万不能忽略</a>
+                        <a href="#">厨房改造预算多少钱 材料怎么选购</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 strategy_content">
+                    <div class="strategy_content_img">
+                        <img src="./image/diary.svg" alt="">
+                        <span>苏州装修日记</span>
+                    </div>
+                    <div class="strategy_content_text">
+                        <a href="#">164平四室两厅两卫装修设计简约风方案</a>
+                        <a href="#">三室两厅两卫5万装修的3个注意事项</a>
+                        <a href="#">装修中式客厅的技巧到底有哪一些</a>
+                        <a href="#">50平方装修该怎么样更省钱 有什么攻略</a>
+                        <a href="#">卫生间地砖往上渗水怎么办 下面三点千万不能忽略</a>
+                        <a href="#">厨房改造预算多少钱 材料怎么选购</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 strategy_content">
+                    <div class="strategy_content_img">
+                        <img src="./image/interlocution.svg" alt="">
+                        <span>苏州装修问答</span>
+                    </div>
+                    <div class="strategy_content_text">
+                        <a href="#">164平四室两厅两卫装修设计简约风方案</a>
+                        <a href="#">三室两厅两卫5万装修的3个注意事项</a>
+                        <a href="#">装修中式客厅的技巧到底有哪一些</a>
+                        <a href="#">50平方装修该怎么样更省钱 有什么攻略</a>
+                        <a href="#">卫生间地砖往上渗水怎么办 下面三点千万不能忽略</a>
+                        <a href="#">厨房改造预算多少钱 材料怎么选购</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 strategy_content">
+                    <div class="strategy_content_img">
+                        <img src="./image/tools.svg" alt="">
+                        <span>装修工具</span>
+                    </div>
+                    <div class="strategy_content_text">
+                        <a href="#">164平四室两厅两卫装修设计简约风方案</a>
+                        <a href="#">三室两厅两卫5万装修的3个注意事项</a>
+                        <a href="#">装修中式客厅的技巧到底有哪一些</a>
+                        <a href="#">50平方装修该怎么样更省钱 有什么攻略</a>
+                        <a href="#">卫生间地砖往上渗水怎么办 下面三点千万不能忽略</a>
+                        <a href="#">厨房改造预算多少钱 材料怎么选购</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!--底部-->
+    <div class="container-fluid footer">
+        <div class="row">
+            <div class="col-xs-12">
+                <span class="footer_link">友情链接:</span>
+                <span>/</span>
+                <img src="./image/footer01.png" alt="">
+                <span>/</span>
+                <img src="./image/footer02.png" alt="">
+                <span>/</span>
+                <img src="./image/footer03.png" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <p>我的网站 版权所有 2008-2014 湘ICP备8888888</p>
+                <p>本页面内容为网站演示数据，前台页面内容都可以在后台修改。</p>
+                <p>Powered by <b>Ctrl ACV</b> 6.1.3 ©2008-2019.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/utils.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+
+/*通配*/
+body {
+
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.root {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.contain {
+    flex-direction: column;
+    height: 100vh;
+    overflow: auto;
+    background: #f0f2f5;
+
+    /*display: flex;*/
+}
+
+.contain {
+    background-image: url("../image/login.svg");
+    background-size: 100%;
+}
+
+.content {
+    padding: 72px 0 24px;
+    /*flex: 1 1;*/
+
+}
+
+.head {
+    /*width: 100px;*/
+    /*height: 50px;*/
+    /*background: yellow;*/
+
+    /*margin: 0 auto;*/
+
+    text-align: center;
+
+}
+
+.head-link{
+    height: 44px;
+    line-height: 44px;
+}
+
+.head a {
+    text-decoration: none;
+    color: #00b3ee;
+    font-size: 32px;
+
+}
+
+.desc {
+    font-size: 14px;
+    color: rgba(0,0,0,.45);
+    margin-top: 12px;
+    margin-bottom: 40px;
+}
+
+.main {
+    width: 368px;
+    margin: 0 auto;
+}
+
+h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.ant-form {
+    font-family: Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5em;
+    color: rgba(0,0,0,.65);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ant-form .ant-row {
+
+    /*background: #00b3ee;*/
+    margin-bottom: 24px;
+    border-radius: 6px;
+    height: 44px;
+
+
+}
+
+.ant-control {
+    /*background: #00b3ee;*/
+
+
+    border: solid 1px #d9d9d9;
+
+
+    border-radius: 6px;
+    position: relative;
+}
+.ant-row .ant-input {
+
+    width: 100%;
+    height: 42px;
+    padding: 4px 11px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    border-radius: 6px;
+}
+
+.ant-row .ant-form-explain {
+    color: #f5222d;
+}
+
+
+.ant-row .ant-eye {
+    width: 24px;
+    height: 20px;
+    position: absolute;
+    top: 12px;
+    right: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.ant-form input[type=checkbox], form input[type=radio] {
+    width: 14px;
+    height: 14px;
+    box-sizing: border-box;
+}
+
+.ant-btn>span {
+    pointer-events: none;
+    display: inline-block;
+}
+
+.ant-form .ant-row a{
+    color: #40a9ff;
+    background-color: transparent;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+}
+.ant-row .ant-btn {
+    width: 50%;
+
+    padding: 0 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    height: 40px;
+
+    color: #fff;
+    background-color: #40a9ff;
+    /*outline: none;*/
+
+    border: solid 1px #d9d9d9;
+
+    cursor: pointer;
+}
+
+
+.register-login {
+    float: right;
+    line-height: 40px;
+    float: right;
+}
+
+.ant-globalFooter {
+    padding: 0 16px;
+    margin: 48px 0 24px;
+    text-align: center;
+}
+
+.ant-copyright {
+    color: rgba(0,0,0,.45);
+    font-size: 14px;
+}
+
+
+
+
+
+

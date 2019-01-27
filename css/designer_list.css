@@ -1,0 +1,179 @@
+ul,li,a{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #f8f8f8;
+}
+
+
+
+/*--------媒体查询--------------*/
+@media (min-width: 768px){
+    .module-cont .card-bx {
+        width: 23%;
+        margin: 1% 1%;
+    }
+
+}
+
+@media (max-width: 767px){
+    .paging1 {
+        margin-left: 43%;
+    }
+    .module-cont .card-bx {
+        width: 46%;
+        margin: 1% 2%;
+    }
+
+}
+@media (max-width: 610px){
+    .container .row .second_img{
+        display: none;
+    }
+    .module-cont .card-bx {
+        width: 29%;
+        margin: 1% 2%;
+    }
+    .paging {
+        display: none;
+    }
+    .paging1 {
+        margin-left: 35%;
+    }
+    .case{
+        /*margin-left: 5%;*/
+    }
+    .module-cont .card-cost {
+        display: none;
+    }
+}
+@media (max-width: 437px){
+    .module-cont .card-bx {
+        width: 45%;
+        margin: 1% 2%;
+    }
+    .paging {
+        display: none;
+    }
+    .paging1{
+        padding: 0;
+    }
+    .case .second_img,.case .fourth_img{
+        display: none;
+    }
+}
+/*----------媒体查询结束-----------*/
+.container .text a{
+    color: #858585;
+}
+.container .text{
+    margin-bottom: 5px;
+}
+
+/*-----------案例列表开始-------------*/
+#idData .card-bx{
+    background: white;
+}
+.table_top td{
+    border-top: solid 1px #f8f8f8;
+}
+.module-cont .card-bx {
+    padding: 15px 20px;
+    border: solid 1px #d5d5d5;
+}
+.module-cont .card-bx a{
+    text-decoration: none;
+    text-align: center;
+}
+.module-cont .card-bx img {
+    width: 60%;
+    border-radius: 50%;
+    margin: 25px 0;
+}
+
+.module-cont .card-name {
+    font-size: 18px;
+    color: #333;
+}
+
+
+.module-cont .card-detail {
+    margin-top: 6px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #999;
+}
+
+.module-cont .card-cost {
+    font-size: 14px;
+    color: #676767;
+    text-align: left;
+}
+
+
+.module-cont .card-bx:hover{
+    box-shadow: 0 0 10px grey;
+    border: none;
+}
+
+/*-----------案例列表结束-------------*/
+
+
+/*------------分页开始--------------*/
+#barcon{
+    margin-left: 33%;
+}
+
+@media (max-width: 993px) {
+    #barcon{
+        margin-left: 25%;
+    }
+}
+@media (max-width: 768px) {
+    #barcon{
+        margin-left: 20%;
+    }
+}
+@media (max-width: 610px) {
+    #barcon{
+        margin-left: 8%;
+    }
+    .page_1{
+        width: 15%;
+    }
+}
+@media (max-width: 437px) {
+    #barcon{
+        margin-left: 8%;
+    }
+    .page_1{
+        width: 10%;
+    }
+}
+/*------------分页结束--------------*/
+/*底部*/
+.footer{
+    background-color: #221F1E;
+    text-align: center;
+    margin-top: 50px;
+}
+.footer_link{
+    color: #D8902D;
+    font-size: 16px;
+}
+.footer>div:first-child{
+    padding: 10px 0;
+    border-bottom: solid 1px #777777;
+    box-sizing: border-box;
+}
+.footer>div:last-child{
+    padding: 20px 0 30px 0;
+    box-sizing: border-box;
+}
+.footer>div:last-child p{
+    color: #AFA9A9;
+}
+.footer>div:last-child b{
+    color: #D8902D;
+}

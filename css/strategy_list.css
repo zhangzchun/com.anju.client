@@ -1,0 +1,261 @@
+ul,li{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+a{
+    color: #858585;
+    text-decoration: none;
+}
+
+
+/*主体*/
+
+/*头部*/
+.strategy_diary{
+    padding: 20px 8%;
+    box-sizing: border-box;
+}
+.strategy_top{
+    border-bottom: solid 1px #CCCCCC;
+    margin-bottom: 50px;
+}
+
+.strategy_button{
+    color: #535353;
+    font-size: 18px;
+    border: 0;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.strategy_button:hover {
+    color: #9d9d9d;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.strategy_button:focus,
+.strategy_button:active:focus,
+.strategy_button.active:focus,
+.strategy_button.focus,
+.strategy_button:active.focus,
+.strategy_button.active.focus {
+    outline: none;
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.strategy_ul{
+    border-bottom: solid 1px #CCCCCC;
+    padding: 0;
+    box-sizing: border-box;
+}
+.strategy_ul li{
+    font-size: 16px;
+    padding: 5px 0px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-left: 0;
+}
+.strategy_ul li:first-child~li{
+    border-left:solid 1px #CCCCCC ;
+    box-sizing: border-box;
+}
+
+/*攻略*/
+.strategy{
+    display: block;
+}
+.strategy_main{
+    background-color: white;
+    margin-top: 20px;
+}
+.strategy_img{
+    padding: 0;
+}
+.strategy_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.strategy_text{
+    height: 100%;
+    padding: 25px 20px 6%;
+    position: relative;
+}
+.strategy_text span:first-child{
+    font-size: 20px;
+    font-weight: 600;
+}
+.strategy_text p{
+    color: #959795;
+    margin-top: 20px;
+}
+
+.strategy_text .author{
+    color: #959795;
+    font-size: 12px;
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+
+}
+
+/*日记*/
+.diary{
+    display: none;
+}
+.diary_main{
+    background-color: white;
+    margin-top: 20px;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.user_icon01{
+    width: 70px;
+    height: 70px;
+    margin: auto;
+}
+.user_icon01 img{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.nickname{
+    color: #999999;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.diary_info{
+    position: relative;
+}
+
+.diary_info .diary_title{
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.diary_info .style{
+    color: #999999;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.diary_info .diary_text{
+    color: #666666;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.diary_info .diary_image{
+    margin-top: 10px;
+}
+.diary_info .diary_image img{
+    width: 170px;
+    height: 170px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+.diary_info .public_time{
+    color: #959795;
+    font-size: 12px;
+    text-align: right;
+    margin-top: 10px;
+}
+
+
+@media (max-width: 768px){
+    .nickname,.diary_image,.public_time{
+        display: none;
+    }
+    .strategy_ul li{
+        font-size: 14px;
+        padding: 0;
+    }
+    .strategy_ul li a{
+        padding: 8px;
+    }
+    .user_icon01{
+        width: 50px;
+        height: 50px;
+    }
+
+}
+@media (max-width: 1200px){
+    .diary_info .diary_image img{
+        width: 150px;
+        height: 150px;
+    }
+    .diary_info .diary_image img:last-child{
+        display: none;
+    }
+}
+@media (max-width: 992px){
+    .diary_info .diary_image img:nth-child(3){
+        display: none;
+    }
+}
+
+/*更多*/
+.more{
+    margin-top: 50px;
+    text-align: center;
+}
+.more a{
+    font-size: 18px;
+    padding: 5px 50px;
+    display: inline-block;
+    box-sizing: border-box;
+    border: solid 1px #CCC;
+}
+.more a:hover{
+    text-decoration: none;
+    background-color: #C4AD4F;
+}
+
+@media (max-width: 767px) {
+    .strategy_text span:first-child{
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .strategy_text p,.author{
+        display: none;
+    }
+}
+
+/*底部*/
+.footer{
+    background-color: #221F1E;
+    text-align: center;
+    margin-top: 50px;
+}
+.footer_link{
+    color: #D8902D;
+    font-size: 16px;
+}
+.footer>div:first-child{
+    padding: 10px 0;
+    border-bottom: solid 1px #777777;
+    box-sizing: border-box;
+}
+.footer>div:last-child{
+    padding: 20px 0 30px 0;
+    box-sizing: border-box;
+}
+.footer>div:last-child p{
+    color: #AFA9A9;
+}
+.footer>div:last-child b{
+    color: #D8902D;
+}

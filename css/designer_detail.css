@@ -1,0 +1,204 @@
+ul,li,a{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #f8f8f8;
+}
+
+
+/*---------------------主体开始--------------------*/
+.container .text{
+    margin-bottom: 20px;
+}
+.container  .author_left,.case_right{
+    background-color: white;
+}
+.container .row .author_left{
+    padding: 10px 30px;
+}
+.container .row .author_info img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+.container .row .author_info button{
+    background-color: orangered;
+    color: white;
+    outline: none;
+    margin: 10px 0;
+}
+.container .row .author_info{
+    text-align: center;
+}
+
+
+
+@media (max-width: 767px){
+    .container .row  .second_img{
+        display: none;
+    }
+}
+@media (max-width: 610px){
+    .container .row .img .second_img{
+        display: none;
+    }
+    .container .row .company_list{
+        padding-left: 30px;
+    }
+    .paging {
+        display: none;
+    }
+    .paging1 {
+        margin-left: 35%;
+    }
+    .case{
+        margin-left: 5%;
+    }
+}
+@media (max-width: 437px){
+    .container,.btn-group{
+        margin: 0;!important;
+        padding: 0;!important;
+    }
+    .container .text{
+        display: none;
+    }
+    #btn-group{
+        margin-left:12%;
+    }
+    .paging {
+        display: none;
+    }
+    .paging1{
+        padding: 0;
+    }
+    .case .second_img,.case .fourth_img{
+        display: none;
+    }
+    .module-cont .card-cost {
+        top: 2px;
+    }
+
+
+}
+
+
+
+/*-----------案例详情---------------*/
+.module-cont .card-bx {
+    padding: 9px 10px;
+}
+.module-cont .card-bx a{
+    text-decoration: none;
+}
+.module-cont .card-bx .img-ct{
+    text-align: center;
+}
+.module-cont .card-bx img {
+    width: 80%;
+    height: 80%;
+
+}
+
+.module-cont .card-info {
+    position: relative;
+    margin: 12px 10px 0;
+}
+
+.module-cont .card-name {
+    font-size: 16px;
+    color: #333;
+}
+
+.ect {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.module-cont .card-detail {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #999;
+}
+
+.module-cont .card-cost {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.module-cont .card-cost span {
+    color: #ff5a00;
+}
+.module-cont .card-bx:hover{
+    box-shadow: 0 0 5px rgba(166, 166, 166, 0.73);
+}
+
+/*-----------案例列表结束-------------*/
+
+/*------------分页开始--------------*/
+#barcon{
+    margin-left: 33%;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 993px) {
+    #barcon{
+        margin-left: 25%;
+    }
+}
+@media (max-width: 768px) {
+    #barcon{
+        margin-left: 20%;
+    }
+}
+@media (max-width: 610px) {
+    #barcon{
+        margin-left: 8%;
+    }
+    .page_1{
+        width: 15%;
+    }
+}
+@media (max-width: 437px) {
+    #barcon{
+        margin-left: 8%;
+    }
+    .page_1{
+        width: 10%;
+    }
+}
+/*------------分页结束--------------*/
+/*---------------------主体结束--------------------*/
+
+
+/*-----------------底部开始---------------------*/
+.footer{
+    background-color: #221F1E;
+    text-align: center;
+    margin-top: 50px;
+}
+.footer_link{
+    color: #D8902D;
+    font-size: 16px;
+}
+.footer>div:first-child{
+    padding: 10px 0;
+    border-bottom: solid 1px #777777;
+    box-sizing: border-box;
+}
+.footer>div:last-child{
+    padding: 20px 0 30px 0;
+    box-sizing: border-box;
+}
+.footer>div:last-child p{
+    color: #AFA9A9;
+}
+.footer>div:last-child b{
+    color: #D8902D;
+}
+/*-----------------底部结束--------------------*/

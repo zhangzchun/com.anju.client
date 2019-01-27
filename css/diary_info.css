@@ -1,0 +1,535 @@
+/*日记头部*/
+.diary{
+    width: 84%;
+    margin: auto;
+}
+/*用户头像*/
+.diary .diary_header{
+    display: flex;
+    padding: 3% 2%;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+}
+
+.diary .user_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+}
+.user_info img{
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    object-fit: contain;
+}
+.user_info span{
+    color: #999999;
+}
+
+
+/*日记信息*/
+.diary_info{
+    flex: 1;
+    padding: 1% 2%;
+    box-sizing: border-box;
+}
+.diary_info_left{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    color: #999999;
+}
+.diary_info_left .diary_title{
+    color: #1f1f1f;
+    font-size: 26px;
+}
+.diary_info_left .house_info{
+    margin-top: 2%;
+}
+.diary_info_left .house_info span:nth-child(3)
+,span:nth-child(5)
+,span:nth-child(7)
+,.location
+,.company_name{
+    color: #1a1a1a;
+}
+
+.house_info,.house_location,.company{
+    padding: 3px 0;
+    box-sizing: border-box;
+}
+
+
+.diary_info_right .number{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 3%;
+}
+.diary_info_right .number>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.diary_info_right .number span{
+    font-size: 26px;
+    color: #e50000;
+}
+
+/*收藏*/
+.collect_num {
+    cursor: pointer;
+    width: 150px;
+}
+
+.collect-icon, .uncollect-icon {
+    display: inline-block;
+    width: 18px;
+    height: 17px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    vertical-align: text-bottom;
+}
+
+.collect_num .uncollect-icon {
+    background-image: url("../image/uncollect-icon.svg"),none;
+}
+
+.collect_num .collect-icon {
+    background-image: url("../image/collect-icon.svg"),none;
+}
+
+
+/*分享*/
+.diary_info_right .share{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.diary_info_right .share span{
+    font-size: 16px;
+}
+.diary_info_right .share a{
+    margin-left: 10px;
+}
+
+
+@media (max-width: 991px) {
+    .diary_info_right {
+        display: none;
+    }
+}
+@media (max-width: 660px) {
+    .diary_info_left .diary_title{
+        font-size: 20px;
+    }
+}
+@media (max-width: 422px){
+    .diary .user_info{
+        width: 54px;
+        height: 54px;
+    }
+    .diary_info_left .diary_title{
+        font-size: 18px;
+    }
+    .diary_info_left{
+        font-size: 12px;
+    }
+}
+
+
+/*日记主体*/
+.diary .diary_main{
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.diary_main>div:first-child{
+    width: 80%;
+}
+.diary_main>div:first-child>div{
+    padding: 4% 2%;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #FFFFFF;
+
+}
+
+/*主体*/
+
+.diary .diary_content{
+    flex: 1;
+    display: flex;
+    border-top: solid 1px #CCCCCC;
+    border-bottom: solid 1px #CCCCCC;
+}
+.diary_content .side{
+    width: 31px;
+}
+.diary_content .diary_items{
+    flex: 1;
+    border-left: solid 1px #CCCCCC;
+
+}
+
+.diary_items .diary_item{
+    position: relative;
+    border-bottom: solid 1px #CCCCCC;
+}
+.diary_items div:last-child{
+    border-bottom: 0;
+}
+.diary_items .diary_item .stage_title{
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background-color: #01bf72;
+    position: absolute;
+    top: 20px;
+    left: -31px;
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 12px;
+    box-sizing: border-box;
+}
+
+.diary_item .stage_content{
+    padding: 5% 10%;
+}
+.stage_content .public_time{
+    font-size: 16px;
+    color: #01bf72;
+}
+
+.public_time,.content {
+    margin-bottom: 20px;
+}
+.diary_item .stage_content img{
+    width: 150px;
+    height: 150px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+.diary_item .stage_content img:last-child{
+    margin-right: 0;
+}
+
+/*目录*/
+.diary .diary_main .sidebar{
+    width: 18%;
+    height: 50%;
+}
+.sidebar .sidebar_items{
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+}
+.sidebar .sidebar_top{
+    border-bottom: solid 1px #CCCCCC;
+    box-sizing: border-box;
+    height: 40px;
+    font-size: 20px;
+}
+
+.sidebar_item .icon{
+    width: 50px;
+    height: 50px;
+}
+.sidebar_item{
+    display: flex;
+    padding: 15px 0;
+    justify-content: space-between;
+    border-bottom: solid 1px #CCCCCC;
+    box-sizing: border-box;
+}
+.sidebar_item .icon img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+.sidebar_item .info{
+    display: flex;
+    flex-direction: column;
+    line-height: 22px;
+}
+.sidebar_item .info span:last-child{
+    color: #999999;
+}
+.write_diary{
+    padding: 20px 10px;
+    background-color: #FFFFFF;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+.write_diary a{
+    width: 90%;
+    height: 40px;
+    color: #FFFFFF;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    margin: auto;
+    display: block;
+    background-color: #01d680;
+}
+@media (max-width: 1214px){
+    .sidebar_item .info span:last-child{
+        font-size: 12px;
+    }
+    .sidebar_item .icon{
+        width: 40px;
+        height: 40px;
+    }
+}
+@media (max-width: 1199px){
+    .diary .diary_main .sidebar{
+        width: 170px;
+    }
+}
+@media (max-width: 991px){
+    .sidebar{
+        display: none;
+    }
+    .diary_main>div:first-child{
+        width: 100%;
+    }
+}
+@media (max-width: 767px){
+    .diary_item .stage_content img{
+        width: 90px;
+        height: 90px;
+        margin-right: 10px;
+    }
+    .diary_items .diary_item .stage_title{
+        width: 40px;
+        height: 40px;
+        left: -20px;
+        font-size: 12px;
+        padding-top: 5px;
+    }
+    .diary_content .side{
+        width: 20px;
+    }
+}
+
+
+/*评论*/
+.comment{
+    background-color: white;
+    padding: 2% 8%;
+    margin-top: 3%;
+    box-sizing: border-box;
+}
+.comment .comment_title{
+    font-size: 20px;
+    padding: 2% 0;
+    border-bottom: solid 1px #CCCCCC;
+    box-sizing: border-box;
+}
+.comment .comment_box form {
+    width: 80%;
+    margin: auto;
+    padding: 3% 0;
+    text-align: right;
+    box-sizing: border-box;
+}
+.comment .comment_box textarea{
+    color: #666666;
+    font-size: 14px;
+    overflow:hidden;
+    resize:none;
+    width:100%;/*自动适应父布局宽度*/
+    word-break:break-all;
+    padding: 15px 20px;
+    line-height: 20px;
+    box-sizing: border-box;
+}
+
+textarea::-webkit-input-placeholder { /* WebKit browsers */
+    color: #bdbdbd;
+}
+
+textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#bdbdbd;
+}
+
+textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #bdbdbd;
+}
+
+textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#bdbdbd;
+}
+.comment .comment_box button{
+    color: white;
+    font-size: 16px;
+    width: 90px;
+    height: 34px;
+    border: 0;
+    outline: 0;
+    background-color: #0CB469;
+}
+@media (max-width: 767px) {
+    .comment .comment_box a{
+        font-size: 14px;
+        width: 70px;
+        height: 28px;
+        line-height: 28px;
+    }
+}
+
+.hidden{
+    display: none;
+}
+/*评论盖楼*/
+.comment_content{
+    width: 80%;
+    margin: auto;
+}
+/*一层*/
+.comment_content .first_floor{
+    display: flex;
+    padding-top: 20px;
+    box-sizing: border-box;
+    border-top: solid 1px #CCCCCC;
+}
+/*一层头像*/
+.comment_content .user_icon{
+    width: 50px;
+    height: 50px;
+}
+.comment_content .user_icon img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+/*一层主体*/
+.comment_content .comment_main{
+    flex: 1;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.comment_main .nickname{
+    color: #999999;
+    margin-bottom: 10px;
+}
+.comment_main .comment_footer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.comment_footer .comment_time span{
+    color: #999999;
+}
+
+.comment_footer .comment_num_reply a{
+    color: #3498DB;
+    font-size: 14px;
+}
+.comment_footer .comment_num_reply a:last-child{
+    margin-left: 20px;
+}
+
+@media (max-width: 767px) {
+    .comment_content .user_icon{
+        width: 30px;
+        height: 30px;
+    }
+    .comment_txt ,.comment_footer{
+        font-size: 12px;
+    }
+    .comment_footer .comment_num_reply a{
+        font-size: 10px;
+    }
+    .comment_num_reply a:first-child{
+        display: none;
+    }
+}
+
+/*回复框*/
+.comment_content .reply_box{
+    border-top: solid 1px #CCCCCC;
+}
+.comment_content .reply_box form {
+    width: 80%;
+    margin: auto;
+    padding: 3% 0;
+    text-align: right;
+    box-sizing: border-box;
+}
+.comment_content .reply_box textarea{
+    color: #666666;
+    font-size: 14px;
+    overflow:hidden;
+    resize:none;
+    width:100%;/*自动适应父布局宽度*/
+    word-break:break-all;
+    padding: 15px 20px;
+    line-height: 20px;
+    box-sizing: border-box;
+}
+.comment_content .reply_box button{
+    color: white;
+    font-size: 16px;
+    width: 90px;
+    height: 34px;
+    border: 0;
+    outline: 0;
+    background-color: #0CB469;
+}
+/*二层*/
+.comment_content .second_floor{
+    padding-top: 20px;
+    box-sizing: border-box;
+    border-top: solid 1px #CCCCCC;
+}
+.second_floor .comment_main02{
+    flex: 1;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.comment_main02 .nickname{
+    color: #999999;
+    margin-bottom: 10px;
+}
+.comment_main02 .nickname span:nth-child(2){
+    color: #000000;
+}
+.comment_main02 .comment_footer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/*底部*/
+.footer{
+    background-color: #221F1E;
+    text-align: center;
+    margin-top: 50px;
+}
+.footer_link{
+    color: #D8902D;
+    font-size: 16px;
+}
+.footer>div:first-child{
+    padding: 10px 0;
+    border-bottom: solid 1px #777777;
+    box-sizing: border-box;
+}
+.footer>div:last-child{
+    padding: 20px 0 30px 0;
+    box-sizing: border-box;
+}
+.footer>div:last-child p{
+    color: #AFA9A9;
+}
+.footer>div:last-child b{
+    color: #D8902D;
+}

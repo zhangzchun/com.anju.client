@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>personal_center_test</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/personal_center.css">
+</head>
+<body>
+<!--------------头部开始----------------->
+<div class="container-fluid header_top">
+    <div class="header">
+        <div class="left">
+            <a href="#">安居家装</a>
+        </div>
+        <div class="right">
+            <span>****的个人中心</span>
+        </div>
+    </div>
+</div>
+<!--------------头部结束----------------->
+
+<!--------------主体开始----------------->
+<div class="container-fluid">
+    <div class="row container_center">
+        <div class="col-xs-2  container_center_left " onselectstart="return false;">
+            <ul class="first_ul">
+                <li class="center_left">个人中心首页</li>
+                <li class="center_left more" id="my_data">
+                    <img src="../image/add.svg" alt="">
+                    <img src="../image/sub.svg" alt="">
+                    <span>我的个人资料</span>
+                    <ul>
+                        <li>个人资料</li>
+                        <li>修改密码</li>
+                        <li>账号与安全</li>
+                    </ul>
+                </li>
+                <li class="center_left">我的预约</li>
+                <li class="center_left more" id="my_collect">
+                    <img src="../image/add.svg" alt="">
+                    <img src="../image/sub.svg" alt="">
+                    <span>我的收藏</span>
+                    <ul>
+                        <li>装修案例</li>
+                        <li>装修公司</li>
+                        <li>装修攻略</li>
+                        <li>装修日记</li>
+                    </ul>
+                </li>
+                <li class="center_left">我的日记</li>
+                <li class="center_left">消息中心</li>
+            </ul>
+        </div>
+        <div class="col-xs-10 ">
+            <div class="personal_index center_right">
+                <div class="row center_right_top">
+                    <div class="col-xs-5 img_info" >
+                        <div class="img">
+                            <a href="#" class="image"><img src="../image/9_1x.jpg"/></a>
+                            <a href="#" class="text">修改资料</a>
+                        </div>
+                        <div class="info">
+                            <h4>遇事不决问春风</h4>
+                            <h6>业主ID：10324528</h6>
+                            <span>消息:0</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 binding">
+                        <div class="row">
+                            <div class="col-xs-6 wechat">
+                                <img src="../image/wechat.png"/>
+                                <span class="wechat_bind">微信绑定</span>
+                                <div>
+                                    <span>未绑定</span>
+                                    <a href="#">立即绑定</a>
+                                </div>
+
+                            </div>
+                            <div class="col-xs-6 tel">
+                                <img src="../image/tel.png"/>
+                                <span>手机绑定</span>
+                                <div>
+                                    <span>已绑定</span>
+                                    <a href="#">修改</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row center_right_middle">
+                    <div class="col-md-11 diary">
+                        <h5>我的房屋</h5>
+                    </div>
+                    <div class="row house_list">
+
+                    </div>
+                    <div class="row house_info_text">
+
+                    </div>
+                    <div class="row ">
+                        <h3 class="no_house">您还没有添加房屋信息</h3>
+                    </div>
+                    <div class="row add_houses">
+                        <h3 class="add_house">+ 新增房屋</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="personal_info center_right">
+                <div class="row center_right_top">
+                    <div class="col-xs-11 diary">
+                        <h5>我的个人资料</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-11 progress">
+                            <span>个人资料完整度:</span>
+                            <div class="schedule">
+                                <div class="progress_bar">50%</div>
+                            </div>
+                            <span>完善QQ+20%，完善城市+10%</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <table class="table table_info">
+                            <tr>
+                                <td>用户名:</td>
+                                <td>遇事不决问春风</td>
+                            </tr>
+                            <tr>
+                                <td>昵   称:</td>
+                                <td><input type="text" value="遇事不决问春风"></td>
+                            </tr>
+                            <tr>
+                                <td>性   别:</td>
+                                <td>
+                                    <label><input name="sex" type="radio" value="" checked>男</label>
+                                    <label><input name="sex" type="radio" value="">女</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>QQ:</td>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>注册状态:</td>
+                                <td>
+                                    <select>
+                                        <option selected="selected">还没买房</option>
+                                        <option>已买房,未拿到钥匙</option>
+                                        <option>准备装修</option>
+                                        <option>已定装修公司</option>
+                                        <option>已装修</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>所在地区:</td>
+                                <td>
+                                    <select>
+                                        <option selected="selected">沧浪区</option>
+                                        <option>金阊区</option>
+                                        <option>吴中区</option>
+                                        <option>吴江区</option>
+                                        <option>相城区</option>
+                                        <option>虎丘区</option>
+                                        <option>平江区</option>
+                                        <option>高新区</option>
+                                        <option>工业园区</option>
+                                    </select>
+                                    <input type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>当前头像:</td>
+                                <td><img src="../image/9_1x.jpg" height="100" width="100"/></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button class="btn btn-default submit">提交</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="change_password center_right">
+                <div class="row center_right_top">
+                    <div class="col-xs-11 diary">
+                        <h5>修改密码</h5>
+                    </div>
+                    <div class="row">
+                        <table class="table table_info ">
+                            <tr>
+                                <td class="change_passwords">手机号码:</td>
+                                <td>187*****587</td>
+                            </tr>
+                            <tr>
+                                <td class="change_passwords">验证码:</td>
+                                <td><input type="text" value="" class="input"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="text" value="" class="input">
+                                    <button class="btn btn-default">发送验证码</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="change_passwords">旧密码:</td>
+                                <td><input type="text" class="input"></td>
+                            </tr>
+                            <tr>
+                                <td class="change_passwords">新密码:</td>
+                                <td>
+                                    <input type="text" value="" class="input">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="change_passwords">确认密码:</td>
+                                <td>
+                                    <input type="text" class="input">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button class="btn btn-default submit">提交</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="account_security center_right">
+                <div class="row center_right_top">
+                    <div class="col-xs-11 diary">
+                        <h5>绑定手机</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-11 progress">
+                            <span>个人资料完整度:</span>
+                            <div class="schedule">
+                                <div class="progress_bar">50%</div>
+                            </div>
+                            <span>绑定＋20%</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="rows">
+                            <img src="../image/phone.png" height="34" width="42"/>
+
+                            <span>邮箱绑定</span>
+                            <span>您还未绑定邮箱</span>
+
+                            <button class="btn-default btn">立即绑定</button>
+                        </div>
+                        <div class="rows">
+                            <img src="../image/email.png" height="34" width="42"/>
+                            <em>手机号绑定</em>
+                            <span>187*****587</span>
+                            <button class="btn-default btn">修改</button>
+                            <button class="btn-default btn">解绑</button>
+                        </div>
+                    </div>
+                    <div class="col-xs-11 diary">
+                        <h5>注销账号</h5>
+                    </div>
+                    <div class="col-xs-11 rows account">
+                        <img src="../image/main-cancel.png" height="28" width="32"/>
+                        <span>注销账号后，将永久无法恢复，请谨慎操作！</span>
+                        <button class="btn-default btn">申请注销</button>
+                    </div>
+                </div>
+            </div>
+            <div class="personal_reservation center_right">
+                <div class="reservation_header">
+                    <div class="reservation_title">
+                        <span><b>|</b> 我的预约</span>
+                    </div>
+                </div>
+                <div class="reservation">
+                    <table cellspacing="0">
+                        <thead>
+                        <tr class="first_tr">
+                            <td class="td01">公司名称</td>
+                            <td class="td02">我的房屋</td>
+                            <td class="td03">预约状态</td>
+                            <td class="td04">操作</td>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="default_reservation">
+                        <img src="../image/rabbit.png" alt="">
+                        <span>您还没有任何预约</span>
+                    </div>
+                </div>
+            </div>
+            <div class="decoration_case center_right">
+                <div class="collection">
+                    <div class="collection_header">
+                        <div class="case_title">
+                            <span><b>|</b> 装修案例收藏</span>
+                        </div>
+                        <div class="operation case_chk">
+                            <input type="checkbox" id="chk_all_case">
+                            <label for="chk_all_case">全选</label>
+                            <img src="../image/delete_collection.svg" alt="" id="delete_case">
+                            <label for="delete_case">删除</label>
+                        </div>
+                    </div>
+                    <div class="collection_case"></div>
+                    <div class="default_case">
+                        <img src="../image/rabbit.png" alt="">
+                        <span>您还没收藏任何案例</span>
+                    </div>
+                </div>
+            </div>
+            <div class="decoration_company center_right">
+                <div class="collection">
+                    <div class="collection_header">
+                        <div class="case_title">
+                            <span><b>|</b> 装修公司收藏</span>
+                        </div>
+                        <div class="operation company_chk">
+                            <input type="checkbox" id="chk_all_company">
+                            <label for="chk_all_company">全选</label>
+                            <img src="../image/delete_collection.svg" alt="" id="delete_company">
+                            <span>删除</span>
+                        </div>
+                    </div>
+                    <div class="collection_company"></div>
+                    <div class="default_company">
+                        <img src="../image/rabbit.png" alt="">
+                        <span>您还没收藏任何公司</span>
+                    </div>
+                </div>
+            </div>
+            <div class="decoration_strategy center_right">
+                <div class="collection">
+                    <div class="collection_header">
+                        <div class="case_title">
+                            <span><b>|</b> 装修攻略收藏</span>
+                        </div>
+                        <div class="operation strategy_chk">
+                            <input type="checkbox" id="chk_all_strategy">
+                            <label for="chk_all_strategy">全选</label>
+                            <img src="../image/delete_collection.svg" alt="" id="delete_strategy">
+                            <span>删除</span>
+                        </div>
+                    </div>
+                    <div class="collection_strategy"></div>
+                    <div class="default_strategy">
+                        <img src="../image/rabbit.png" alt="">
+                        <span>您还没收藏任何攻略</span>
+                    </div>
+                </div>
+            </div>
+            <div class="decoration_diary center_right">
+                <div class="collection">
+                    <div class="collection_header">
+                        <div class="case_title">
+                            <span><b>|</b> 装修日记收藏</span>
+                        </div>
+                        <div class="operation diary_chk">
+                            <input type="checkbox" id="chk_all_diary">
+                            <label for="chk_all_diary">全选</label>
+                            <img src="../image/delete_collection.svg" alt="" id="delete_diary">
+                            <span>删除</span>
+                        </div>
+                    </div>
+                    <div class="collection_diary"></div>
+                    <div class="default_diary">
+                        <img src="../image/rabbit.png" alt="">
+                        <span>您还没收藏任何日记</span>
+                    </div>
+                </div>
+            </div>
+            <div class="personal_diary center_right">
+                <div class="collection">
+                    <div class="diary_modal">
+                        <div class="clumn_name">
+                            <h5>我的装修日记</h5>
+                        </div>
+                        <div class="diary_content">
+                            <div class="diary_list">
+                                <div class="diary_title">
+                                    <p class="diary_name">
+                                        <a href="#">
+                                            沙发的故事
+                                        </a>
+                                    </p>
+
+                                    <div class="time">
+                                        <p>创建时间：2019-01-21</p>
+                                        <p>更新时间：</p>
+                                    </div>
+
+                                </div>
+
+                                <div class="diary_detail">
+
+                                    <div class="msg_top">
+                                        <span>房屋信息：</span>
+                                        <em class="border_right">1559㎡</em>
+                                        <em class="border_right">
+                                            欧式&nbsp;&nbsp;
+                                        </em>
+                                        <em>
+                                            清包
+                                        </em>
+                                        <a href="javascript:;" class="btn_edit" onclick="javascript:modifyInfo('2','5221268');">编辑</a>
+                                    </div>
+                                    <p>所在小区：深圳市
+                                        阿萨德干啥的 </p>
+                                    <p>装修公司：
+                                        还在选择中 </p>
+                                </div>
+
+                                <div class="diary_btn">
+                                    <span>全部日记：0篇</span>
+                                    <div class="btn">
+                                        <input type="button" class="btn_continue" value="续写日记" onclick="window.open('/riji/editscenediary.php?sid=5221268')">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class=" create_diary">
+                                <!--<a target="_blank" href="http://www.to8to.com/riji/?my=1&amp;write_diary_from_yz">+新建装修日记</a>-->
+                                <a target="_blank" href="###" class="btn_create">+新建装修日记</a>
+                            </div>
+
+                        </div>
+
+                        <div class="no_diary">
+
+                            <img src="../image/rabbit.png" alt="">
+                            <div>
+                                <span>您还没有写过任何日记</span>
+                                <a href="/riji/?my=1&amp;write_diary_from_yz" class="btn_instant">马上去写装修日记</a>
+                            </div>
+
+
+
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="center_news center_right">11</div>
+        </div>
+    </div>
+</div>
+<!--------------主体结束----------------->
+
+<!--------------尾部开始----------------->
+<div class="container-fluid footer">
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="footer_link">友情链接:</span>
+            <span>/</span>
+            <img src="../image/footer01.png" alt="">
+            <span>/</span>
+            <img src="../image/footer02.png" alt="">
+            <span>/</span>
+            <img src="../image/footer03.png" alt="">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <p>我的网站 版权所有 2008-2014 湘ICP备8888888</p>
+            <p>本页面内容为网站演示数据，前台页面内容都可以在后台修改。</p>
+            <p>Powered by <b>Ctrl ACV</b> 6.1.3 ?2008-2019.</p>
+        </div>
+    </div>
+</div>
+<!--------------尾部结束----------------->
+
+
+<script src="../js/personal_center.js"></script>
+</body>
+</html>

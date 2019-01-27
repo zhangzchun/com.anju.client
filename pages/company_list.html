@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>company_list</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/company_list.css">
+    <link rel="stylesheet" href="../css/nav.css">
+
+</head>
+<body>
+<!--导航栏-->
+<nav class="navbar navbar-default navbar-fixed-top my_container">
+    <div class="container my_nav">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" id="nav_btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand title" href="#">安居网</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse nav_hidden" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#" class="a1">首页</a></li>
+                <li><a href="#" class="a1">装修公司</a></li>
+                <li><a href="#" class="a1">装修攻略</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form action="#">
+                        <input type="text" id="search_txt" value="" placeholder="搜索公司、攻略、日记" />
+                        <a href="#" id="search_btn_block" name="submit" ><img src="../image/search_icon.svg" alt=""></a>
+                        <a href="#" id="search_btn_none" name="submit" ><img src="../image/delete.svg" alt=""></a>
+                    </form>
+                </li>
+                <li><a href="#" class="a1">登录</a></li>
+                <li><a href="#" class="a1">注册</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="div01"></div>
+<div class="container">
+
+    <!------------筛选开始-------------->
+    <div class="row">
+        <div class="col-md-12 ">
+            <table class="table table-bordered font">
+                <tr>
+                    <td colspan="8"  class="zx">
+                        <a href="#" class="ago">苏州装修</a> >
+                        <a href="#" class="ago">苏州装修公司</a> >
+                        共 3064 结果
+                        <a href="#" class="condition">服务区域    ×</a>
+                        <a href="#" class="condition">承接价位    ×</a>
+                        <a href="#" class="condition">专长风格    ×</a>
+                        <a href="#" class="condition">所在区域    ×</a>
+                    </td>
+                    <td colspan="2" class="sz">
+                        <a href="#">苏州装修公司哪家强 ?</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="line">服务区域</td>
+                    <td><a href="#">沧浪区</a></td>
+                    <td><a href="#">虎丘区</a></td>
+                    <td><a href="#">金阊区</a></td>
+                    <td><a href="#">平江区</a></td>
+                    <td><a href="#">吴中区</a></td>
+                    <td><a href="#">相城区</a></td>
+                    <td><a href="#">吴江区</a></td>
+                    <td><a href="#">高新区</a></td>
+                    <td><a href="#">工业园区</a></td>
+                </tr>
+                <tr>
+                    <td class="line">承接价位</td>
+                    <td><a href="#">3万以下</a></td>
+                    <td><a href="#">3-5万</a></td>
+                    <td><a href="#">5-8万</a></td>
+                    <td><a href="#">8-12万</a></td>
+                    <td><a href="#">12-18万</a></td>
+                    <td><a href="#">18-30万</a></td>
+                    <td><a href="#">30-100万</a></td>
+                    <td><a href="#">100万以上</a></td>
+                    <td><a href="#"></a></td>
+                </tr>
+                <tr>
+                    <td class="line">专长风格</td>
+                    <td><a href="#">简约</a></td>
+                    <td><a href="#">现代</a></td>
+                    <td><a href="#">中式</a></td>
+                    <td><a href="#">欧式</a></td>
+                    <td><a href="#">美式</a></td>
+                    <td><a href="#">田园</a></td>
+                    <td><a href="#">日式</a></td>
+                    <td><a href="#">北欧</a></td>
+                    <td><a href="#">东南亚</a></td>
+                </tr>
+                <tr>
+                    <td class="line">所在区域</td>
+                    <td><a href="#">沧浪区</a></td>
+                    <td><a href="#">虎丘区</a></td>
+                    <td><a href="#">金阊区</a></td>
+                    <td><a href="#">平江区</a></td>
+                    <td><a href="#">吴中区</a></td>
+                    <td><a href="#">相城区</a></td>
+                    <td><a href="#">吴江区</a></td>
+                    <td><a href="#">高新区</a></td>
+                    <td><a href="#">工业园区</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!------------筛选结束-------------->
+
+    <!------------超小屏筛选开始-------------->
+    <div class="row" id="btn-group">
+        <div class="btn-group col-xs-12" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle my_btn" id="click1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    服务区域
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu ">
+                    <li><a href="#">沧浪区</a></li>
+                    <li><a href="#">虎丘区</a></li>
+                    <li><a href="#">金阊区</a></li>
+                    <li><a href="#">平江区</a></li>
+                </ul>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle my_btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    承接价位
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">10万以下</a></li>
+                    <li><a href="#">10-50万</a></li>
+                    <li><a href="#">50-100万</a></li>
+                    <li><a href="#">100万以上</a></li>
+                </ul>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle my_btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    专长风格
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">中式</a></li>
+                    <li><a href="#">美式</a></li>
+                    <li><a href="#">欧式</a></li>
+                    <li><a href="#">东南亚</a></li>
+                </ul>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle my_btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    所在区域
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">吴中区</a></li>
+                    <li><a href="#">高新区</a></li>
+                    <li><a href="#">相城区</a></li>
+                    <li><a href="#">工业园区</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!------------超小屏筛选结束-------------->
+    <!--------------排序开始----------------->
+    <div class="row sorted">
+        <div class="col-xs-3 col-sm-2 col-md-1 sort">
+            <a href="#">综合<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+        </div>
+        <div class="col-xs-3 col-sm-2 col-md-1 sort">
+            <a href="#">案例<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+        </div>
+        <div class="col-xs-3 col-sm-2 col-md-1 sort">
+            <a href="#">工地<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+        </div>
+        <div class="col-xs-3 col-sm-2 col-md-1 sort">
+            <a href="#">信用<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+        </div>
+        <div class="col-xs-0 col-sm-4 col-md-8"></div>
+    </div>
+
+
+    <!--------------排序结束----------------->
+    <!------------公司列表开始-------------->
+
+    <table id="idData" class="table">
+
+    </table>
+    <!------------公司列表结束-------------->
+
+    <!------------分页开始-------------->
+
+        <div id="barcon" name="barcon">
+        </div>
+
+
+    <!------------分页结束-------------->
+
+
+</div>
+<div class="container-fluid footer">
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="footer_link">友情链接:</span>
+            <span>/</span>
+            <img src="../image/footer01.png" alt="">
+            <span>/</span>
+            <img src="../image/footer02.png" alt="">
+            <span>/</span>
+            <img src="../image/footer03.png" alt="">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <p>我的网站 版权所有 2008-2014 湘ICP备8888888</p>
+            <p>本页面内容为网站演示数据，前台页面内容都可以在后台修改。</p>
+            <p>Powered by <b>Ctrl ACV</b> 6.1.3 ?2008-2019.</p>
+        </div>
+    </div>
+</div>
+<script src="../js/utils.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/company_list.js"></script>
+</body>
+</html>

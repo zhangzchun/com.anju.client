@@ -1,0 +1,695 @@
+ul,li,a{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: white;
+    width: 1340px;
+}
+
+/*--------------------头部开始------------------*/
+.header_top{
+    border-bottom: solid 2px darkseagreen;
+}
+.header_top .header{
+    width: 80%;
+    display: flex;
+    margin: auto;
+}
+.header_top .header .left{
+    width: 30%;
+    height: 100px;
+    padding-right: 50px;
+    text-align: right;
+    line-height: 100px;
+    border-right: solid 1px rgba(189, 189, 189, 0.66);
+}
+.header_top .header .left a{
+    color: #0f0f0f;
+    font-size: 30px;
+}
+.header_top .header .right{
+    width: 70%;
+    height: 100px;
+    padding-left: 50px;
+    line-height: 100px;
+}
+.header_top .header .right span{
+    font-size: 26px;
+}
+/*--------------------头部结束------------------*/
+
+/*---------------------主体开始--------------------*/
+.container_center{
+    width: 80%;
+    margin: 50px auto 0;
+}
+/*个人中心左侧开始*/
+.container_center_left li{
+    cursor: pointer;
+}
+.container_center_left .first_ul{
+    border: solid 1px #cccccc;
+    border-bottom: 0;
+}
+.container_center_left .first_ul>li:first-child{
+    background-color: #d3d3d3;
+}
+.container-fluid .container_center .center_left {
+    border: solid 1px #cccccc;
+    display: block;
+    padding: 20px 10px;
+}
+.container-fluid .container_center .center_left>ul{
+    margin-left: 20px;
+    list-style: none;
+}
+.container-fluid .container_center .more{
+    padding-left: 10px;
+}
+.container-fluid .container_center .more>:nth-child(2){
+    display: none;
+}
+.container-fluid .container_center .more>:nth-child(4){
+    display: none;
+    padding: 5px 0;
+}
+.container-fluid .container_center .more>:nth-child(4) li{
+    padding: 5px 0;
+}
+
+/*个人中心左侧结束*/
+
+
+/*个人中心右侧开始*/
+
+
+.container-fluid .container_center .center_right{
+    display: none;
+}
+
+/*个人中心页开始*/
+.container_center .center_right .center_right_top{
+    border: solid 1px #cccccc;
+}
+.container_center .center_right .img_info{
+    display: flex;
+    margin: 20px;
+}
+.container_center .center_right .img{
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.container_center .center_right .img a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.container_center .center_right .img :nth-child(2){
+    background: rgba(76, 76, 76, 0.56);
+    padding: 10px 20px;
+    position: relative;
+    left: 4px;
+    top: -25px;
+}
+.container_center .center_right .img img{
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+}
+.container_center .center_right .info{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.center_right .binding{
+    margin-top: 15px;
+    padding: 30px;
+    border-left: solid 1px grey;
+ }
+.container_center .center_right .center_right_middle{
+    margin-top: 10px;
+    border: solid 1px #cccccc;
+}
+
+.house_info{
+    width: 150px;
+}
+.no_house{
+    padding: 100px 50px 100px 0;
+    width: 800px;
+    margin: auto;
+    color: #1a1a1a;
+    text-align: center;
+}
+.dis{
+    /*display: none;*/
+}
+.add_house{
+    padding: 15px 50px 15px 0;
+    text-align: center;
+    cursor: pointer;
+    width: 800px;
+    margin: auto;
+    color: #f8f8f8;
+    background: #00ba00;
+}
+
+ .diary{
+    padding: 10px 0;
+    border-bottom:dotted 1px  grey;
+    margin-left: 4%;
+}
+ .diary :first-child{
+    border-left:solid 2px green;
+    padding-left: 10px;
+    font-weight: 600;
+}
+ .progress{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 20px;
+     background: white;
+     border: none;
+     box-sizing: border-box;
+}
+ .schedule{
+    width: 220px;
+    height: 15px;
+    border: solid 1px grey;
+    margin: 0 10px;
+}
+ .progress_bar{
+    width: 110px;
+    height: 14px;
+    color: white;
+    text-align: center;
+    line-height: 15px;
+    background: #00ba00;
+     font-size: 0.1em;
+}
+.table_info tr td {
+    border: none!important;
+}
+.table_info tr td:nth-child(1){
+    text-align: right;
+}
+.table_info tr td select{
+    height: 30px;
+    outline: none;
+}
+.table_info .submit{
+    width: 80px;
+    background: orangered;
+    color: white;
+
+}
+.table_info .submit :visited{
+    outline: none;
+    background: #e43c00!important;
+}
+
+
+.input{
+    height: 35px;
+    border-radius: 5px;
+    border:solid 1px darkgrey;
+    outline: none;
+}
+.rows{
+    margin-left: 40px;
+    margin-top: 30px;
+    line-height: 100px;
+    padding-left: 20px;
+    width: 800px;
+    height: 100px;
+    border: solid 1px grey;
+}
+.rows button{
+    float: right;
+    margin-right: 20px;
+    margin-top: 28px;
+}
+.account {
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+.account button{
+    margin-right: 1px;
+}
+/*个人中心页结束*/
+
+/*预约*/
+.reservation_header{
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    border: solid 1px #cccccc;
+    border-bottom: 0;
+}
+.reservation_header b{
+    color: #00ce00;
+    font-size: 18px;
+}
+.reservation{
+    width: 100%;
+    border: solid 1px #cccccc;
+    box-sizing: border-box;
+}
+
+.reservation table{
+    width: 100%;
+    font-size: 12px;
+}
+.td01{
+    width: 40%;
+}
+.td02{
+    width: 30%;
+}
+.td03{
+    width: 15%;
+
+}
+.td04 {
+    width: 10%;
+}
+.reservation table .first_tr{
+    height: 34px;
+    background-color: #f8f8f8;
+    border-bottom: solid 1px #CCCCCC;
+}
+.reservation table .first_tr td{
+    text-align: center;
+}
+.reservation table tbody>tr{
+    border-bottom: solid 1px #cccccc;
+}
+.reservation table tbody>tr .td01{
+    padding: 20px 30px;
+}
+tbody .td01 .reservation_company_icon{
+    width: 80px;
+    height: 80px;
+    float: left;
+    border: solid 1px #CCCCCC;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 80px;
+}
+tbody .td01 .reservation_company_icon img{
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+tbody .td01 .reservation_company_info{
+    float: right;
+    padding: 10px 0;
+}tbody .td01 .reservation_company_info>span{
+     font-size: 18px;
+     font-weight: 700;
+     margin-bottom: 20px;
+ }
+
+.reservation table tbody>tr .td02{
+    padding-left: 10%;
+}
+tbody .td02 div span:first-child{
+    font-size: 14px;
+    font-weight: bold;
+}
+tbody .td02 div span:last-child{
+    font-size: 14px;
+    color: #999999;
+}
+.reservation table tbody>tr .td03{
+    text-align: center;
+}
+tbody .td03{
+    font-size: 16px;
+    color: #00b900;
+}
+.reservation table tbody>tr .td04{
+    text-align: center;
+    line-height: 20px;
+}
+.reservation table tbody>tr .td04 .cancel{
+    color: #F8F8F8;
+    font-size: 14px;
+    padding: 5px 10px;
+    background-color:  red;
+    border: 0;
+    outline: 0;
+}
+
+
+
+/*收藏*/
+/*主体*/
+
+/*头部*/
+.collection {
+    border: solid 1px #CCCCCC;
+}
+.collection_header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: solid 1px #CCCCCC;
+}
+.collection_header .case_title{
+    font-size: 14px;
+    font-weight: 600;
+}
+.collection_header .case_title b{
+    color: #00ce00;
+    font-size: 18px;
+}
+.collection_header .operation img{
+    margin-left: 10px;
+}
+.collection_header .operation label{
+    font-size: 12px;
+    color: #999999;
+}
+.collection_main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px #cccccc;
+}
+.check{
+    width: 50px;
+    text-align: center;
+}
+.collection_content{
+    flex: 1;
+    display: flex;
+    border-left: solid 1px #CCCCCC;
+    padding: 20px 20px;
+    box-sizing: border-box;
+}
+/*案例*/
+.case_img{
+    width: 200px;
+    height: 150px;
+}
+.case_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.price{
+    padding: 10px 0;
+}
+.price span:nth-child(2){
+    color: red;
+}
+
+/*公司*/
+.collection_content .company_icon{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: solid 1px #CCCCCC;
+    text-align: center;
+    line-height: 80px;
+}
+.collection_content .company_icon img{
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    object-fit: contain;
+}
+.case_num{
+    margin-right: 20px;
+}
+
+/*攻略*/
+.collection_content .image{
+    flex: 1;
+}
+.collection_content .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.collection_content .content_info{
+    flex: 2;
+    padding: 10px 20px;
+}
+.collection_content .content_info>span:first-child{
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+.content_info .collection_time{
+    text-align: right;
+    color: #999999;
+}
+
+
+/*日记头像*/
+.collection_content .user_info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    color: #999999;
+}
+.collection_content .user_info img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+.collection_content .content_info .style{
+    color: #999999;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.collection_content .content_info .diary_image{
+    margin-bottom: 10px;
+}
+.collection_content .content_info .diary_image img{
+    width: 96px;
+    height: 96px;
+}
+
+/*默认显示*/
+.default_reservation,.default_case,.default_company,.default_strategy,.default_diary{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.default_view span{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 我的日记--begin-*/
+
+.diary_modal {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.clumn_name {
+    padding: 10px 0;
+    border-bottom: dotted 1px grey;
+
+}
+.clumn_name h5 {
+    border-left:solid 2px green;
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+
+
+
+.diary_content .diary_list {
+    margin: 30px auto 0;
+    border: 1px #eee solid;
+
+}
+
+
+.diary_content a {
+    color: #01af69;
+    text-decoration: none !important;
+    outline: none;
+}
+.diary_content a:hover {
+    color: #ec3901;
+}
+
+.diary_list {
+    width: 100%;
+}
+
+.diary_title {
+    padding: 20px;
+    background: #f8f8f8;
+}
+
+.diary_title .diary_name {
+    float: left;
+    width: auto;
+    height: 20px;
+    font-size: 20px;
+    line-height: 20px;
+    color: #333;
+
+}
+
+.diary_title .diary_name a {
+    color: #333;
+    cursor: pointer;
+}
+
+.diary_title .diary_name a:hover {
+    color: #ec3901;
+}
+
+.diary_title .time {
+    width: 100%;
+    height: 18px;
+    padding-top: 15px;
+    clear: both;
+
+}
+
+
+.diary_title .time p {
+    float: left;
+    padding-right: 20px;
+    font-size: 12px;
+    color: #999;
+}
+
+
+.diary_detail {
+    padding: 20px;
+    margin-top: 0;
+    border-bottom: 1px #eee solid;
+}
+
+.diary_detail .msg_top {
+    width: 100%;
+    height: 14px;
+    line-height: 14px;
+}
+
+.diary_detail .msg_top em {
+
+    font-style: normal;
+    padding: 0 10px;
+
+}
+
+.diary_detail p {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.diary_detail .msg_top a {
+    float: right;
+}
+
+.diary_detail a {
+    color: #01af69;
+}
+
+.diary_btn {
+    padding: 10px 20px;
+}
+
+.diary_btn span {
+    vertical-align: center;
+}
+
+.btn input {
+    border: none;
+    outline: none;
+    background: #01af69;
+}
+
+.create_diary {
+    width: 100%;
+    height: 55px;
+    margin: 30px 0 80px;
+    line-height: 55px;
+    background: #f8f8f8;
+}
+
+.create_diary a {
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: center;
+    color: #01af69;
+
+}
+
+
+.no_diary {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.btn_instant {
+    display: block;
+    padding: 8px 30px;
+    margin-top: 40px;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    background-color: #f36f20;
+}
+
+/* 我的日记--end--*/
+
+/*个人中心右侧结束*/
+/*---------------------主体结束--------------------*/
+
+
+
+/*-----------------底部开始---------------------*/
+.footer{
+    background-color: #221F1E;
+    text-align: center;
+    margin-top: 50px;
+}
+.footer_link{
+    color: #D8902D;
+    font-size: 16px;
+}
+.footer>div:first-child{
+    padding: 10px 0;
+    border-bottom: solid 1px #777777;
+    box-sizing: border-box;
+}
+.footer>div:last-child{
+    padding: 20px 0 30px 0;
+    box-sizing: border-box;
+}
+.footer>div:last-child p{
+    color: #AFA9A9;
+}
+.footer>div:last-child b{
+    color: #D8902D;
+}
+/*-----------------底部结束--------------------*/
