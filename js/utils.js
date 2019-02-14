@@ -11,8 +11,6 @@ function getData(url,args=null,headers=null,cb) {
        }
     }
 
-
-
     oAjax.open('get',url,true);
     if(headers){
         for(var key in headers){

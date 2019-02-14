@@ -221,9 +221,9 @@
         };
     };
 
-    // 预约
-    // 动态生成预约
-    var thead=document.querySelector(".reservation thead");
+
+// 预约
+// 动态生成预约
     var tbody=document.querySelector(".reservation tbody");
     var default_reservation=document.querySelector(".default_reservation");
     for (var i=0;i<3;i++){
@@ -285,7 +285,10 @@
         };
     }
 
-// 动态生成收藏页面
+
+// 收藏
+
+// 动态生成案例收藏页面
     var collection_case = document.querySelector(".collection_case");
     var default_case = document.querySelector(".default_case");
     var case_chk=document.querySelector(".case_chk");
@@ -318,14 +321,9 @@
                             </div>
                         </div>`
     }
-    if (collection_case.innerHTML === "") {
-        default_case.style.display = "flex";
-        case_chk.style.display="none";
-    }else{
-        default_case.style.display = "none";
-        case_chk.style.display="block";
-    }
+    changePage(collection_case,default_case,case_chk);
 
+// 动态生成公司收藏页面
     var collection_company = document.querySelector(".collection_company");
     var default_company = document.querySelector(".default_company");
     var company_chk=document.querySelector(".company_chk");
@@ -353,13 +351,9 @@
                             </div>
                         </div>`
     }
-    if (collection_company.innerHTML === "") {
-        default_company.style.display = "flex";
-        company_chk.style.display = "none";
-    }else{
-        default_company.style.display = "none";
-        company_chk.style.display = "block";
-    }
+    changePage(collection_company,default_company,company_chk);
+
+// 动态生成攻略收藏页面
     var collection_strategy=document.querySelector(".collection_strategy");
     var default_strategy = document.querySelector(".default_strategy");
     var strategy_chk=document.querySelector(".strategy_chk");
@@ -382,13 +376,9 @@
                             </div>
                         </div>`
     }
-    if (collection_strategy.innerHTML === "") {
-        default_strategy.style.display = "flex";
-        strategy_chk.style.display = "none";
-    }else{
-        default_strategy.style.display = "none";
-        strategy_chk.style.display = "block";
-    }
+    changePage(collection_strategy,default_strategy,strategy_chk);
+
+// 动态生成日记收藏页面
     var collection_diary=document.querySelector(".collection_diary");
     var default_diary = document.querySelector(".default_diary");
     var diary_chk = document.querySelector(".diary_chk")
@@ -424,14 +414,38 @@
                             </div>
                         </div>`
     }
-    if (collection_diary.innerHTML === "") {
-        default_diary.style.display = "flex";
-        diary_chk.style.display = "none";
-    }else{
-        default_diary.style.display = "none";
-        diary_chk.style.display = "block";
+    changePage(collection_diary,default_diary,diary_chk);
+
+
+// 判断是否有收藏
+    function changePage(collection,default_f,f_chk) {
+        if (collection.innerHTML === "") {
+            default_f.style.display = "flex";
+            f_chk.style.display = "none";
+        }else{
+            default_f.style.display = "none";
+            f_chk.style.display = "block";
+        }
     }
-    // 全选
+
+
+// 全选
+    function chk_all(chk_all,chks) {
+        chk_all.onclick = function () {
+            var f = this.checked;
+            for (var chk of chks) {
+                chk.checked = f;
+            }
+            if (f) {
+                this.nextElementSibling.innerText = "全不选"
+            } else {
+                this.nextElementSibling.innerText = "全选"
+            }
+
+        };
+
+    }
+
     var chk_all_case = document.querySelector("#chk_all_case");
     var chk_all_company = document.querySelector("#chk_all_company");
     var chk_all_strategy = document.querySelector("#chk_all_strategy");
@@ -441,160 +455,68 @@
     var chk_strategy = document.querySelectorAll(".chk_strategy");
     var chk_diary = document.querySelectorAll(".chk_diary");
 
-    chk_all_case.onclick = function () {
-        var f = this.checked;
-        for (var chk of chk_cases) {
-            chk.checked = f;
-        }
-        if (f) {
-            this.nextElementSibling.innerText = "全不选"
-        } else {
-            this.nextElementSibling.innerText = "全选"
-        }
-
-    };
-    chk_all_company.onclick = function () {
-        var f = this.checked;
-        for (var chk of chk_companys) {
-            chk.checked = f;
-        }
-        if (f) {
-            this.nextElementSibling.innerText = "全不选"
-        } else {
-            this.nextElementSibling.innerText = "全选"
-        }
-
-    };
-    chk_all_strategy.onclick = function () {
-        var f = this.checked;
-        for (var chk of chk_strategy) {
-            chk.checked = f;
-        }
-        if (f) {
-            this.nextElementSibling.innerText = "全不选"
-        } else {
-            this.nextElementSibling.innerText = "全选"
-        }
-
-    };
-    chk_all_diary.onclick = function () {
-        var f = this.checked;
-        for (var chk of chk_diary) {
-            chk.checked = f;
-        }
-        if (f) {
-            this.nextElementSibling.innerText = "全不选"
-        } else {
-            this.nextElementSibling.innerText = "全选"
-        }
-
-    };
+    chk_all(chk_all_case,chk_cases);
+    chk_all(chk_all_company,chk_companys);
+    chk_all(chk_all_strategy,chk_strategy);
+    chk_all(chk_all_diary,chk_diary);
 
 
-    for (var chk of chk_cases) {
-        chk.onclick = function () {
-            checkedAllRows(chk_all_case)
-        }
-    }
-    for (var chk of chk_companys) {
-        chk.onclick = function () {
-            checkedAllRows(chk_all_company)
-        }
-    }
-    for (var chk of chk_strategy) {
-        chk.onclick = function () {
-            checkedAllRows(chk_all_strategy)
-        }
-    }
-    for (var chk of chk_diary) {
-        chk.onclick = function () {
-            checkedAllRows(chk_all_diary)
-        }
-    }
-
-    // 检查是否是全选
-    function checkedAllRows(chk_all) {
-        var flag = true;
-        for (var ck of chk_cases) {
-            if (!ck.checked) {
-                flag = false;
-                break;
+// 检查是否是全选
+    function checkedAllRows(chk_all,chks) {
+        for (var chk of chks) {
+            chk.onclick = function () {
+                var flag = true;
+                for (var ck of chks) {
+                    if (!ck.checked) {
+                        flag = false;
+                        break;
+                    }
+                }
+                chk_all.checked = flag;
+                if (flag) {
+                    chk_all.nextElementSibling.innerText = "全不选"
+                } else {
+                    chk_all.nextElementSibling.innerText = "全选"
+                }
             }
         }
-        chk_all.checked = flag;
-        if (flag) {
-            chk_all.nextElementSibling.innerText = "全不选"
-        } else {
-            chk_all.nextElementSibling.innerText = "全选"
-        }
+
     }
+
+    checkedAllRows(chk_all_case , chk_cases);
+    checkedAllRows(chk_all_company , chk_companys);
+    checkedAllRows(chk_all_strategy , chk_strategy);
+    checkedAllRows(chk_all_diary , chk_diary);
+
+
 
     // 删除
+    function delete_collect(delete_f,chk,collection,default_f,f_chk) {
+        delete_f.onclick = function () {
+            var chks=document.querySelectorAll(chk);
+            for (var ck of chks) {
+                if (ck.checked) {
+                    collection.removeChild(ck.parentElement.parentElement);
+                }
+            }
+            if (collection.innerHTML === "") {
+                default_f.style.display = "flex";
+                f_chk.style.display="none";
+            }else{
+                default_f.style.display = "none";
+                f_chk.style.display="block";
+            }
+        };
+    }
     var delete_case = document.querySelector("#delete_case");
-    delete_case.onclick = function () {
-        chk_cases=document.querySelectorAll(".chk_case");
-        for (var ck_case of chk_cases) {
-            if (ck_case.checked) {
-                collection_case.removeChild(ck_case.parentElement.parentElement);
-            }
-        }
-        if (collection_case.innerHTML === "") {
-            default_case.style.display = "flex";
-            case_chk.style.display="none";
-        }else{
-            default_case.style.display = "none";
-            case_chk.style.display="block";
-        }
-    };
     var delete_company = document.querySelector("#delete_company");
-    delete_company.onclick = function () {
-        chk_companys = document.querySelectorAll(".chk_company");
-        for (var ck of chk_companys) {
-            if (ck.checked) {
-                collection_company.removeChild(ck.parentElement.parentElement);
-            }
-        }
-        if (collection_company.innerHTML === "") {
-            default_company.style.display = "flex";
-            company_chk.style.display = "none";
-        }else{
-            default_company.style.display = "none";
-            company_chk.style.display = "block";
-        }
-    };
     var delete_strategy = document.querySelector("#delete_strategy");
-    delete_strategy.onclick = function () {
-        chk_strategy = document.querySelectorAll(".chk_strategy");
-        for (var ck of chk_strategy) {
-            if (ck.checked) {
-                collection_strategy.removeChild(ck.parentElement.parentElement);
-            }
-        }
-        if (collection_strategy.innerHTML === "") {
-            default_strategy.style.display = "flex";
-            strategy_chk.style.display = "none";
-        }else{
-            default_strategy.style.display = "none";
-            strategy_chk.style.display = "block";
-        }
-    };
     var delete_diary = document.querySelector("#delete_diary");
-    delete_diary.onclick = function () {
-        chk_diary = document.querySelectorAll(".chk_diary");
-        for (var ck of chk_diary) {
-            if (ck.checked) {
-                collection_diary.removeChild(ck.parentElement.parentElement);
-            }
-        }
-        if (collection_diary.innerHTML === "") {
-            default_diary.style.display = "flex";
-            diary_chk.style.display = "none";
-        }else{
-            default_diary.style.display = "none";
-            diary_chk.style.display = "block";
-        }
-    };
 
+    delete_collect(delete_case,".chk_case",collection_case,default_case,case_chk);
+    delete_collect(delete_company,".chk_company",collection_company,default_company,company_chk);
+    delete_collect(delete_strategy,".chk_strategy",collection_strategy,default_strategy,strategy_chk);
+    delete_collect(delete_diary,".chk_diary",collection_diary,default_diary,diary_chk);
 
 
 

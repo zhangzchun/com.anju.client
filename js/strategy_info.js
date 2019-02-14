@@ -3,6 +3,25 @@
  */
 (function () {
 
+    var strategy_id=location.href.split("?strategy_id=")[1];
+    getData("http://127.0.0.1:8080/api/strategy/strategyInfo/",{"strategy_id":strategy_id},null,function (res) {
+        if (res && res["status_code"]==="10009"){
+            var strategy_title=document.querySelector("#strategy_title");
+            var public_date=document.querySelector("#public_date");
+            var lead=document.querySelector("#lead");
+            var content = document.querySelector("#content");
+            strategy_title.innerText=res["content"]["strategy_title"];
+            public_date.innerText=res["content"]["public_date"];
+            lead.innerText=res["content"]["lead"];
+            content.innerHTML=res["content"]["strategy_content"]
+
+        } else{
+            alert(res["status_text"])
+        }
+    });
+
+
+
     // 收藏
     var pg_click=document.querySelector('#pg-block-click');
     var span=pg_click.children[0];
@@ -11,24 +30,40 @@
     pg_click.onclick=function () {
         // alert(span.classList);
         span.classList.toggle('collect-icon');
-        if (txt.nodeValue=='已收藏') {
+        if (txt.nodeValue==='已收藏') {
             txt.nodeValue='收藏';
         }else {
             txt.nodeValue='已收藏';
         }
     };
+
     // 评论
     var comment=document.querySelector("#comment");
     var comment_txt=document.querySelector("#comment_txt");
     var comment_content=document.querySelector(".comment_content");
     var second_floor=document.querySelectorAll(".second_floor");
     comment.onclick=function () {
+        var token = window.localStorage && window.localStorage.getItem('token');
+        // if (token){
         if (comment_txt.value) {
-            comment_content.innerHTML += createFirstFloor();
-            comment_txt.value="";
+            var comment_time = new Date().toLocaleDateString();
+            this.id
+            var data = {"token": "token", "comment_txt": comment_txt, "comment_time": comment_time,"strategy_id":strategy_id};
+            postData("http://127.0.0.1:8080/api/comment/postStrategyComment/", data, function (res) {
+                if (res && res["status_code"] === "10010") {
+                    comment_content.innerHTML += createFirstFloor(comment_txt);
+                    comment_txt.value = "";
+                } else {
+                    alert(res["status_text"])
+                }
+            });
+
         } else {
             alert("评论内容不能为空")
         }
+        // }else{
+        // alert("请先登录")
+    // }
     };
     // 展开评论和回复评论
 
@@ -42,8 +77,9 @@
                 }
             }
         }else if(node.className==="reply_btn"){
+            var comment_num=null;
             if (node.previousElementSibling.value){
-                var comment_num=node.parentElement.parentElement.parentElement.children[2].children[1].children[0];
+                comment_num=node.parentElement.parentElement.parentElement.children[2].children[1].children[0];
 
                 if (comment_num.innerText) {
                     comment_num.innerText=parseInt(comment_num.innerText.substring(0,1))+1 +"条评论";
@@ -56,7 +92,7 @@
                 alert("回复内容不能为空")
             }
         }else if(node.className==="reply_btn02"){
-            var comment_num=node.parentElement.parentElement.parentElement.children[2].children[1].children[0];
+            comment_num=node.parentElement.parentElement.parentElement.children[2].children[1].children[0];
 
             if (node.previousElementSibling.value){
                 if (comment_num.innerText) {
@@ -83,7 +119,7 @@
 
 
     //生成一层
-    function createFirstFloor(){
+    function createFirstFloor(comment_txt){
         var a=`<div class="first_floor">
                 <div class="user_icon">
                     <img src="../image/user_icon01.jpg" alt="">

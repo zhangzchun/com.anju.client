@@ -1,3 +1,6 @@
+body{
+    background-color: #f8f8f8;
+}
 /*日记头部*/
 .diary{
     width: 84%;
@@ -80,11 +83,20 @@
     font-size: 26px;
     color: #e50000;
 }
-
+/*浏览*/
+.browse_num {
+    cursor: pointer;
+    width: 100px;
+}
 /*收藏*/
 .collect_num {
     cursor: pointer;
-    width: 150px;
+    width: 100px;
+}
+/*评论*/
+.comment_num{
+    cursor: pointer;
+    width: 100px;
 }
 
 .collect-icon, .uncollect-icon {
@@ -169,13 +181,13 @@
     border-top: solid 1px #CCCCCC;
     border-bottom: solid 1px #CCCCCC;
 }
-.diary_content .side{
+
+.diary_content .side-test{
     width: 31px;
 }
 .diary_content .diary_items{
     flex: 1;
     border-left: solid 1px #CCCCCC;
-
 }
 
 .diary_items .diary_item{
@@ -195,7 +207,7 @@
     left: -31px;
     color: #FFFFFF;
     text-align: center;
-    padding-top: 12px;
+    padding-top: 20px;
     box-sizing: border-box;
 }
 
@@ -206,7 +218,6 @@
     font-size: 16px;
     color: #01bf72;
 }
-
 .public_time,.content {
     margin-bottom: 20px;
 }

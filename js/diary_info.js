@@ -2,6 +2,62 @@
  *Created by Lenovo-HXL on 2019/1/21.
  */
 (function () {
+
+    var diary_id=location.href.split("?diary_id=")[1];
+    getData("http://127.0.0.1:8080/api/diary/diaryInfo/",{"diary_id":diary_id},null,function (res) {
+        if (res && res["status_code"]==="10009"){
+            var user_icon=document.querySelector("#user_icon");
+            var user_name=document.querySelector("#user_name");
+            var diary_title=document.querySelector(".diary_title");
+            var diary_time=document.querySelector(".diary_time");
+            var area=document.querySelector(".area");
+            var style=document.querySelector(".style");
+            var type=document.querySelector(".type");
+            var location=document.querySelector(".location");
+            var company_name=document.querySelector(".company_name");
+            var browse_num=document.querySelector(".browse_num span");
+            var collect_num=document.querySelector(".collect_num span");
+            var comment_num=document.querySelector(".comment_num span");
+            user_icon.src=res["content"]["user_icon"];
+            user_name.innerText=res["content"]["nickname"];
+            diary_title.innerText=res["content"]["diary_title"];
+            diary_time.innerText=res["content"]["public_date"];
+            area.innerText=res["content"]["area"]+"m²";
+            style.innerText=res["content"]["style"];
+            type.innerText=res["content"]["type"];
+            location.innerText=res["content"]["location"];
+            company_name.innerText=res["content"]["company"];
+            browse_num.innerText=res["content"]["browse_num"];
+            collect_num.innerText=res["content"]["collect_num"];
+            comment_num.innerText=res["content"]["comment_num"];
+
+            var diary_items=document.querySelector(".diary_items");
+            for (var i=0;i<res["content"]["stages"].length;i++){
+                var s = "";
+                for (var img of res["content"]["stages"][i]["diary_img"]) {
+                    s += `<img src="${img}">`
+                }
+                diary_items.innerHTML += `<div class="diary_item">
+                                <div class="stage_title">${res["content"]["stages"][i]["stage"]}</div>
+                                <div class="stage_content">
+                                    <div class="public_time">
+                                        <span>${res["content"]["stages"][i]["diary_date"]}</span>
+                                    </div>
+                                    <div class="content">
+                                        <p>${res["content"]["stages"][i]["diary_content"]}</p>
+                                    </div>
+                                    <div class="diary_image">
+                                        ${s}
+                                    </div>
+                                </div>
+                            </div>`
+            }
+        } else{
+            alert(res["status_text"])
+        }
+    });
+
+
     // 收藏
     var pg_click=document.querySelector('#pg-block-click');
     var span=pg_click.children[0];
@@ -187,29 +243,6 @@
         }
         var currentdate = year + seperator1 + month + seperator1 + strDate;
         return currentdate;
-    }
-    
-    
-    var diary_items=document.querySelector(".diary_items");
-    for (var i=0;i<8;i++){
-        diary_items.innerHTML += `<div class="diary_item">
-                                <div class="stage_title">前期<br>准备</div>
-                                <div class="stage_content">
-                                    <div class="public_time">
-                                        <span>${getNowFormatDate()}</span>
-                                    </div>
-                                    <div class="content">
-                                        <p>山区小镇，没有一家照相馆的时候，我的小学毕业照是县上的照相师傅到我们完小拍摄的山区小镇，没有一家照相馆的时候，我的小学毕业照是县上的照相师傅到我们完小拍摄的山区小镇，没有一家照相馆的时候，我的小学毕业照是县上的照相师傅到我们完小拍摄的山区小镇，没有一家照相馆的时候，我的小学毕业照是县上的照相师傅到我们完小拍摄的山区小镇，没有一家照相馆的时候，我的小学毕业照是县上的照相师傅到我们完小拍摄的山区小镇，没有一家照相馆的时候，我的小学毕业照是县上的照相师傅到我们完小拍摄的。</p>
-                                    </div>
-                                    <div class="diary_image">
-                                        <img src="../image/diary_01.jpg" alt="">
-                                        <img src="../image/diary_02.jpg" alt="">
-                                        <img src="../image/diary_03.jpg" alt="">
-                                        <img src="../image/diary_04.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>`
-
     }
 
 

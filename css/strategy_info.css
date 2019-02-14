@@ -1,3 +1,6 @@
+body{
+    background-color: #f8f8f8;
+}
 a{
     text-decoration: none;
 }
@@ -66,13 +69,16 @@ a{
     text-align: center;
     box-sizing: border-box;
 }
+.article .article_main h4{
+    text-align: left;
+}
 .article .article_main p{
     color: #666666;
     font-size: 16px;
     line-height: 30px;
     text-indent:2em;
     text-align: left;
-    padding: 10px 0;
+    padding: 5px 0;
 }
 .article .article_main img{
     width: 80%;
