@@ -16,7 +16,7 @@
     var ss=document.querySelectorAll(".ss");
     bs.style.display="none";
     nav_btn.onclick=function () {
-        if (bs.style.display=="none"){
+        if (bs.style.display==="none"){
             bs.style.display="block";
         }else {
             bs.style.display="none";
@@ -25,31 +25,6 @@
             s.style.display="none";
         }
     };
-//搜索
-    var li_company=document.querySelector(".li_company");
-    var li_strategy=document.querySelector(".li_strategy");
-    var li_diary=document.querySelector(".li_diary");
-    var dropdownMenu1=document.querySelector("#dropdownMenu1");
-    var search_ul=document.querySelector(".search_ul");
-
-    search_ul.style.display="none";
-    dropdownMenu1.onclick=function () {
-        if (search_ul.style.display==="none"){
-            search_ul.style.display="block";
-        }else {
-            search_ul.style.display="none"
-        }
-    };
-    li_company.onclick=function () {
-        dropdownMenu1.innerHTML=li_company.children[0].innerText + '<span class="caret"></span>';
-    };
-    li_strategy.onclick=function () {
-        dropdownMenu1.innerHTML=li_strategy.children[0].innerText + '<span class="caret"></span>';
-    };
-    li_diary.onclick=function () {
-        dropdownMenu1.innerHTML=li_diary.children[0].innerText + '<span class="caret"></span>';
-    };
-
 
     var oWidth = parseFloat(document.body.clientWidth);
     window.onresize = ()=>{
@@ -60,6 +35,8 @@
             }
         }
     };
+
+    // 轮播
     var oImgList = document.getElementsByClassName("img-list")[0],
         aButton = document.getElementsByClassName("btn"),
         aImgLi = document.querySelectorAll(".img-list li"),
@@ -162,6 +139,102 @@
     oWrap.onmouseout = function(){
         timer = setInterval(btnNext,4000);
     };
+
+
+
+    //搜索
+    var li_company=document.querySelector(".li_company");
+    var li_strategy=document.querySelector(".li_strategy");
+    var li_diary=document.querySelector(".li_diary");
+    var dropdownMenu1=document.querySelector("#dropdownMenu1");
+    var search_ul=document.querySelector(".search_ul");
+
+    search_ul.style.display="none";
+    dropdownMenu1.onclick=function () {
+        if (search_ul.style.display==="none"){
+            search_ul.style.display="block";
+        }else {
+            search_ul.style.display="none"
+        }
+    };
+    li_company.onclick=function () {
+        dropdownMenu1.innerHTML=li_company.innerText + '<span class="caret"></span>';
+    };
+    li_strategy.onclick=function () {
+        dropdownMenu1.innerHTML=li_strategy.innerText + '<span class="caret"></span>';
+    };
+    li_diary.onclick=function () {
+        dropdownMenu1.innerHTML=li_diary.innerText + '<span class="caret"></span>';
+    };
+
+
+    var search_btn=document.querySelector(".search_btn");
+    var search=document.querySelector("#search");
+    search_btn.onclick=function () {
+        var search_condition=dropdownMenu1.innerText;
+        var search_content=search.value;
+        if (search_content){
+            if (search_condition==="装修公司") {
+                location.href="pages/company_list.html?search_content="+search_content
+            }else if (search_condition==="装修攻略" || search_condition==="装修日记"){
+                location.href="pages/strategy_list.html?search_content="+search_content+"&search_condition="+search_condition
+            }
+        } else{
+            alert("搜索内容不能为空")
+        }
+    };
+
+    search.onkeyup=function (event) {
+        if (event.keyCode=="13"){
+            var search_condition=dropdownMenu1.innerText;
+            var search_content=search.value;
+            if (search_content){
+                if (search_condition==="装修公司") {
+                    location.href="pages/company_list.html?search_content="+search_content
+                }else if (search_condition==="装修攻略" || search_condition==="装修日记"){
+                    location.href="pages/strategy_list.html?search_content="+search_content+"&search_condition="+search_condition
+                }
+            } else{
+                alert("搜索内容不能为空")
+            }
+        }
+    };
+
+
+    // 公司
+    var company_main=document.querySelector(".company_main");
+    getData('http://127.0.0.1:8080/api/company/indexCompanyList/',null,null,function (res) {
+        if(res && res['status_code']==='10009'){
+            for(let r of res['content']){
+                company_main.innerHTML+=`<div class="col-xs-12 col-sm-6 col-md-3 my_company" id="${r["id"]}">
+                    <div class="content">
+                        <div class="company_image">
+                            <img src="${r["c_img"]}" alt="">
+                        </div>
+                        <div class="company_logo">
+                            <img src="${r["company_icon"]}" alt="">
+                        </div>
+                        <div class="company_name">
+                            <span>${r["name"]}</span>
+                        </div>
+                    </div>
+                </div>`
+            }
+
+            var my_companys=document.querySelectorAll(".my_company")
+            for (var my_company of my_companys) {
+                my_company.onclick=function () {
+                    location.href="./pages/companyDetail.html?company_id="+this.id;
+                }
+            }
+        }else if(res['status_code']==='10008') {
+            company_main.innerHTML+=""
+        }
+
+    });
+
+
+
 
 
 

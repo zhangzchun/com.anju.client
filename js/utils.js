@@ -22,7 +22,6 @@ function getData(url,args=null,headers=null,cb) {
         if(oAjax.readyState==4){
             if(oAjax.status>=200 && oAjax.status<300 || oAjax.status==304){
                 var con=JSON.parse(oAjax.responseText);
-
                 cb(con);
             }else{
                 window.sessionStorage.setItem('status',oAjax.status);

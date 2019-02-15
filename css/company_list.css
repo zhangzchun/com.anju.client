@@ -151,10 +151,19 @@ body{
     text-align: center;
     line-height: 80px;
 }
+.container .row .circle img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
 .container .row .img{
     border-bottom: dotted 1px #b4b4b4;
     padding-bottom: 20px;
     margin-top: 15px;
+}
+.container .row .img img{
+    width: 100%;
+    height: 100%;
 }
 .container .row .case{
     margin-top: 10px;
