@@ -210,16 +210,16 @@
 
 //    超小屏筛选结束
 
+
 //    动态生成列表
 
-
-    if (location.href.indexOf("?") !== -1){
-        var myurl01 = location.href.split("?");
+    if (location.href.indexOf("search_content") !== -1){
+        var myurl01 = location.href.split("=")[1];
         getCompanyData("http://127.0.0.1:8080/api/search/", {"search_content": decodeURI(myurl01), "search_condition": "装修公司"})
     }else{
         if(con[0].style.display==='none' && con[1].style.display==='none' && con[2].style.display==='none') {
             getCompanyData('http://127.0.0.1:8080/api/company/companyList/',null);
-        };
+        }
     }
 
 

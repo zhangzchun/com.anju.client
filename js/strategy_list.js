@@ -39,18 +39,22 @@
 
 
     // 请求数据
-    if (decodeURI(location.href).indexOf("装修攻略") !== -1) {
+    if (decodeURI(location.href).indexOf("search_condition=装修攻略") !== -1) {
         var myurl = location.href.split("&")[0].split("?")[1].split("=")[1];
         getStrategyData("http://127.0.0.1:8080/api/search/", {"search_content": decodeURI(myurl), "search_condition": "装修攻略"})
-    } else if (decodeURI(location.href).indexOf("装修日记") !== -1){
+    } else if (decodeURI(location.href).indexOf("search_condition=装修日记") !== -1){
         var myurl = location.href.split("&")[0].split("?")[1].split("=")[1];
         diary.style.display = "block";
         strategy.style.display = "none";
         dropdownMenu1.innerHTML = diary_btn.children[0].innerText + '<span class="caret"></span>';
-        if (diary.innerHTML === "") {
-            getDiaryData("http://127.0.0.1:8080/api/search/", {"search_content": decodeURI(myurl), "search_condition": "装修日记"});
-        }
-    } else{
+        getDiaryData("http://127.0.0.1:8080/api/search/", {"search_content": decodeURI(myurl), "search_condition": "装修日记"});
+
+    } else if(decodeURI(location.href).indexOf("more_diary=true") !== -1) {
+        diary.style.display = "block";
+        strategy.style.display = "none";
+        dropdownMenu1.innerHTML = diary_btn.children[0].innerText + '<span class="caret"></span>';
+        getDiaryData("http://127.0.0.1:8080/api/diary/diaryList/",null)
+    }else{
         getStrategyData("http://127.0.0.1:8080/api/strategy/strategyList/",null)
     }
 
@@ -81,7 +85,7 @@
                     more.onclick=function () {
                         if (strategy_button.childNodes[0].nodeValue === "装修攻略"){
                             if (l>4){
-                                for (var j=i;i<i+4;j++){
+                                for (var j=i;j<i+4;j++){
                                     createStrategy(j);
                                 }
                                 l=l-4;
@@ -136,6 +140,7 @@
     function getDiaryData(url,args) {
         getData(url,args, null, function (res) {
             if (res && res["status_code"] === '10009') {
+
                 //动态生成日记页面方法
                 function createDiary(i) {
                     var s = "";
@@ -178,28 +183,30 @@
                     }
                     m = m - 4;
                     more.onclick = function () {
-                        if (strategy_button.childNodes[0].nodeValue === "装修日记") {
-                            if (m > 4) {
-                                for (var j = i; i < i + 4; j++) {
-                                    createDiary(j);
+                            if (strategy_button.childNodes[0].nodeValue === "装修日记") {
+                                if (m > 4) {
+                                    for (var j = i; j < i + 4; j++) {
+                                        createDiary(j);
+                                    }
+                                    m = m - 4;
+                                } else {
+                                    for (var k = i; k < i + m; k++) {
+                                        createDiary(k);
+                                    }
+                                    diary.innerHTML += `<h4 style="display: flex;justify-content: center;padding: 20px 0;">没有更多了~~~</h4>`;
+                                    more.style.display = "none"
                                 }
-                                m = m - 4;
-                            } else {
-                                for (var k = i; k < i + m; k++) {
-                                    createDiary(k);
+                            }
+                            // 限制字数
+                            var diary_text = document.querySelectorAll(".diary_text p");
+                            for (var p of diary_text) {
+                                if (p.innerText.length > 60) {
+                                    p.innerText = p.innerText.substring(0, 60) + "...";
                                 }
-                                diary.innerHTML += `<h4 style="display: flex;justify-content: center;padding: 20px 0;">没有更多了~~~</h4>`;
-                                more.style.display = "none"
                             }
-                        }
-                        var diary_text = document.querySelectorAll(".diary_text p");
-                        for (var p of diary_text) {
-                            if (p.innerText.length > 60) {
-                                p.innerText = p.innerText.substring(0, 60) + "...";
-                            }
-                        }
-                        tzDiary();
-                    };
+                            tzDiary();
+                        };
+
                 } else {
                     for (var i = 0; i < m; i++) {
                         createDiary(i)

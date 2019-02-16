@@ -211,28 +211,3 @@ body{
     }
 }
 /*------------分页结束--------------*/
-/*底部*/
-.footer{
-    background-color: #221F1E;
-    text-align: center;
-    margin-top: 50px;
-}
-.footer_link{
-    color: #D8902D;
-    font-size: 16px;
-}
-.footer>div:first-child{
-    padding: 10px 0;
-    border-bottom: solid 1px #777777;
-    box-sizing: border-box;
-}
-.footer>div:last-child{
-    padding: 20px 0 30px 0;
-    box-sizing: border-box;
-}
-.footer>div:last-child p{
-    color: #AFA9A9;
-}
-.footer>div:last-child b{
-    color: #D8902D;
-}

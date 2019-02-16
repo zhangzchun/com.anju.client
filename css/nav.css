@@ -71,6 +71,7 @@ body{
 .footer{
     background-color: #221F1E;
     text-align: center;
+    margin-top: 50px;
 }
 .footer_link{
     color: #D8902D;
