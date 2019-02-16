@@ -329,6 +329,7 @@ body{
     width: 80px;
     height: 80px;
     margin-right: 38px;
+    padding: 0;
 }
 .diary_header .user_icon01 img{
     width: 100%;
@@ -350,9 +351,64 @@ body{
     margin-top: 10px;
     text-align: center;
 }
-.diary_image img:first-child{
+.diary_image img{
+    width: 160px;
+    height: 160px;
     margin-right: 20px;
 }
+
+
+.owner{
+    background-color: #67636B;
+}
+.owner_content{
+    width: 80%;
+    margin: 60px auto;
+    box-sizing: border-box;
+}
+.owner_content .text{
+    margin-bottom: 2%;
+}
+.owner_content .text span{
+    color: #FFFFFF;
+    font-size: 28px;
+    font-weight: 500;
+}
+.owner_content .text p{
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.owner_content .user_icon02 div{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+    margin-right: 1.5%;
+    margin-left: 1.5%;
+    padding: 0;
+}
+.owner_content .user_icon02 div img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+}
+.more_diary{
+    text-align: right;
+}
+.more_diary a{
+    color: #FFFFFF;
+    font-size: 16px;
+    display: inline-block;
+    border: solid 1px #FFFFFF;
+    padding: 10px 20px;
+}
+.more_diary a:hover{
+    text-decoration: none;
+    background-color: #C4AD4F;
+}
+
 @media (max-width: 768px){
     .owner .user_icon02>div{
         display: none;
@@ -379,58 +435,6 @@ body{
         width: 60px;
         height: 60px;
     }
-}
-
-.owner{
-    background-color: #67636B;
-}
-.owner_content{
-    width: 80%;
-    margin: 60px auto;
-    box-sizing: border-box;
-}
-.owner_content .text{
-    margin-bottom: 2%;
-}
-.owner_content .text span{
-    color: #FFFFFF;
-    font-size: 28px;
-    font-weight: 500;
-}
-.owner_content .text p{
-    color: #FFFFFF;
-    font-size: 14px;
-    margin-top: 10px;
-}
-.owner_content .user_icon02{
-    display: flex;
-    margin-bottom: 20px;
-    justify-content: space-between;
-}
-.owner_content .user_icon02 div{
-    width: 80px;
-    height: 80px;
-}
-.owner_content .user_icon02 div img{
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    border-radius: 50%;
-    object-fit: cover;
-}
-.more_diary{
-    text-align: right;
-}
-.more_diary a{
-    color: #FFFFFF;
-    font-size: 16px;
-    display: inline-block;
-    border: solid 1px #FFFFFF;
-    padding: 10px 20px;
-}
-.more_diary a:hover{
-    text-decoration: none;
-    background-color: #C4AD4F;
 }
 
 /*服务*/
@@ -483,14 +487,13 @@ body{
     font-size: 36px;
 }
 .strategy_content{
+    padding: 0 5px;
     display: flex;
     flex-direction: column;
-    padding: 0;
-    border: solid 1px #CCCCCC;
     box-sizing: border-box;
     position: relative;
 }
-.strategy_content .strategy_content_img {
+.strategy_content .content_img {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -498,31 +501,47 @@ body{
     padding: 30px 0;
     margin: 0;
     box-sizing: border-box;
-    background: url("../image/index_zxgl_bg.jpg") no-repeat;
     background-size: cover;
     background-position: center;
 }
-.strategy_content .strategy_content_img span{
+.strategy_content_img{
+    background: url("../image/index_zxgl_bg.jpg") no-repeat;
+}
+.diary_content_img{
+    background: url("../image/index_zxrj_bg.jpg") no-repeat;
+}
+.wd_img{
+    background: url("../image/index_zxwd_bg.jpg") no-repeat;
+}
+.gj_img{
+    background: url("../image/index_zxgj_bg.jpg") no-repeat;
+}
+.strategy_content .content_img span{
     color: #FFFFFF;
     font-size: 20px;
     margin-top: 10px;
 }
-.strategy_content .strategy_content_text{
+.strategy_content .content_text{
     flex: 2;
     padding: 30px 38px;
+    border: solid 1px #CCCCCC;
     box-sizing: border-box;
 }
-.strategy_content .strategy_content_text a{
+.strategy_content .content_text a{
     color: #333333;
     display: block;
     margin-bottom: 5px;
     text-align: center;
 }
-.strategy_content .strategy_content_text a:hover{
+.strategy_content .content_text a:hover{
     color: #3e8f3e;
     text-decoration: none;
 }
-
+@media (max-width: 768px){
+    .strategy_header span:first-child{
+        font-size: 28px;
+    }
+}
 
 /*底部*/
 .footer{
