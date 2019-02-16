@@ -4,12 +4,9 @@
     var tel_error=document.querySelector('#tel_error');
     var password=document.querySelector('#txt_password');
     var password_error=document.querySelector('#password_error');
-    var check_agree=document.querySelector('#check_agree');
-    var check_error=document.querySelector('#check_error');
     var login_btn=document.querySelector('#btn_login')
 
-
-
+    //查看密码
     document.querySelector('#eye-check').onclick=function() {
         if (password.type=='password') {
             password.type='text';
@@ -18,22 +15,32 @@
         }
     };
 
+
+    //登录ajax
     login_btn.onclick=function () {
-        checkAgree();
-        if(checkTelphone() && checkPassword() && checkAgree()){
+        if(checkPassword() && checkTelphone()){
             //    开始提交后台
             var user={"telephone":tel.value,"password":password.value};
-            postData('http://192.168.2.85:8080/api/user/person',user,function (res) {
-                if(res && res.status_code=='10001'){
+            postData('http://127.0.0.1:8080/api/user/login/',user,function (res) {
+                if(res && res.status_code=='10003'){
+                    localStorage.setItem('token',res.token);
+                    localStorage.setItem('telephone',res.telephone);
+
+                    if(sessionStorage.getItem('from')){
+                        location.href=sessionStorage.getItem('from');
+                    }else {
+                        location.href='../index.html';
+                    }
 
                 }else {
                     alert(res.status_text);
                 }
             })
         }
-
     };
 
+
+    //检查手机号
     function checkTelphone() {
         var regMobile=/^1[3,5,8]\d{9}$/;
         if(tel.value){
@@ -50,6 +57,8 @@
         }
     }
 
+
+    //检查密码
     function checkPassword() {
         var regMobile=/^\w{6,}$/;
         if(password.value){
@@ -66,10 +75,12 @@
         }
     }
 
+    //自动检查手机号
     tel.onchange=function () {
         checkTelphone();
     };
 
+    //自动检查密码
     password.onchange=function () {
         checkPassword();
     };

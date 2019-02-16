@@ -24,9 +24,13 @@
 
         if(checkTelphone() && checkName() &&checkPassword() && checkAgree()){
             //  开始提交后台
-            var user={"telephone":tel.value,"password":password.value};
-            postData('http://192.168.2.85:8080/api/user/person',user,function (res) {
+            var user={"telephone":tel.value,"nickname":name.value, "password":password.value};
+            postData('http://192.168.2.85:8080/api/user/regist/',user,function (res) {
                 if(res && res.status_code=='10001'){
+
+                    localStorage.setItem('token',res.token);
+                    localStorage.setItem('telephone',res.telephone);
+                    location.href='../index.html';
 
                 }else {
                     alert(res.status_text);
