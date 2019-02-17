@@ -24,7 +24,7 @@
             postData('http://127.0.0.1:8080/api/user/login/',user,function (res) {
                 if(res && res.status_code=='10003'){
                     localStorage.setItem('token',res.token);
-                    localStorage.setItem('telephone',res.telephone);
+                    localStorage.setItem('user_id',res.user_id);
 
                     if(sessionStorage.getItem('from')){
                         location.href=sessionStorage.getItem('from');

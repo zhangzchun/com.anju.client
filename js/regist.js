@@ -29,7 +29,7 @@
                 if(res && res.status_code=='10001'){
 
                     localStorage.setItem('token',res.token);
-                    localStorage.setItem('telephone',res.telephone);
+                    localStorage.setItem('user_id',res.user_id);
                     location.href='../index.html';
 
                 }else {
@@ -37,7 +37,6 @@
                 }
             })
         }
-
     };
 
     function checkTelphone() {
