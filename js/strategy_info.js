@@ -4,7 +4,7 @@
 (function () {
 
     var strategy_id=location.href.split("?strategy_id=")[1];
-    getData("http://127.0.0.1:8080/api/strategy/strategyInfo/",{"strategy_id":strategy_id},null,function (res) {
+    getData("http://127.0.0.1:8080/api/strategy/strategyDetail/",{"strategy_id":strategy_id},null,function (res) {
         if (res && res["status_code"]==="10009"){
             var strategy_title=document.querySelector("#strategy_title");
             var public_date=document.querySelector("#public_date");
