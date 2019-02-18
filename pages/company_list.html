@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<!--导航栏-->
+<!--------------头部开始----------------->
 <nav class="navbar navbar-default navbar-fixed-top my_container">
     <div class="container my_nav">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,7 +26,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse nav_hidden" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
-                <li><a href="/index.html" class="a1">首页</a></li>
+                <li><a href="../index.html" class="a1">首页</a></li>
                 <li><a href="company_list.html" class="a1">装修公司</a></li>
                 <li><a href="strategy_list.html" class="a1">装修攻略</a></li>
             </ul>
@@ -34,18 +34,30 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <form action="#">
+                        <div class="dropdown search_header">
+                            <button class="btn btn-default dropdown-toggle search_criteria" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">装修公司<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu search_ul" aria-labelledby="dropdownMenu">
+                                <li class="li_company">装修公司</li>
+                                <li class="li_strategy">装修攻略</li>
+                                <li class="li_diary">装修日记</li>
+                            </ul>
+                        </div>
                         <input type="text" id="search_txt" value="" placeholder="搜索公司、攻略、日记" />
                         <a href="###" id="search_btn_block" name="submit" ><img src="../image/search_icon.svg" alt=""></a>
                         <a href="###" id="search_btn_none" name="submit" ><img src="../image/delete.svg" alt=""></a>
                     </form>
                 </li>
-                <li><a href="login.html" class="a1">登录</a></li>
-                <li><a href="regist.html" class="a1">注册</a></li>
+                <li><a href="../pages/login.html" class="a1 login">登录</a></li>
+                <li><a href="../pages/regist.html" class="a1 register">注册</a></li>
+                <li><a href="#" class="a1 nick_name"></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 <div class="div01"></div>
+<!--------------头部结束----------------->
+
 <div class="container">
 
     <!------------筛选开始-------------->

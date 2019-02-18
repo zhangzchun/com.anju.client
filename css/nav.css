@@ -23,19 +23,58 @@ body{
 }
 .my_nav ul li .a1:hover{
     color: #FFFFFF !important;
-    background-color: #CCCCCC;
+    background-color: #ececec;
+    border-radius: 2px;
 }
 .nav_hidden form{
     display: flex;
     align-items: center;
     margin-top: 10px;
-    padding: 0 15px;
+    padding: 0 10px;
     box-sizing: border-box;
-    border-radius: 20px;
+    border-radius: 12px;
     border: none;
-    /*border: solid 1px #888888;*/
+}
+.search_criteria{
+    /*height: 42px;*/
+    border-radius: 0;
+}
+.search_criteria:hover{
+    background-color: white;
+}
+.search_criteria:focus,
+.search_criteria:active:focus,
+.search_criteria.active:focus,
+.search_criteria.focus,
+.search_criteria:active.focus,
+.search_criteria.active.focus {
+    outline: none;
+    box-shadow: none;
+    background-color: #FFFFFF;
+}
+
+.search_ul{
+    border-radius: 2px;
+    min-width: 90px ;
+
+}
+.search_ul li{
+    display: block;
+    font-size: 14px;
+    padding: 5px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+.search_ul li:hover{
+    cursor: pointer;
+    background-color: #F5F5F5;
+}
+.search_header .search_criteria{
+    border: 0;
+    border-right: solid 1px #CCCCCC;
 }
 #search_txt{
+    padding-left: 10px;
     width: 400px;
     height: 30px;
     outline: 0;

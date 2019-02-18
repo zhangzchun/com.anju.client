@@ -7,38 +7,6 @@ body{
     width: 1340px;
 }
 
-/*--------------------头部开始------------------*/
-.header_top{
-    border-bottom: solid 2px darkseagreen;
-}
-.header_top .header{
-    width: 80%;
-    display: flex;
-    margin: auto;
-}
-.header_top .header .left{
-    width: 30%;
-    height: 100px;
-    padding-right: 50px;
-    text-align: right;
-    line-height: 100px;
-    border-right: solid 1px rgba(189, 189, 189, 0.66);
-}
-.header_top .header .left a{
-    color: #0f0f0f;
-    font-size: 30px;
-}
-.header_top .header .right{
-    width: 70%;
-    height: 100px;
-    padding-left: 50px;
-    line-height: 100px;
-}
-.header_top .header .right span{
-    font-size: 26px;
-}
-/*--------------------头部结束------------------*/
-
 /*---------------------主体开始--------------------*/
 .container_center{
     width: 80%;
