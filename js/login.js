@@ -25,6 +25,7 @@
                 if(res && res.status_code=='10003'){
                     localStorage.setItem('token',res.token);
                     localStorage.setItem('user_id',res.user_id);
+                    localStorage.setItem('nickname',res.nickname);
 
                     if(sessionStorage.getItem('from')){
                         location.href=sessionStorage.getItem('from');

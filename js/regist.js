@@ -30,7 +30,7 @@
 
                     localStorage.setItem('token',res.token);
                     localStorage.setItem('user_id',res.user_id);
-                    location.href='../index.html';
+                    localStorage.setItem('nickname',res.nickname);
 
                 }else {
                     alert(res.status_text);
