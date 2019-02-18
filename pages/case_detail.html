@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/case_detail.css">
     <link rel="stylesheet" href="../css/nav.css">
-
 </head>
 <body>
 
@@ -21,27 +20,27 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand title" href="###">安居家装</a>
+            <a class="navbar-brand title" href="#">安居网</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse nav_hidden" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
-                <li><a href="/index.html" class="a1">首页</a></li>
-                <li><a href="company_list.html" class="a1">装修公司</a></li>
-                <li><a href="strategy_list.html" class="a1">装修攻略</a></li>
+                <li><a href="#" class="a1">首页</a></li>
+                <li><a href="#" class="a1">装修公司</a></li>
+                <li><a href="#" class="a1">装修攻略</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <form action="#">
                         <input type="text" id="search_txt" value="" placeholder="搜索公司、攻略、日记" />
-                        <a href="###" id="search_btn_block" name="submit" ><img src="../image/search_icon.svg" alt=""></a>
-                        <a href="###" id="search_btn_none" name="submit" ><img src="../image/delete.svg" alt=""></a>
+                        <a href="#" id="search_btn_block" name="submit" ><img src="../image/search_icon.svg" alt=""></a>
+                        <a href="#" id="search_btn_none" name="submit" ><img src="../image/delete.svg" alt=""></a>
                     </form>
                 </li>
-                <li><a href="login.html" class="a1">登录</a></li>
-                <li><a href="regist.html" class="a1">注册</a></li>
+                <li><a href="#" class="a1">登录</a></li>
+                <li><a href="#" class="a1">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -57,22 +56,22 @@
             <a href="#">苏州装修公司</a> >
             <a href="#">星卡星装饰</a> >
             <a href="#">案例列表</a> >
-            星卡星
+            <span class="case_name"></span>
         </div>
     </div>
     <div class="row">
         <div class="container start">
-            <div><h3>星卡星</h3></div>
+            <div><h3 class="case_name">星卡星</h3></div>
             <div class="row liu_pos">
                 <div class="liu">
                     <div class="row">
-                        <div class="col-xs-4 col-sm-4 col-md-4 shen">
-                            <img src="../image/shenyy.jpg" height="100" width="100"/>
+                        <div class="col-xs-4 col-sm-4 col-md-4 shen ">
+                            <img src="../image/shenyy.jpg" height="100" width="100" class="designer_img"/>
                         </div>
                         <div class="col-xs-8 col-sm-8 col-md-8">
                             <div class="row text_right" >
                                 <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <h4>申莹莹</h4>
+                                    <h4 class="designer_name">申莹莹</h4>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <img src="../image/designer.png" height="18" width="56"/>
@@ -83,7 +82,7 @@
                                     <span>从业两年</span>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <span>73套案例</span>
+                                    <span class="case_num">73</span><span>套案例</span>
                                 </div>
                             </div>
                             <div class="row" >
@@ -96,7 +95,7 @@
                 </div>
                 <div class="col-md-12 author">
                     <img src="../image/星卡.png" height="54" width="54" id="first"/>
-                    <span>李爱敬</span>
+                    <span class="designer_name">李爱敬</span>
                     <img src="../image/designer.png" height="18" width="56"/>
                 </div>
             </div>
@@ -108,49 +107,22 @@
                         </div>
                         <div class="col-md-9 col-sm-12 col-xs-9 ">
                             <div class="row house_info_type">
-                                <div class="col-xs-3 col-sm-3 col-md-3"><span>户型：其他</span></div>
-                                <div class=" col-xs-3 col-sm-3 col-md-3 "><span>风格：</span> </div>
-                                <div class=" col-xs-3 col-sm-3 col-md-3"><span>面积：1㎡</span> </div>
-                                <div class=" col-xs-3 col-sm-3 col-md-3"><span>造价：1万元</span> </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3"><span>户型：</span><span class="type">其他</span></div>
+                                <div class=" col-xs-3 col-sm-3 col-md-3 "><span>风格：</span><span class="style">其他</span> </div>
+                                <div class=" col-xs-3 col-sm-3 col-md-3"><span>面积：<span class="area">其他</span>㎡</span> </div>
+                                <div class=" col-xs-3 col-sm-3 col-md-3"><span>造价：<span class="price">其他</span>万元</span> </div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-3 col-sm-3 col-md-3"><span>装修方式：全包</span></div>
-                                <div class="col-xs-3 col-sm-3 col-md-3"><span>装修工期：1天</span> </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6"><span>位置：江星商业广场</span> </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3"><span>装修方式：</span><span class="renovation">其他</span></div>
+                                <div class="col-xs-3 col-sm-3 col-md-3"><span>装修工期：<span class="date">其他</span>天</span> </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6"><span>位置：</span><span class="village">其他</span> </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row start_img_small">
-                <div class="col-sm-12 col-xs-12 col-md-12">
-                    <img src="../image/原始结构图.png"/>
-                </div>
-            </div>
-            <div class="row start_img">
-                <div class="col-sm-12 col-xs-12 col-md-12">
-                    <img src="../image/结构图.png"/>
-                </div>
-            </div>
-            <div class="row start_img_small">
-                <div class="col-sm-12 col-xs-12 col-md-12">
-                    <img src="../image/休闲区1.png"/>
-                </div>
-            </div>
-            <div class="row start_img">
-                <div class="col-sm-12 col-xs-12 col-md-12">
-                    <img src="../image/休闲区.png"/>
-                </div>
-            </div>
-            <div class="row start_img_small">
-                <div class="col-sm-12 col-xs-12 col-md-12">
-                    <img src="../image/休闲区1.png"/>
-                </div>
-            </div>
-            <div class="row start_img">
-                <div class="col-sm-12 col-xs-12 col-md-12">
-                    <img src="../image/休闲区 .png"/>
-                </div>
+            <div class="content">
+
             </div>
         </div>
     </div>
@@ -182,9 +154,8 @@
 <div class="collect-shop" id="pg-block-click"><span class="uncollect-icon"></span></div>
 <div class="go-top" id="go_top"><span class="glyphicon glyphicon-menu-up " aria-hidden="true"></span></div>
 
-
-<script src="../js/nav.js"></script>
 <script src="../js/utils.js"></script>
 <script src="../js/case_detail.js"></script>
+<script src="../js/nav.js"></script>
 </body>
 </html>
