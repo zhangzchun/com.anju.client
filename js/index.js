@@ -25,6 +25,37 @@
             s.style.display="none";
         }
     };
+    
+    // 登录注册
+    var login=document.querySelector(".login");
+    var register=document.querySelector(".register");
+    var s1 =document.querySelector(".s1");
+    var nick_name=document.querySelector(".nick_name");
+    nick_name.style.display="none";
+    var token=window.localStorage && window.localStorage.getItem('token');
+    var user_id=window.localStorage && window.localStorage.getItem('user_id');
+    var nickname=window.localStorage && window.localStorage.getItem('nickname');
+
+    if (token) {
+        getData("http://127.0.0.1:8080/api/user/checkToken/", null,{"token": token}, function (res) {
+            if (res && res["status_code"] === "10003") {
+                login.style.display="none";
+                register.style.display="none";
+                s1.style.display="none";
+                nick_name.style.display="block";
+                nick_name.innerText=nickname;
+                nick_name.onclick=function () {
+                    location.href="../pages/personal_center.html?user_id="+user_id
+                }
+
+            }else{
+                login.style.display="block";
+                register.style.display="block";
+                s1.style.display="block";
+                nick_name.style.display="none";
+            }
+        });
+    }
 
     var oWidth = parseFloat(document.body.clientWidth);
     window.onresize = ()=>{
