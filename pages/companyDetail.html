@@ -94,7 +94,7 @@
                 <div class="row">
 
                     <div class="left-wrap wrap-l col-md-7">
-                        <img src="../image/company_img01.jpg"/>
+                        <img src="../image/company_img01.jpg" class="company_img"/>
                     </div>
 
                     <div class="right-wrap wrap-r col-md-5">
@@ -166,7 +166,7 @@
                         </div>
 
                         <div class="contact-bar">
-                            <button class="orange-btn" id="replay_btn">免费预约</button>
+                            <button class="orange-btn replay_btn">免费预约</button>
                         </div>
 
                     </div>
@@ -202,7 +202,7 @@
 
                             <div class="title-bar">
                                 <span class="cont-title">设计案例</span>
-                                <a href="#" class="check-all" target="_blank">全部></a>
+                                <a href="#" class="check-all">全部></a>
                             </div>
 
                             <div class="container-fluid case">
@@ -210,22 +210,22 @@
                                 <div class="row case-cont">
 
                                     <!--<div class="card-bx col-xs-4 col-sm-4 col-md-4">-->
-                                        <!--<a href="">-->
-                                            <!--<div class="img-ct">-->
-                                                <!--<img src="../image/20181013_549510fca51254e5c38cobhkqj7fyee0_335x228M.jpg"/>-->
+                                    <!--<a href="">-->
+                                    <!--<div class="img-ct">-->
+                                    <!--<img src="../image/20181013_549510fca51254e5c38cobhkqj7fyee0_335x228M.jpg"/>-->
 
-                                            <!--</div>-->
-                                            <!--<div class="card-info">-->
-                                                <!--<p class="card-name ect">雅私阁装饰</p>-->
-                                                <!--<p class="card-detail">333m² / 公寓 / 其他 / 全包</p>-->
-                                                <!--<p class="card-cost ect">-->
-                                                    <!--<span>-->
-                                                        <!--11-->
-                                                    <!--</span>-->
-                                                    <!--万-->
-                                                <!--</p>-->
-                                            <!--</div>-->
-                                        <!--</a>-->
+                                    <!--</div>-->
+                                    <!--<div class="card-info">-->
+                                    <!--<p class="card-name ect">雅私阁装饰</p>-->
+                                    <!--<p class="card-detail">333m² / 公寓 / 其他 / 全包</p>-->
+                                    <!--<p class="card-cost ect">-->
+                                    <!--<span>-->
+                                    <!--11-->
+                                    <!--</span>-->
+                                    <!--万-->
+                                    <!--</p>-->
+                                    <!--</div>-->
+                                    <!--</a>-->
                                     <!--</div>-->
 
                                 </div>
@@ -250,12 +250,29 @@
 
                             <div class="title-bar">
                                 <span class="cont-title">设计团队</span>
-                                <a href="#" class="check-all" target="_blank">全部></a>
+                                <a href="#" class="check-all">全部></a>
                             </div>
 
                             <div class="container-fluid portrait">
 
                                 <div class="row portrait-cont">
+                                    <!--<div class="portrait-bx col-sm-6 col-md-3" id="${res['content'][i]['des_id']}">-->
+                                    <!--<a href="#" target="_blank">-->
+                                    <!--<div class="img-ct">-->
+                                    <!--<img class="img&#45;&#45;lazy" src="${res['content'][i]['des_icon']}" data-original="" alt="设计师头像" style="display: inline;">-->
+                                    <!--</div>-->
+
+                                    <!--<div class="portrait-info">-->
+                                    <!--<p class="portrait-name">-->
+                                    <!--${res['content'][i]['des']}-->
+                                    <!--</p>-->
+
+                                    <!--<p class="portrait-detail">-->
+                                    <!--${res['content'][i]['case_num1']}套案例-->
+                                    <!--</p>-->
+                                    <!--</div>-->
+                                    <!--</a>-->
+                                    <!--</div>-->
 
                                 </div>
 
@@ -353,7 +370,7 @@
                                 <div class="intro-avatar">
                                     <div class="avatar-box">
 
-                                        <img src="../image/company_icon01.jpg" height="150" width="150"/>
+                                        <img src="../image/company_icon01.jpg" class="company_icon" height="150" width="150"/>
 
                                     </div>
                                 </div>
@@ -404,7 +421,7 @@
                                     </div>
                                 </div>
                                 <div class="intro-toolbar">
-                                    <button class="btn-dark">免费预约</button>
+                                    <button class="btn-dark replay_btn">免费预约</button>
                                 </div>
 
                             </div>
@@ -436,14 +453,19 @@
 
         <div class="content-body">
             <p class="virtual_title">
-                免费预约<span>星卡星装饰</span>装修服务
+                免费预约<span class="company_name"><!--公司名--></span>装修服务
             </p>
 
-            <div class="virtual_info" style="display: none;">
-                <p>请先到个人中心填写房屋信息...</p>
+            <div class="virtual_login" style="display: none;">
+                <a href="login.html">点击前往登录--></a>
             </div>
 
-            <div class="select-house" style="">
+
+            <div class="virtual_info" style="display: none;">
+                <a href="personal_center.html">点击到个人中心填写房屋信息...</a>
+            </div>
+
+            <div class="select-house" style="display: none;">
 
                 <select name="" id="house_select" class="house_block" >
 
@@ -461,7 +483,7 @@
                 </select>
 
                 <button class="submit_btn" disabled="true">
-                立即预约
+                    立即预约
                 </button>
 
             </div>

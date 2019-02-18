@@ -539,7 +539,7 @@ i {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 1000;
+    z-index: 10000;
 
 }
 
@@ -551,7 +551,7 @@ i {
     min-width: 260px;
     min-height: 200px;
 
-    margin: 100px auto;
+    margin: 160px auto;
     background: #fff;
 
 }
@@ -585,7 +585,7 @@ i {
 
 }
 
-.virtual_title {
+.virtual_title, .virtual_login, .virtual_info {
     margin-top: 20px;
     font-family: MicrosoftYaHei-Bold;
     font-size: 20px;
@@ -593,7 +593,7 @@ i {
     color: #444;
 }
 
-.virtual_info {
+.virtual_info, .virtual_title span {
 
     margin-top: 20px;
     font-family: MicrosoftYaHei-Bold;
