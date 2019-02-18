@@ -4,7 +4,7 @@
 (function () {
 
     var diary_id=location.href.split("?diary_id=")[1];
-    getData("http://127.0.0.1:8080/api/diary/diaryInfo/",{"diary_id":diary_id},null,function (res) {
+    getData("http://127.0.0.1:8080/api/diary/diaryDetail/",{"diary_id":diary_id},null,function (res) {
         if (res && res["status_code"]==="10009"){
             var user_icon=document.querySelector("#user_icon");
             var user_name=document.querySelector("#user_name");
