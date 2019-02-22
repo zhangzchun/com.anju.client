@@ -2,8 +2,11 @@
 // 闭合函数--begin
 (function () {
 
+    // 页面跳转
+    window.sessionStorage.setItem('from', location.href);
+
     // 公司id
-    var company_id=location.href.split("?company_id=")[1];
+    var company_id=parseInt(location.href.split("?company_id=")[1]);
 
     // ajax获取公司所有设计师数据,渲染--begin
     getData("http://127.0.0.1:8080/api/designer/designerList/",{"company_id":company_id},null,

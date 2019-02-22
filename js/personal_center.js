@@ -1,4 +1,8 @@
 (function () {
+
+    // 页面跳转
+    window.sessionStorage.setItem('from', location.href);
+
     var center_left=document.querySelector('.container_center_left');
     //初始让个人中心首页显示出来
     center_left.nextElementSibling.children[0].style.display='block';

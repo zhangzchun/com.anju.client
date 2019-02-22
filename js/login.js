@@ -1,5 +1,6 @@
 
 (function () {
+
     var tel=document.querySelector('#txt_telephone');
     var tel_error=document.querySelector('#tel_error');
     var password=document.querySelector('#txt_password');
@@ -21,7 +22,7 @@
         if(checkPassword() && checkTelphone()){
             //    开始提交后台
             var user={"telephone":tel.value,"password":password.value};
-            postData('http://127.0.0.1:8080/api/user/login/',user,function (res) {
+            postData('http://127.0.0.1:8080/api/user/login/',user,null,function (res) {
                 if(res && res.status_code=='10003'){
                     localStorage.setItem('token',res.token);
                     localStorage.setItem('user_id',res.user_id);

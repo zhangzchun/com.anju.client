@@ -1,4 +1,7 @@
 (function() {
+    //页面跳转
+    window.sessionStorage.setItem('from', location.href);
+
     var progress_exp=document.querySelector('#progress_exp');
 
     var progressType=document.querySelector('#progressType');

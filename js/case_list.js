@@ -1,4 +1,8 @@
 (function () {
+    // 页面跳转
+    window.sessionStorage.setItem('from', location.href);
+
+
     var table=document.querySelector('.font');
     var con = document.querySelectorAll(".condition");
     var idData=document.querySelector('#idData');

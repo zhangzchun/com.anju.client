@@ -1,4 +1,8 @@
 (function () {
+
+    // 页面跳转
+    window.sessionStorage.setItem('from', location.href);
+
     //  筛选
     var table=document.querySelector('.font');
     var con = document.querySelectorAll(".condition");

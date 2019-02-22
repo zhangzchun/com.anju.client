@@ -40,7 +40,7 @@ function getData(url,args=null,headers=null,cb) {
 }
 
 
-function postData(url,args=null,cb) {
+function postData(url,args=null,headers=null,cb) {
     var oAjax = null;
     oAjax = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
 
@@ -56,6 +56,11 @@ function postData(url,args=null,cb) {
     //提交方式二
 
     oAjax.setRequestHeader("Content-Type","application/json");
+    if(headers){
+        for(var key in headers){
+            oAjax.setRequestHeader(key,headers[key]);
+        }
+    }
     oAjax.send(JSON.stringify(args));
     oAjax.onreadystatechange=function(){
         if(oAjax.readyState==4){
@@ -73,7 +78,7 @@ function postData(url,args=null,cb) {
                 location.href='pages/404.html';
             }
         }
-    }
+    };
 
     //转化格式
     function addData(con) {
@@ -83,8 +88,6 @@ function postData(url,args=null,cb) {
         }
         return str.slice(0,-1);
     }
-
-
 
 }
 

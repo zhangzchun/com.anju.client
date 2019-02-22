@@ -3,7 +3,20 @@
  */
 (function () {
 
-    var diary_id=location.href.split("?diary_id=")[1];
+    // 页面跳转
+    window.sessionStorage.setItem('from', location.href);
+    // 日记id
+    var diary_id=parseInt(location.href.split("?diary_id=")[1]);
+
+    //用户token
+    var token = window.localStorage && window.localStorage.getItem('token');
+    //用户id
+    var user_id=window.localStorage && window.localStorage.getItem('user_id');
+
+    //收藏信息
+    var collect={"content_id":diary_id,"collect_type_id":1,"user_id":user_id,};
+
+
     getData("http://127.0.0.1:8080/api/diary/diaryDetail/",{"diary_id":diary_id},null,function (res) {
         if (res && res["status_code"]==="10009"){
             var user_icon=document.querySelector("#user_icon");
@@ -58,20 +71,77 @@
     });
 
 
-    // 收藏
+    // 收藏按钮-begin
     var pg_click=document.querySelector('#pg-block-click');
     var span=pg_click.children[0];
     var txt=pg_click.lastChild;
 
+    //渲染收藏信息--begin
+    if (token) {
+        postData('http://127.0.0.1:8080/api/user/collectDetail/',collect,{"token":token},
+            function (res) {
+                if (res && res["status_code"]==="10009") {
+                    span.classList.toggle('collect-icon');
+                    txt.nodeValue='已收藏';
+
+                } else {
+                    alert(res["status_text"]);
+                }
+
+            });
+    }
+    //渲染收藏信息--end
+
+    // 收藏按钮--begin
     pg_click.onclick=function () {
         // alert(span.classList);
-        span.classList.toggle('collect-icon');
-        if (txt.nodeValue=='已收藏') {
-            txt.nodeValue='收藏';
-        }else {
-            txt.nodeValue='已收藏';
+        // span.classList.toggle('collect-icon');
+
+        if (token) {
+            if (txt.nodeValue==='已收藏') {
+                // txt.nodeValue='收藏';
+                // 取消收藏公司
+                postData('http://127.0.0.1:8080/api/user/cutCollect/',collect,{"token": token},
+                    function (res) {
+                        if (res && res["status_code"]==="10040") {
+                            // 取消收藏公司成功
+                            span.classList.toggle('collect-icon');
+                            txt.nodeValue='收藏';
+
+                        } else if (res && res["status_code"]==="10006") {
+                            //登陆过期
+                            alert(res["status_text"]);
+                        }else {
+                            alert(res["status_text"]);
+                        }
+                    });
+            }else {
+                // txt.nodeValue='已收藏';
+                // 收藏公司
+                postData('http://127.0.0.1:8080/api/user/makeCollect/',collect,{"token": token},
+                    function (res) {
+                        if (res && res["status_code"]==="10030") {
+                            // 收藏公司成功
+                            span.classList.toggle('collect-icon');
+                            txt.nodeValue='已收藏';
+
+                        } else if (res && res["status_code"]==="10006"){
+                            //登陆过期
+                            alert(res["status_text"]);
+                        }else {
+                            alert(res["status_text"]);
+                        }
+                    });
+            }
+        } else {
+            // 未登录
+            // alert("收藏需登录,点击确定");
+            location.href="login.html";
         }
+
+
     };
+    // 收藏按钮--end
 
 
     // 目录固定

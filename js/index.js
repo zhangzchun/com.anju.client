@@ -10,6 +10,12 @@
     // });
 
 
+    // 页面跳转
+    window.sessionStorage.setItem('from', location.href);
+
+    var token=window.localStorage && window.localStorage.getItem('token');
+    var user_id=window.localStorage && window.localStorage.getItem('user_id');
+
 
     var nav_btn=document.querySelector("#nav_btn");
     var bs=document.querySelector("#bs-example-navbar-collapse-1");
@@ -32,8 +38,7 @@
     var s1 =document.querySelector(".s1");
     var nick_name=document.querySelector(".nick_name");
     nick_name.style.display="none";
-    var token=window.localStorage && window.localStorage.getItem('token');
-    var user_id=window.localStorage && window.localStorage.getItem('user_id');
+
     var nickname=window.localStorage && window.localStorage.getItem('nickname');
 
     if (token) {

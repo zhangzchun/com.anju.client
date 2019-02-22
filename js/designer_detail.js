@@ -1,7 +1,10 @@
 (function () {
 
+    // 页面跳转
+    window.sessionStorage.setItem('from', location.href);
+
     // 设计师id
-    var designer_id=location.href.split("?designer_id=")[1];
+    var designer_id=parseInt(location.href.split("?designer_id=")[1]);
 
     // ajax获取设计师数据,渲染
     getData("http://127.0.0.1:8080/api/designer/designerDetail/",{"designer_id":designer_id},null,

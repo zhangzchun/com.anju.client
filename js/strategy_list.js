@@ -3,6 +3,9 @@
  */
 (function () {
 
+    // 页面跳转
+    window.sessionStorage.setItem('from', location.href);
+
     //下拉按钮
     var dropdownMenu1 = document.querySelector("#dropdownMenu1");
     var strategy_ul = document.querySelector(".strategy_ul");
