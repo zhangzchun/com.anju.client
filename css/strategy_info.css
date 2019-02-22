@@ -166,7 +166,7 @@ textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
 }
 /*评论盖楼*/
 .comment_content{
-    width: 80%;
+    width: 90%;
     margin: auto;
 }
 /*一层*/
@@ -178,12 +178,14 @@ textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
 }
 /*一层头像*/
 .comment_content .user_icon{
-    width: 50px;
-    height: 50px;
+    width: 120px;
+    height: 60px;
+    text-align: center;
 }
 .comment_content .user_icon img{
-    width: 100%;
+    width: 50%;
     height: 100%;
+    border-radius: 50%;
     object-fit: contain;
 }
 /*一层主体*/
@@ -213,21 +215,7 @@ textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
     margin-left: 20px;
 }
 
-@media (max-width: 767px) {
-    .comment_content .user_icon{
-        width: 30px;
-        height: 30px;
-    }
-    .comment_txt ,.comment_footer{
-        font-size: 12px;
-    }
-    .comment_footer .comment_num_reply a{
-        font-size: 10px;
-    }
-    .comment_num_reply a:first-child{
-        display: none;
-    }
-}
+
 
 /*回复框*/
 .comment_content .reply_box{
@@ -282,4 +270,31 @@ textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+}
+@media (max-width: 767px) {
+    .comment_content .user_icon{
+        width: 30px;
+        height: 30px;
+    }
+    .comment_content .user_icon img{
+        width: 100%;
+        height: 100%;
+    }
+    .comment_main .nickname,.comment_main02 .nickname{
+        font-size: 12px;
+    }
+    .comment_txt ,.comment_footer{
+        font-size: 12px;
+    }
+    .comment_footer .comment_num_reply a{
+        font-size: 10px;
+    }
+    .comment_content .reply_box button{
+        font-size: 10px;
+        width: 58px;
+        height: 22px;
+    }
+    .comment_content .first_floor,.comment_content .second_floor{
+        padding-top: 10px;
+    }
 }

@@ -75,7 +75,7 @@
         });
     }
     function postCompanyData(url,args){
-        postData(url,args,function (res) {
+        postData(url,args,null,function (res) {
             if(res && res['status_code']==='10009'){
                 for(let r of res['content']){
                     idData.innerHTML+=`<tr><td><div class="row company_item" id="${r['id']}">
@@ -220,8 +220,7 @@
     if (location.href.indexOf("search_content") !== -1){
         var myurl01 = location.href.split("=")[1];
         getCompanyData("http://127.0.0.1:8080/api/search/", {"search_content": decodeURI(myurl01), "search_condition": "装修公司"})
-    }else{
-        if(con[0].style.display==='none' && con[1].style.display==='none' && con[2].style.display==='none') {
+    }else if(con[0].style.display==='none' && con[1].style.display==='none' && con[2].style.display==='none') {{
             getCompanyData('http://127.0.0.1:8080/api/company/companyList/',null);
         }
     }

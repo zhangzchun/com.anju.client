@@ -3,17 +3,19 @@ ul,li,a{
     padding: 0;
 }
 body{
-    background: white;
-    width: 1340px;
+    background: #F8F8F8;
+    width: 100%;
 }
 
 /*---------------------主体开始--------------------*/
 .container_center{
-    width: 80%;
-    margin: 50px auto 0;
+    width: 1072px;
+    margin: 20px auto 0;
 }
 /*个人中心左侧开始*/
 .container_center_left li{
+    background-color: white;
+    text-align: center;
     cursor: pointer;
 }
 .container_center_left .first_ul{
@@ -29,11 +31,14 @@ body{
     padding: 20px 10px;
 }
 .container-fluid .container_center .center_left>ul{
-    margin-left: 20px;
+    margin:0 20px;
     list-style: none;
 }
 .container-fluid .container_center .more{
     padding-left: 10px;
+}
+.container-fluid .container_center .more ul li:hover{
+    background-color: #d3d3d3;
 }
 .container-fluid .container_center .more>:nth-child(2){
     display: none;
@@ -44,6 +49,7 @@ body{
 }
 .container-fluid .container_center .more>:nth-child(4) li{
     padding: 5px 0;
+    text-align: center;
 }
 
 /*个人中心左侧结束*/
@@ -59,6 +65,7 @@ body{
 /*个人中心页开始*/
 .container_center .center_right .center_right_top{
     border: solid 1px #cccccc;
+    background-color: white;
 }
 .container_center .center_right .img_info{
     display: flex;
@@ -94,10 +101,11 @@ body{
     margin-top: 15px;
     padding: 30px;
     border-left: solid 1px grey;
- }
+}
 .container_center .center_right .center_right_middle{
     margin-top: 10px;
     border: solid 1px #cccccc;
+    background-color: white;
 }
 
 .house_info{
@@ -114,47 +122,47 @@ body{
     /*display: none;*/
 }
 .add_house{
-    padding: 15px 50px 15px 0;
+    padding: 10px 50px 10px 0;
     text-align: center;
     cursor: pointer;
-    width: 800px;
-    margin: auto;
+    width: 500px;
+    margin: 0 auto 20px;
     color: #f8f8f8;
     background: #00ba00;
 }
 
- .diary{
+.diary{
     padding: 10px 0;
     border-bottom:dotted 1px  grey;
     margin-left: 4%;
 }
- .diary :first-child{
+.diary :first-child{
     border-left:solid 2px green;
     padding-left: 10px;
     font-weight: 600;
 }
- .progress{
+.progress{
     display: flex;
     margin-left: 20px;
     margin-top: 20px;
-     background: white;
-     border: none;
-     box-sizing: border-box;
+    background: white;
+    border: none;
+    box-sizing: border-box;
 }
- .schedule{
+.schedule{
     width: 220px;
     height: 15px;
     border: solid 1px grey;
     margin: 0 10px;
 }
- .progress_bar{
+.progress_bar{
     width: 110px;
     height: 14px;
     color: white;
     text-align: center;
     line-height: 15px;
     background: #00ba00;
-     font-size: 0.1em;
+    font-size: 0.1em;
 }
 .table_info tr td {
     border: none!important;
@@ -208,6 +216,9 @@ body{
 /*个人中心页结束*/
 
 /*预约*/
+.reservation{
+    background-color: white;
+}
 .reservation_header{
     padding: 5px;
     font-size: 16px;
@@ -315,7 +326,9 @@ tbody .td03{
 
 /*收藏*/
 /*主体*/
-
+.collection{
+    background-color: white;
+}
 /*头部*/
 .collection {
     border: solid 1px #CCCCCC;
@@ -393,7 +406,6 @@ tbody .td03{
 .case_num{
     margin-right: 20px;
 }
-
 /*攻略*/
 .collection_content .image{
     flex: 1;
@@ -425,13 +437,13 @@ tbody .td03{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     color: #999999;
 }
 .collection_content .user_info img{
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     object-fit: contain;
     border-radius: 50%;
 }
@@ -446,6 +458,7 @@ tbody .td03{
 .collection_content .content_info .diary_image img{
     width: 96px;
     height: 96px;
+    margin-right: 10px;
 }
 
 /*默认显示*/

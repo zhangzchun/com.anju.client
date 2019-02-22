@@ -361,10 +361,11 @@
 
     window.onscroll = function () {
         var s = document.body.scrollTop || document.documentElement.scrollTop;
+        // var s = document.body.scroll || document.documentElement.scrollTop;
         if (s > H) {
 
-            // company_right.style = "position:fixed;top:80px;left:76.8%;right:auto; width:15.1%;";
-            company_right.style = "position:fixed;top: 120px; left: auto; right: auto; margin-left: 20px;"
+            company_right.style = "position:fixed;top:80px;left:71.45%;right:auto; width:18.6%;";
+            // company_right.style = "position:fixed;top: 120px; left: auto; right: auto; margin-left: 20px;"
         } else {
             company_right.style = "position: relative; top: 0px; left: auto; right: auto; margin-left: 20px;"
         }

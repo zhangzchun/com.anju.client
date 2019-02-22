@@ -4,10 +4,7 @@
 // 导航
 (function () {
 
-    // //Ajax 请求
-    // getData("127.0.0.1:8080/api/",null,null,function (res) {
-    //     location.href='index.html';
-    // });
+
 
 
     // 页面跳转
@@ -50,9 +47,19 @@
                 nick_name.style.display="block";
                 nick_name.innerText=nickname;
                 nick_name.onclick=function () {
-                    location.href="../pages/personal_center.html?user_id="+user_id
+                    token=window.localStorage && window.localStorage.getItem('token');
+                    if(token){
+                        getData("http://127.0.0.1:8080/api/user/checkToken/", null,{"token": token}, function (res) {
+                            if (res && res["status_code"] === "10003") {
+                                location.href = "./pages/personal_center.html?user_id=" + user_id
+                            }else{
+                                location.href="./pages/login.html"
+                            }
+                        })
+                    }else{
+                        location.href="./pages/login.html"
+                    }
                 }
-
             }else{
                 login.style.display="block";
                 register.style.display="block";

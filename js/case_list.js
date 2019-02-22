@@ -101,7 +101,7 @@
         });
     }
     function postCompanyData(url,args){
-        postData(url,args,function (res) {
+        postData(url,args,null,function (res) {
             if(res && res['status_code']==='10009'){
                 for(let i=0;i<res['content'].length;i=i+4){
                     if(i+3<res['content'].length){

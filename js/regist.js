@@ -25,7 +25,7 @@
         if(checkTelphone() && checkName() &&checkPassword() && checkAgree()){
             //  开始提交后台
             var user={"telephone":tel.value,"nickname":name.value, "password":password.value};
-            postData('http://192.168.2.85:8080/api/user/regist/',user,function (res) {
+            postData('http://192.168.2.85:8080/api/user/regist/',user,null,function (res) {
                 if(res && res.status_code=='10001'){
 
                     localStorage.setItem('token',res.token);

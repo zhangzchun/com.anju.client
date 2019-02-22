@@ -419,6 +419,7 @@ textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
 .comment_content .user_icon img{
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     object-fit: contain;
 }
 /*一层主体*/
