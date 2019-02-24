@@ -129,7 +129,7 @@
                 //设计师点击事件--end
 
             } else {
-                alert(res["status_text"]);
+                console.log(res["status_text"]);
             }
         }
     );
@@ -223,7 +223,7 @@
             submit_btn.disabled='disabled';
         }
         else{
-            alert(house_select.value);
+            // alert(house_select.value);
             submit_btn.disabled="";
         }
     };
@@ -244,7 +244,7 @@
 
                 }else {
                     // 预约失败
-                    alert(res["status_text"]);
+                    console.log(res["status_text"]);
                 }
             });
     };
@@ -276,7 +276,7 @@
                     txt.nodeValue='已收藏';
 
                 } else {
-                    // alert(res["status_text"]);
+                    console.log(res["status_text"]);
                 }
 
             });
@@ -303,7 +303,7 @@
                             //登陆过期
                             location.href="login.html";
                         }else {
-                            alert(res["status_text"]);
+                            console.log(res["status_text"]);
                         }
                     });
             }else {
@@ -320,7 +320,7 @@
                             //登陆过期
                             location.href="login.html";
                         }else {
-                            alert(res["status_text"]);
+                            console.log(res["status_text"]);
                         }
                     });
             }

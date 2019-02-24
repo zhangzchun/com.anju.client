@@ -35,7 +35,7 @@
                     }
 
                 }else {
-                    alert(res.status_text);
+                    console.log(res.status_text);
                 }
             })
         }

@@ -66,7 +66,7 @@
                             </div>`
             }
         } else{
-            alert(res["status_text"])
+            console.log(res["status_text"])
         }
     });
 
@@ -85,7 +85,7 @@
                     txt.nodeValue='已收藏';
 
                 } else {
-                    alert(res["status_text"]);
+                    console.log(res["status_text"]);
                 }
 
             });
@@ -110,9 +110,9 @@
 
                         } else if (res && res["status_code"]==="10006") {
                             //登陆过期
-                            alert(res["status_text"]);
+                            location.href="login.html";
                         }else {
-                            alert(res["status_text"]);
+                            console.log(res["status_text"]);
                         }
                     });
             }else {
@@ -127,9 +127,9 @@
 
                         } else if (res && res["status_code"]==="10006"){
                             //登陆过期
-                            alert(res["status_text"]);
+                            location.href="login.html";
                         }else {
-                            alert(res["status_text"]);
+                            console.log(res["status_text"]);
                         }
                     });
             }
@@ -200,10 +200,8 @@
                                     }
                                 }
                             }
-                        }else if(res && res["status_code"]==="10008") {
-
                         }else{
-                            alert(res["status_text"])
+                            console.log(res["status_text"])
                         }
                     });
                 }
@@ -228,7 +226,7 @@
                     } else if(res && res["status_code"] === "10006"){
                         location.href="login.html"
                     }else {
-                        alert(res["status_text"])
+                        console.log(res["status_text"])
                     }
                 });
             } else {
@@ -277,7 +275,7 @@
                         } else if(res && res["status_code"] === "10006"){
                             location.href="login.html"
                         }else {
-                            alert(res["status_text"])
+                            console.log(res["status_text"])
                         }
                     });
                     node.parentElement.parentElement.classList.toggle("hidden");
@@ -302,7 +300,7 @@
                         } else if(res && res["status_code"] === "10006"){
                             location.href="login.html"
                         }else {
-                            alert(res["status_text"])
+                            console.log(res["status_text"])
                         }
                     });
                     node.parentElement.parentElement.classList.toggle("hidden");

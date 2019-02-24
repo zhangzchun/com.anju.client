@@ -6,6 +6,102 @@
     var center_left=document.querySelector('.container_center_left');
     //初始让个人中心首页显示出来
     center_left.nextElementSibling.children[0].style.display='block';
+    //用户token
+    var token = window.localStorage && window.localStorage.getItem('token');
+    //用户id
+    var user_id=window.localStorage && window.localStorage.getItem('user_id');
+
+
+    // 导航开始
+    var nav_btn=document.querySelector("#nav_btn");
+    var bs=document.querySelector("#bs-example-navbar-collapse-1");
+    var ss=document.querySelectorAll(".ss");
+    bs.style.display="none";
+    nav_btn.onclick=function () {
+        if (bs.style.display==="none"){
+            bs.style.display="block";
+        }else {
+            bs.style.display="none";
+        }
+        for (var s of ss){
+            s.style.display="none";
+        }
+    };
+
+// 导航搜索
+    var search_btn_block=document.querySelector('#search_btn_block');
+    var search_txt=document.querySelector('#search_txt');
+    var form=document.querySelector('.nav_hidden form');
+    var search_btn_none=document.querySelector("#search_btn_none");
+    var search_header=document.querySelector(".search_header");
+    search_txt.style.display="none";
+    search_header.style.display="none";
+    search_btn_none.style.display="none";
+    search_btn_block.style.display="block";
+    search_btn_block.onclick=function () {
+        search_txt.style.display = "block";
+        search_header.style.display = "block";
+        search_btn_none.style.display = "block";
+        search_btn_block.style.display = "none";
+        form.style.border = "solid 1px #888888";
+    };
+    search_btn_none.onclick=function () {
+        search_txt.style.display="none";
+        search_header.style.display="none";
+        search_btn_none.style.display="none";
+        search_btn_block.style.display="block";
+        form.style.border="none";
+    };
+    //搜索
+    var li_company=document.querySelector(".li_company");
+    var li_strategy=document.querySelector(".li_strategy");
+    var li_diary=document.querySelector(".li_diary");
+    var dropdownMenu=document.querySelector("#dropdownMenu");
+    var search_ul=document.querySelector(".search_ul");
+
+    search_ul.style.display="none";
+    dropdownMenu.onclick=function () {
+        if (search_ul.style.display==="none"){
+            search_ul.style.display="block";
+        }else {
+            search_ul.style.display="none"
+        }
+    };
+    li_company.onclick=function () {
+        dropdownMenu.innerHTML=li_company.innerText + '<span class="caret"></span>';
+    };
+    li_strategy.onclick=function () {
+        dropdownMenu.innerHTML=li_strategy.innerText + '<span class="caret"></span>';
+    };
+    li_diary.onclick=function () {
+        dropdownMenu.innerHTML=li_diary.innerText + '<span class="caret"></span>';
+    };
+    search_txt.onkeyup=function (event) {
+        if (event.keyCode=="13"){
+            var search_condition=dropdownMenu.innerText;
+            var search_content=search_txt.value;
+            if (search_content){
+                if (search_condition==="装修公司") {
+                    location.href="company_list.html?search_content="+search_content
+                }else if (search_condition==="装修攻略" || search_condition==="装修日记"){
+                    location.href="strategy_list.html?search_content="+search_content+"&search_condition="+search_condition
+                }
+            } else{
+                alert("搜索内容不能为空")
+            }
+        }
+    };
+//昵称显示
+    var exit=document.querySelector(".exit");
+
+    exit.onclick=function () {
+        localStorage.clear();
+        location.href="../index.html";
+    };
+
+    // 导航结束
+
+
 
     var flag=true;
     var flags=true;
@@ -230,38 +326,44 @@
 // 动态生成预约
     var tbody=document.querySelector(".reservation tbody");
     var default_reservation=document.querySelector(".default_reservation");
-    for (var i=0;i<3;i++){
-        tbody.innerHTML +=`<tr>
+    getData("http://127.0.0.1:8080/api/user/getAppointments/",{"user_id":user_id},null,function (res) {
+        if (res && res["status_code"]=="10009"){
+            for(var r of res["content"]){
+                tbody.innerHTML +=`<tr id="${r["id"]}">
                             <td class="td01">
                                 <div class="reservation_company_icon">
-                                    <img src="../image/company_logo03.jpg" alt="">
+                                    <img src="${r["company_icon"]}" alt="">
                                 </div>
                                 <div class="reservation_company_info">
-                                    <span class="reservation_company_name">星卡星装饰</span>
+                                    <span class="reservation_company_name">${r["company_name"]}</span>
                                     <div>
                                         <span>设计案例 :</span>
-                                        <span class="case_num">1635</span>
+                                        <span class="case_num">${r["case_num"]}</span>
                                         <span>装修工地 :</span>
-                                        <span class="work_site_num">573</span>
+                                        <span class="work_site_num">${r["work_site_num"]}</span>
+                                    </div>
+                                    <div>
+                                        <span>联系电话 :</span>
+                                        <span>${r["contact_tel"]}</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="td02">
                                 <div class="house_type">
                                     <span>户型 :</span>
-                                    <span>别墅豪宅</span>
+                                    <span>${r["house_type"]}</span>
                                 </div>
                                 <div class="house_area">
                                     <span>面积 :</span>
-                                    <span>500m平方</span>
+                                    <span>${r["area"]}m平方</span>
                                 </div>
                                 <div class="house_address">
                                     <span>地址 :</span>
-                                    <span>苏州市沧浪区</span>
+                                    <span>苏州市${r["address"]}</span>
                                 </div>
                                 <div class="house_village">
                                     <span>小区 :</span>
-                                    <span>沧浪别墅</span>
+                                    <span>${r["village"]}</span>
                                 </div>
                             </td>
                             <td class="td03">
@@ -271,23 +373,36 @@
                                 <button type="button" class="cancel">取消预约</button>
                             </td>
                         </tr>`
-    }
-    if (tbody.innerHTML===""){
-        default_reservation.style.display="flex";
-    } else{
-        default_reservation.style.display="none";
-    }
-    var cancel_btn=document.querySelectorAll(".cancel");
-    for (var c of cancel_btn){
-        c.onclick=function () {
-            tbody.removeChild(this.parentElement.parentElement);
+            }
+
             if (tbody.innerHTML===""){
                 default_reservation.style.display="flex";
             } else{
                 default_reservation.style.display="none";
             }
-        };
-    }
+            var cancel_btn=document.querySelectorAll(".cancel");
+            for (var c of cancel_btn){
+                c.onclick=function (event) {
+                    var a_id=event.target.parentElement.parentElement.id;
+                    getData("http://127.0.0.1:8080/api/user/cutAppointment/",{"id":a_id},null,function (res) {
+                        if (res && res["status_code"]=="10020") {
+
+                            tbody.removeChild(event.target.parentElement.parentElement);
+                            if (tbody.innerHTML === "") {
+                                default_reservation.style.display = "flex";
+                            } else {
+                                default_reservation.style.display = "none";
+                            }
+                        }else {
+                            console.log(res["status_text"])
+                        }
+                    });
+                };
+            }
+        } else {
+            console.log(res["status_text"]);
+        }
+    });
 
 
 // 收藏
@@ -296,13 +411,14 @@
     var collection_case = document.querySelector(".collection_case");
     var default_case = document.querySelector(".default_case");
     var case_chk=document.querySelector(".case_chk");
-    getData("http://127.0.0.1:8080/api/user/collectList/",{"collect_type":"case","user_id":1},null,function (res) {
-        for (var r of res["content"]) {
-            collection_case.innerHTML += `<div class="collection_main case_main" id="${r["id"]}">
+    getData("http://127.0.0.1:8080/api/user/collectList/",{"collect_type":"case","user_id":user_id},null,function (res) {
+        if(res && res["status_code"]==="10009"){
+            for (var r of res["content"]) {
+                collection_case.innerHTML += `<div class="collection_main case_main" id="${r["id"]}">
                             <div class="check">
                                 <input type="checkbox" class="chk_case">
                             </div>
-                            <div class="collection_content">
+                            <div class="collection_content case_content">
                                 <div class="case_img">
                                     <img src="${r["img_url"]}" alt="">
                                 </div>
@@ -325,20 +441,23 @@
                                 </div>
                             </div>
                         </div>`
-        }
-        var chk_all_case = document.querySelector("#chk_all_case");
-        var chk_cases = document.querySelectorAll(".chk_case");
-        var delete_case = document.querySelector("#delete_case");
-        chk_all(chk_all_case,chk_cases);
-        checkedAllRows(chk_all_case , chk_cases);
-        delete_collect(delete_case,".chk_case",collection_case,default_case,case_chk);
-        changePage(collection_case,default_case,case_chk);
-
-        var case_main=document.querySelectorAll(".case_main");
-        for (var cm of case_main) {
-            cm.onclick=function () {
-                location.href="case_detail.html?case_id="+this.id;
             }
+            var chk_all_case = document.querySelector("#chk_all_case");
+            var chk_cases = document.querySelectorAll(".chk_case");
+            var delete_case = document.querySelector("#delete_case");
+            chk_all(chk_all_case,chk_cases);
+            checkedAllRows(chk_all_case , chk_cases);
+            delete_collect(delete_case,".chk_case",collection_case,default_case,case_chk);
+            changePage(collection_case,default_case,case_chk);
+
+            var case_content=document.querySelectorAll(".case_content");
+            for (var c of case_content) {
+                c.onclick=function () {
+                    location.href="case_detail.html?case_id="+this.parentElement.id;
+                }
+            }
+        }else {
+            console.log(res["status_text"])
         }
     });
 
@@ -347,46 +466,50 @@
     var collection_company = document.querySelector(".collection_company");
     var default_company = document.querySelector(".default_company");
     var company_chk=document.querySelector(".company_chk");
-    getData("http://127.0.0.1:8080/api/user/collectList/",{"collect_type":"company","user_id":1},null,function (res) {
-        for (var r of res["content"]) {
-            collection_company.innerHTML +=`<div class="collection_main company_main" id="${r["id"]}">
-                            <div class="check">
-                                <input type="checkbox" class="chk_company">
-                            </div>
-                            <div class="collection_content">
-                                <div class="company_icon">
-                                    <img src="${r["company_icon"]}" alt="">
+    getData("http://127.0.0.1:8080/api/user/collectList/",{"collect_type":"company","user_id":user_id},null,function (res){
+        if(res && res["status_code"]==="10009") {
+            for (var r of res["content"]) {
+                collection_company.innerHTML += `<div class="collection_main company_main" id="${r["id"]}">
+                                <div class="check">
+                                    <input type="checkbox" class="chk_company">
                                 </div>
-                                <div class="content_info">
-                                    <span class="company_name">${r["name"]}</span>
-                                    <div>
-                                        <span>设计案例 :</span>
-                                        <span class="case_num">${r["case_num"]}</span>
-                                        <span>装修工地 :</span>
-                                        <span class="work_site_num">${r["work_site_num"]}</span>
+                                <div class="collection_content company_content">
+                                    <div class="company_icon">
+                                        <img src="${r["company_icon"]}" alt="">
                                     </div>
-                                    <span>联系电话 :</span>
-                                    <span class="tel">${r["contact_tel"]}</span>
-                                    <div class="collection_time">
-                                        <span>${r["contact_tel"]}</span>
+                                    <div class="content_info">
+                                        <span class="company_name">${r["name"]}</span>
+                                        <div>
+                                            <span>设计案例 :</span>
+                                            <span class="case_num">${r["case_num"]}</span>
+                                            <span>装修工地 :</span>
+                                            <span class="work_site_num">${r["work_site_num"]}</span>
+                                        </div>
+                                        <span>联系电话 :</span>
+                                        <span class="tel">${r["contact_tel"]}</span>
+                                        <div class="collection_time">
+                                            <span>${r["contact_tel"]}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>`
-        }
-        var delete_company = document.querySelector("#delete_company");
-        var chk_companys = document.querySelectorAll(".chk_company");
-        var chk_all_company = document.querySelector("#chk_all_company");
-        chk_all(chk_all_company,chk_companys);
-        checkedAllRows(chk_all_company , chk_companys);
-        delete_collect(delete_company,".chk_company",collection_company,default_company,company_chk);
-        changePage(collection_company,default_company,company_chk);
-
-        var company_main=document.querySelectorAll(".company_main");
-        for (var cm of company_main) {
-            cm.onclick=function () {
-                location.href="companyDetail.html?company_id="+this.id;
+                            </div>`
             }
+            var delete_company = document.querySelector("#delete_company");
+            var chk_companys = document.querySelectorAll(".chk_company");
+            var chk_all_company = document.querySelector("#chk_all_company");
+            chk_all(chk_all_company, chk_companys);
+            checkedAllRows(chk_all_company, chk_companys);
+            delete_collect(delete_company, ".chk_company", collection_company, default_company, company_chk);
+            changePage(collection_company, default_company, company_chk);
+
+            var company_content = document.querySelectorAll(".company_content");
+            for (var cc of company_content) {
+                cc.onclick = function () {
+                    location.href = "companyDetail.html?company_id=" + this.parentElement.id;
+                }
+            }
+        }else {
+            console.log(res["status_text"])
         }
     });
 
@@ -395,45 +518,49 @@
     var collection_strategy=document.querySelector(".collection_strategy");
     var default_strategy = document.querySelector(".default_strategy");
     var strategy_chk=document.querySelector(".strategy_chk");
-    getData("http://127.0.0.1:8080/api/user/collectList/",{"collect_type":"strategy","user_id":1},null,function (res) {
-        for (var r of res["content"]) {
-            collection_strategy.innerHTML += `<div class="collection_main strategy_main" id="${r["id"]}">
-                            <div class="check">
-                                <input type="checkbox" class="chk_strategy">
-                            </div>
-                            <div class="collection_content">
-                                <div class="image">
-                                    <img src="${r["strategy_img"]}" alt="">
+    getData("http://127.0.0.1:8080/api/user/collectList/",{"collect_type":"strategy","user_id":user_id},null,function (res) {
+        if(res && res["status_code"]==="10009") {
+            for (var r of res["content"]) {
+                collection_strategy.innerHTML += `<div class="collection_main strategy_main" id="${r["id"]}">
+                                <div class="check">
+                                    <input type="checkbox" class="chk_strategy">
                                 </div>
-                                <div class="content_info">
-                                    <span>${r["strategy_title"]}</span>
-                                    <p>${r["lead"]}</p>
-                                    <div class="collection_time">
-                                        <span>${r["collect_date"]}</span>
+                                <div class="collection_content strategy_content">
+                                    <div class="image">
+                                        <img src="${r["strategy_img"]}" alt="">
+                                    </div>
+                                    <div class="content_info">
+                                        <span>${r["strategy_title"]}</span>
+                                        <p>${r["lead"]}</p>
+                                        <div class="collection_time">
+                                            <span>${r["collect_date"]}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>`
-        }
-        var strategy_text = document.querySelectorAll(".content_info p");
-        for (var p of strategy_text) {
-            if (p.innerText.length > 80) {
-                p.innerText = p.innerText.substring(0, 80) + "...";
+                            </div>`
             }
-        }
-        var chk_strategy = document.querySelectorAll(".chk_strategy");
-        var delete_strategy = document.querySelector("#delete_strategy");
-        var chk_all_strategy = document.querySelector("#chk_all_strategy");
-        chk_all(chk_all_strategy,chk_strategy);
-        checkedAllRows(chk_all_strategy , chk_strategy);
-        delete_collect(delete_strategy,".chk_strategy",collection_strategy,default_strategy,strategy_chk);
-        changePage(collection_strategy, default_strategy, strategy_chk);
+            var strategy_text = document.querySelectorAll(".content_info p");
+            for (var p of strategy_text) {
+                if (p.innerText.length > 80) {
+                    p.innerText = p.innerText.substring(0, 80) + "...";
+                }
+            }
+            var chk_strategy = document.querySelectorAll(".chk_strategy");
+            var delete_strategy = document.querySelector("#delete_strategy");
+            var chk_all_strategy = document.querySelector("#chk_all_strategy");
+            chk_all(chk_all_strategy, chk_strategy);
+            checkedAllRows(chk_all_strategy, chk_strategy);
+            delete_collect(delete_strategy, ".chk_strategy", collection_strategy, default_strategy, strategy_chk);
+            changePage(collection_strategy, default_strategy, strategy_chk);
 
-        var strategy_main=document.querySelectorAll(".strategy_main");
-        for (var sm of strategy_main) {
-            sm.onclick=function () {
-                location.href="strategy_info.html?strategy_id="+this.id;
+            var strategy_content = document.querySelectorAll(".strategy_content");
+            for (var sc of strategy_content) {
+                sc.onclick = function () {
+                    location.href = "strategy_info.html?strategy_id=" + this.parentElement.id;
+                }
             }
+        }else {
+            console.log(res["status_text"])
         }
     });
 
@@ -442,57 +569,61 @@
     var collection_diary=document.querySelector(".collection_diary");
     var default_diary = document.querySelector(".default_diary");
     var diary_chk = document.querySelector(".diary_chk");
-    getData("http://127.0.0.1:8080/api/user/collectList/",{"collect_type":"diary","user_id":1},null,function (res) {
-        for (var r of res["content"]) {
-            var s="";
-            for (var img of r["diary_img"]){
-                s += `<img src="${img}">`
-            }
-            collection_diary.innerHTML +=`<div class="collection_main diary_main" id="${r["diary_id"]}">
-                            <div class="check">
-                                <input type="checkbox" class="chk_diary">
-                            </div>
-                            <div class="collection_content">
-                                <div class="user_info">
-                                    <img src="${r["icon"]}" alt="">
-                                    <span>${r["nickname"]}</span>
+    getData("http://127.0.0.1:8080/api/user/collectList/",{"collect_type":"diary","user_id":user_id},null,function (res) {
+        if(res && res["status_code"]==="10009") {
+            for (var r of res["content"]) {
+                var s = "";
+                for (var img of r["diary_img"]) {
+                    s += `<img src="${img}">`
+                }
+                collection_diary.innerHTML += `<div class="collection_main diary_main" id="${r["diary_id"]}">
+                                <div class="check">
+                                    <input type="checkbox" class="chk_diary">
                                 </div>
-                                <div class="content_info">
-                                    <span>${r["diary_title"]}</span>
-                                    <div class="style">
-                                        <span>${r["style_name"]}</span>
-                                        <span>|</span>
-                                        <span class="company">${r["company"]}</span>
+                                <div class="collection_content diary_content">
+                                    <div class="user_info">
+                                        <img src="${r["icon"]}" alt="">
+                                        <span>${r["nickname"]}</span>
                                     </div>
-                                    <p>${r["diary_content"]}</p>
-                                    <div class="diary_image">${s}</div>
-                                    <div class="collection_time">
-                                        <span>${r["collect_date"]}</span>
+                                    <div class="content_info">
+                                        <span>${r["diary_title"]}</span>
+                                        <div class="style">
+                                            <span>${r["style_name"]}</span>
+                                            <span>|</span>
+                                            <span class="company">${r["company"]}</span>
+                                        </div>
+                                        <p>${r["diary_content"]}</p>
+                                        <div class="diary_image">${s}</div>
+                                        <div class="collection_time">
+                                            <span>${r["collect_date"]}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>`
-        }
-        var diary_text = document.querySelectorAll(".content_info p");
-        for (var p of diary_text) {
-            if (p.innerText.length > 60) {
-                p.innerText = p.innerText.substring(0, 60) + "...";
+                            </div>`
             }
-        }
-
-        var chk_all_diary = document.querySelector("#chk_all_diary");
-        var chk_diary = document.querySelectorAll(".chk_diary");
-        var delete_diary = document.querySelector("#delete_diary");
-        changePage(collection_diary,default_diary,diary_chk);
-        checkedAllRows(chk_all_diary , chk_diary);
-        chk_all(chk_all_diary,chk_diary);
-        delete_collect(delete_diary,".chk_diary",collection_diary,default_diary,diary_chk);
-
-        var diary_main=document.querySelectorAll(".diary_main");
-        for (var dm of diary_main) {
-            dm.onclick=function () {
-                location.href="diary_info.html?diary_id="+this.id;
+            var diary_text = document.querySelectorAll(".content_info p");
+            for (var p of diary_text) {
+                if (p.innerText.length > 60) {
+                    p.innerText = p.innerText.substring(0, 60) + "...";
+                }
             }
+
+            var chk_all_diary = document.querySelector("#chk_all_diary");
+            var chk_diary = document.querySelectorAll(".chk_diary");
+            var delete_diary = document.querySelector("#delete_diary");
+            changePage(collection_diary, default_diary, diary_chk);
+            checkedAllRows(chk_all_diary, chk_diary);
+            chk_all(chk_all_diary, chk_diary);
+            delete_collect(delete_diary, ".chk_diary", collection_diary, default_diary, diary_chk);
+
+            var diary_content = document.querySelectorAll(".diary_content");
+            for (var dc of diary_content) {
+                dc.onclick = function () {
+                    location.href = "diary_info.html?diary_id=" + this.parentElement.id;
+                }
+            }
+        }else {
+            console.log(res["status_text"])
         }
     });
 
@@ -548,31 +679,46 @@
 
     }
 
-    var collection_main=document.querySelectorAll(".collection_main");
-    for (var cm of collection_main) {
-        cm.onclick=function () {
-            location.href="strategy_info.html?strategy_id="+this.id;
-        }
-    }
 
 
 
+    // 删除收藏
 
-    // 删除
     function delete_collect(delete_f,chk,collection,default_f,f_chk) {
         delete_f.onclick = function () {
             var chks=document.querySelectorAll(chk);
             for (var ck of chks) {
                 if (ck.checked) {
-                    collection.removeChild(ck.parentElement.parentElement);
+                    var content_id=ck.parentElement.parentElement.id;
+                    var collect_type_id=0;
+                    if (this.id=="delete_case") {
+                        collect_type_id=1
+                    }else if(this.id=="delete_company"){
+                        collect_type_id=2
+                    }else if(this.id=="delete_strategy"){
+                        collect_type_id=3
+                    }else if(this.id=="delete_diary"){
+                        collect_type_id=4
+                    }
+                    var collect={"content_id":content_id,"collect_type_id":collect_type_id,"user_id":user_id};
+                    postData('http://127.0.0.1:8080/api/user/cutCollect/',collect,{"token": token}, function (res) {
+                        if (res && res["status_code"]==="10040") {
+                            collection.removeChild(ck.parentElement.parentElement);
+                            if (collection.innerHTML === "") {
+                                default_f.style.display = "flex";
+                                f_chk.style.display="none";
+                            }else{
+                                default_f.style.display = "none";
+                                f_chk.style.display="block";
+                            }
+                        } else if (res && res["status_code"]==="10006") {
+                            //登陆过期
+                            location.href="login.html";
+                        }else {
+                            console.log(res["status_text"]);
+                        }
+                    });
                 }
-            }
-            if (collection.innerHTML === "") {
-                default_f.style.display = "flex";
-                f_chk.style.display="none";
-            }else{
-                default_f.style.display = "none";
-                f_chk.style.display="block";
             }
         };
     }

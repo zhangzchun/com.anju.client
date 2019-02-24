@@ -122,7 +122,7 @@
                     }
                 }
             }else {
-                alert(res.status_text);
+                console.log(res.status_text);
             }
             function tz() {
                 // 点击跳转到攻略详情页
@@ -224,7 +224,7 @@
                     }
                 }
             } else {
-                alert(res["status_text"])
+                console.log(res["status_text"])
             }
 
             function tzDiary() {

@@ -316,7 +316,7 @@
                             diary_title.innerText = diary_title.innerText.substring(0, 15) + "..."
                         }
                     }else {
-                        alert(res["status_text"])
+                        console.log(res["status_text"])
                     }
 
                 })
@@ -329,7 +329,7 @@
                 }
             }
         }else if(res['status_code']==='10008') {
-            alert(res["status_text"])
+            console.log(res["status_text"])
         }
     });
 
@@ -355,7 +355,7 @@
             }
             xzzs();
         }else{
-            alert(res["status_text"])
+            console.log(res["status_text"])
         }
     });
 
@@ -372,7 +372,7 @@
             }
             xzzs();
         }else{
-            alert(res["status_text"])
+            console.log(res["status_text"])
         }
     });
 

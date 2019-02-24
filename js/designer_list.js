@@ -90,7 +90,7 @@
 
             } else {
                 //没找到数据
-                alert(res["status_text"]);
+                console.log(res["status_text"]);
             }
 
         });
