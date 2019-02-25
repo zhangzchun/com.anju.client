@@ -15,7 +15,7 @@
     var user_id=window.localStorage && window.localStorage.getItem('user_id');
 
     //收藏信息
-    var collect={"content_id":strategy_id,"collect_type_id":2,"user_id":user_id,};
+    var collect={"content_id":strategy_id,"collect_type_id":2,"user_id":user_id,"collect_date":getNowFormatDate()};
 
 
     getData("http://127.0.0.1:8080/api/strategy/strategyDetail/",{"strategy_id":strategy_id},null,function (res) {

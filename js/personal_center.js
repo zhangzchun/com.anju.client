@@ -725,29 +725,200 @@
 
 
     // 我的日记
-    var edit_btn=document.querySelector(' .btn_edit');
 
-    edit_btn.onclick=function () {
-        alert('点击事件!!!');
-    };
+    // 动态生成日记列表
+    var user_id=window.localStorage && window.localStorage.getItem('user_id');
+    var diary_content=document.querySelector(".diary_content");
+    var no_diary=document.querySelector(".no_diary");
 
-    var continue_btn=document.querySelector('.btn_continue');
-    continue_btn.onclick=function () {
-        alert('点击事件!!!');
-    };
+    // ajax渲染用户日记--begin
+    getData("http://127.0.0.1:8080/api/user/userDiary/",{"user_id":user_id},null,
+        function (res) {
+            if (res && res["status_code"] === "10009") {
+                no_diary.style.display="none";
+
+                // 日记列表
+                for (var i=0;i<res["content"].length;i++) {
+                    diary_content.innerHTML+=`<div class="diary_list">
+                                <!--日记标题--begin-->
+                                <div class="diary_title">
+                                    <p class="diary_name">
+                                        <a href="#" class="diary_info" id="${res['content'][i]['id']}">
+                                            ${res['content'][i]['diary_title']}
+                                        </a>
+                                    </p>
+
+                                    <div class="time">
+                                        <p>创建时间：${res['content'][i]['public_date']}</p>
+                                        <p>更新时间：</p>
+                                    </div>
+
+                                </div>
+                                <!--日记标题--end-->
+
+                                <!--日记信息--begin-->
+                                <div class="diary_detail">
+
+                                    <div class="msg_top">
+                                        <span>房屋信息：</span>
+                                        <em class="border_right">${res['content'][i]['area']}㎡</em>
+                                        <em class="border_right">
+                                            ${res['content'][i]['style']}
+                                        </em>
+                                        <em>
+                                           ${res['content'][i]['reno_type']}
+                                        </em>
+                                        <a href="#" class="btn_edit">编辑</a>
+                                    </div>
+                                    <p>所在小区：${res['content'][i]['village']} </p>
+                                    <p>装修公司：
+                                        ${res['content'][i]['company']} </p>
+                                </div>
+                                <!--日记信息--end-->
+
+                                <!--日记按钮--begin-->
+                                <div class="diary_btn">
+                                    <span>全部日记：${res['content'][i]['count']}篇</span>
+                                    <div class="btn">
+                                        <input type="button" class="btn_continue" value="续写日记">
+                                    </div>
+
+                                </div>
+                                <!--日记按钮--end-->
+
+                            </div>`;
+
+                }
+
+                //日记标题点击事件--begin
+                let diary_info = document.querySelectorAll(".diary_info");
+                for (var di of diary_info) {
+                    di.onclick = function () {
+                        location.href = "diary_info.html?case_id=" + this.id;
+                    }
+                }
+                //日记标题点击事件--end
 
 
-    var create_btn=document.querySelector('.btn_create');
-    create_btn.onclick=function() {
-        alert('点击事件!!!');
+                diary_content.innerHTML+=`
+                            <div class=" create_diary">
+                                <a href="#" class="btn_create">+新建装修日记</a>
+                            </div>`;
 
-    };
+                // 新建日记事件--begin
 
-    var create_btn=document.querySelector('.btn_instant');
-    create_btn.onclick=function() {
-        alert('点击事件!!!');
+                // 模态框
+                var close = document.getElementsByClassName('close')[0];
+                var modal = document.getElementById('modal');
 
-    };
+                // 新建日记
+                let create_btn=document.querySelector('.btn_create');
+                create_btn.onclick=function() {
+                    // 模态框
+                    modal.style.display = "block";
+
+                    close.onclick = function () {
+                        modal.style.display = "none";
+                    };
+
+                    modal.onclick = function (event) {
+                        if (event.target.id === 'modal') {
+                            modal.style.display = "none";
+                        }
+                    };
+
+
+                    // 日记信息
+                    var diary_tit=document.querySelector(".diary_tit");
+                    var diary_area=document.querySelector(".diary_area");
+                    var style_select=document.querySelector(".style_select");
+                    var reno_type=document.querySelector(".reno_type");
+                    var village=document.querySelector(".village");
+                    var company=document.querySelector(".company");
+
+                    var diary={"diary_title":diary_tit.value,
+                        "public_date":getNowFormatDate(),
+                        "user_id":user_id,
+                        "diary_area":diary_area.value,
+                        "style_select":style_select.value,
+                        "reno_type":reno_type.value,
+                        "village":village.value,
+                        "company":company.value,
+                    };
+
+                    // var btn_diary=document.querySelector(".btn_diary");
+                    //
+                    // btn_diary.onclick=function () {
+                    //     postData('http://192.168.2.85:8080/api/user/',diary,null,
+                    //         function (res) {
+                    //             if (res && res.status_code=='10001') {
+                    //
+                    //                 alert("保存成功");
+                    //                 location.href="writeDiary.html";
+                    //             }
+                    //         }
+                    //     );
+                    // }
+
+                };
+                // 新建日记事件--end
+
+
+            } else {
+                console.log("未写日记");
+            }
+
+        }
+    );
+    // ajax渲染用户日记--end
+
+
+
+    // var edit_btn=document.querySelector(' .btn_edit');
+    //
+    // edit_btn.onclick=function () {
+    //     alert('点击事件!!!');
+    // };
+    //
+    // var continue_btn=document.querySelector('.btn_continue');
+    // continue_btn.onclick=function () {
+    //     alert('点击事件!!!');
+    // };
+    //
+    //
+    // var create_btn=document.querySelector('.btn_create');
+    // create_btn.onclick=function() {
+    //     alert('点击事件!!!');
+    //
+    // };
+    //
+    // var create_btn=document.querySelector('.btn_instant');
+    // create_btn.onclick=function() {
+    //     alert('点击事件!!!');
+    //
+    // };
+
+
+
+    // 获取当前时间
+    function getNowFormatDate() {
+        var date = new Date();
+        var seperator1 = "/";
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        var currentdate = year + seperator1 + month + seperator1 + strDate + " " + hours + ":" + minutes + ":" + seconds;
+        return currentdate;
+    }
 
 
 })();

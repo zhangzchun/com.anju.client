@@ -265,7 +265,7 @@
     var txt=pg_click.lastChild;
 
     //收藏信息
-    var collect={"content_id":company_id,"collect_type_id":3,"user_id":user_id,};
+    var collect={"content_id":company_id,"collect_type_id":3,"user_id":user_id,"collect_date":getNowFormatDate()};
 
     //渲染收藏信息--begin
     if (token) {
@@ -371,6 +371,27 @@
         }
     };
     // 右侧广告悬浮-end
+
+
+    // 获取当前时间
+    function getNowFormatDate() {
+        var date = new Date();
+        var seperator1 = "/";
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        var currentdate = year + seperator1 + month + seperator1 + strDate + " " + hours + ":" + minutes + ":" + seconds;
+        return currentdate;
+    }
 
 
 })();

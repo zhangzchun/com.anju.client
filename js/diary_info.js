@@ -14,7 +14,7 @@
     var user_id=window.localStorage && window.localStorage.getItem('user_id');
 
     //收藏信息
-    var collect={"content_id":diary_id,"collect_type_id":1,"user_id":user_id,};
+    var collect={"content_id":diary_id,"collect_type_id":1,"user_id":user_id,"collect_date":getNowFormatDate()};
 
 
     getData("http://127.0.0.1:8080/api/diary/diaryDetail/",{"diary_id":diary_id},null,function (res) {

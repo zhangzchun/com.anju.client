@@ -408,6 +408,9 @@
                     </div>
                 </div>
             </div>
+
+
+            <!--日记模块--begin-->
             <div class="personal_diary center_right">
                 <div class="collection">
                     <div class="diary_modal">
@@ -415,54 +418,8 @@
                             <h5>我的装修日记</h5>
                         </div>
                         <div class="diary_content">
-                            <div class="diary_list">
-                                <div class="diary_title">
-                                    <p class="diary_name">
-                                        <a href="#">
-                                            沙发的故事
-                                        </a>
-                                    </p>
+                            <!--日记列表--begin-->
 
-                                    <div class="time">
-                                        <p>创建时间：2019-01-21</p>
-                                        <p>更新时间：</p>
-                                    </div>
-
-                                </div>
-
-                                <div class="diary_detail">
-
-                                    <div class="msg_top">
-                                        <span>房屋信息：</span>
-                                        <em class="border_right">1559㎡</em>
-                                        <em class="border_right">
-                                            欧式&nbsp;&nbsp;
-                                        </em>
-                                        <em>
-                                            清包
-                                        </em>
-                                        <a href="javascript:;" class="btn_edit" onclick="javascript:modifyInfo('2','5221268');">编辑</a>
-                                    </div>
-                                    <p>所在小区：深圳市
-                                        阿萨德干啥的 </p>
-                                    <p>装修公司：
-                                        还在选择中 </p>
-                                </div>
-
-                                <div class="diary_btn">
-                                    <span>全部日记：0篇</span>
-                                    <div class="btn">
-                                        <input type="button" class="btn_continue" value="续写日记" onclick="window.open('/riji/editscenediary.php?sid=5221268')">
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class=" create_diary">
-                                <!--<a target="_blank" href="http://www.to8to.com/riji/?my=1&amp;write_diary_from_yz">+新建装修日记</a>-->
-                                <a target="_blank" href="###" class="btn_create">+新建装修日记</a>
-                            </div>
 
                         </div>
 
@@ -471,11 +428,8 @@
                             <img src="../image/rabbit.png" alt="">
                             <div>
                                 <span>您还没有写过任何日记</span>
-                                <a href="/riji/?my=1&amp;write_diary_from_yz" class="btn_instant">马上去写装修日记</a>
+                                <a href="#" class="btn_instant">马上去写装修日记</a>
                             </div>
-
-
-
 
 
                         </div>
@@ -485,10 +439,110 @@
 
                 </div>
             </div>
+            <!--日记模块--begin-->
+
             <div class="center_news center_right">11</div>
         </div>
     </div>
 </div>
+
+<!--模态框--begin-->
+<div id="modal" class="modal">
+    <div class="modal-content">
+
+        <div class="content-header">
+            <h4>新家装修</h4>
+            <span class="close">×</span>
+        </div>
+
+
+        <div class="content-body">
+
+            <table class="table table_info dis">
+                <tr>
+                    <td>
+                        日记标题:
+                        <span></span>
+                    </td>
+                    <td><input type="text" value="" class="input diary_tit" placeholder="取个名字"></td>
+                </tr>
+                <tr>
+                    <td>
+                        面   积:
+                        <span></span>
+                    </td>
+                    <td><input type="text" value="" placeholder="m²" class="input diary_area"></td>
+                </tr>
+                <tr>
+                    <td>
+                        风格:
+                        <span></span>
+                    </td>
+                    <td>
+                        <select class="style_select">
+                            <option>选择您的装修风格</option>
+                            <option value="1">简约</option>
+                            <option value="2">现代</option>
+                            <option value="3">中式</option>
+                            <option value="4">欧式</option>
+                            <option value="5">美式</option>
+                            <option value="6">田园</option>
+                            <option value="7">新古典</option>
+                            <option value="8">宜家</option>
+                            <option value="9">复古</option>
+                            <option value="10">混搭</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        装修方式:
+                        <span></span>
+                    </td>
+                    <td>
+                        <select class="reno_type">
+                            <option>选择装修方式</option>
+                            <option value="1">全包（省时省力，装修公司包工包料）</option>
+                            <option value="2">半包（大众首选，装修公司包施工和辅料）</option>
+                            <option value="3">清包（预算最低，装修公司只包施工）</option>
+                            <option value="4">整装（省时省力，装修公司包工包料）</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        所在小区:
+                        <span></span>
+                    </td>
+                    <td>
+                        <input type="text" value="" class="input village" placeholder="请输入房屋所在小区...">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        装修公司:
+                        <span></span>
+                    </td>
+                    <td>
+                        <input type="text" value="" class="input company" placeholder="请输入装修公司的名称...">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button class="btn btn-default submit btn_diary">保存</button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+
+    </div>
+</div>
+<!--模态框--end-->
+
+
 <!--------------主体结束----------------->
 
 <!--------------尾部开始----------------->

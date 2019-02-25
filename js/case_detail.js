@@ -11,8 +11,7 @@
     var user_id=window.localStorage && window.localStorage.getItem('user_id');
 
     // 收藏信息
-    var collect={"content_id":case_id,"collect_type_id":4,"user_id":user_id,};
-
+    var collect={"content_id":case_id,"collect_type_id":4,"user_id":user_id,"collect_date":getNowFormatDate()};
 
     //后台渲染数据
     var content=document.querySelector('.content');
@@ -66,16 +65,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
     //  隐藏部分
     var liu=document.querySelector('.liu');
     var author=document.querySelector('.container .row .author');
@@ -85,7 +74,7 @@
         }else {
             liu.style.display='none';
         }
-    }
+    };
 
     // 收藏按钮-begin
     var pg_click=document.querySelector('#pg-block-click');
@@ -186,6 +175,27 @@
         }else{
             to_top.style.display='none';
         }
+    }
+
+
+    // 获取当前时间
+    function getNowFormatDate() {
+        var date = new Date();
+        var seperator1 = "/";
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        var currentdate = year + seperator1 + month + seperator1 + strDate + " " + hours + ":" + minutes + ":" + seconds;
+        return currentdate;
     }
 
 })();
