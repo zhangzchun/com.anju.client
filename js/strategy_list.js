@@ -243,4 +243,29 @@
     };
 
 
+    // 返回顶部
+    var to_top=document.querySelector('#go_top');
+    to_top.style.display='none';
+    to_top.onclick=function () {
+        var scroll_h= document.documentElement.scrollTop || document.body.scrollTop;
+        var inter=setInterval(function () {
+            scroll_h-=50;
+            window.scrollTo(0,scroll_h);
+            if(scroll_h<=0){
+                clearInterval(inter);
+            }
+        },2);
+        to_top.style.display='none';
+    };
+    window.onscroll=function () {
+        //    innerHeight 浏览器的可视高度，他是变化的(兼容所有浏览器)
+        var w=window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+//    滚动条滚动的高度
+        var scroll_h= document.documentElement.scrollTop || document.body.scrollTop;
+        if(scroll_h>w){
+            to_top.style.display='block';
+        }else{
+            to_top.style.display='none';
+        }
+    }
 })();

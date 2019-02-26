@@ -13,6 +13,10 @@ body{
     margin: 20px auto 0;
 }
 /*个人中心左侧开始*/
+.container_center_left{
+    padding: 0;
+    margin-right: 0;
+}
 .container_center_left li{
     background-color: white;
     text-align: center;
@@ -28,10 +32,10 @@ body{
 .container-fluid .container_center .center_left {
     border: solid 1px #cccccc;
     display: block;
-    padding: 20px 10px;
+    padding: 20px ;
 }
 .container-fluid .container_center .center_left>ul{
-    margin:0 20px;
+    margin-left: 20px;
     list-style: none;
 }
 .container-fluid .container_center .more{
@@ -66,6 +70,10 @@ body{
 .container_center .center_right .center_right_top{
     border: solid 1px #cccccc;
     background-color: white;
+    margin-left: 15px;
+}
+.container_center .margin{
+    margin-left: 15px;
 }
 .container_center .center_right .img_info{
     display: flex;
@@ -106,8 +114,12 @@ body{
     margin-top: 10px;
     border: solid 1px #cccccc;
     background-color: white;
+    margin-left: 15px;
 }
-
+.container_center .center_right .center_right_middle .editor{
+    float: right;
+    margin-right: 50px;
+}
 .house_info{
     width: 150px;
 }
@@ -125,8 +137,8 @@ body{
     padding: 10px 50px 10px 0;
     text-align: center;
     cursor: pointer;
-    width: 500px;
-    margin: 0 auto 20px;
+    width: 600px;
+    margin:0 auto 20px;
     color: #f8f8f8;
     background: #00ba00;
 }
@@ -149,11 +161,18 @@ body{
     border: none;
     box-sizing: border-box;
 }
+.info_container{
+     margin-top: 30px;
+}
+.schedule_bar{
+     display: flex;
+}
 .schedule{
     width: 220px;
     height: 15px;
     border: solid 1px grey;
-    margin: 0 10px;
+    margin-top: 3px;
+    margin-right: 10px;
 }
 .progress_bar{
     width: 110px;
@@ -213,6 +232,13 @@ body{
 .account button{
     margin-right: 1px;
 }
+.green{
+    color: #00e300;
+}
+.red{
+    color: red;
+}
+
 /*个人中心页结束*/
 
 /*预约*/
@@ -660,7 +686,7 @@ tbody .td03{
 
 .modal-content {
     width: 35%;
-    height: 60%;
+    height: 63%;
 
     min-width: 260px;
     min-height: 200px;

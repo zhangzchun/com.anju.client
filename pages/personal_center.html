@@ -92,12 +92,12 @@
                 <div class="row center_right_top">
                     <div class="col-xs-5 img_info" >
                         <div class="img">
-                            <a href="#" class="image"><img src="../image/9_1x.jpg"/></a>
+                            <a href="#" class="image"><img src="../image/9_1x.jpg" class="user_Icon"/></a>
                             <a href="#" class="text">修改资料</a>
                         </div>
                         <div class="info">
-                            <h4>遇事不决问春风</h4>
-                            <h6>业主ID：10324528</h6>
+                            <h4 class="user_name"></h4>
+                            <h6>业主ID：<span  class="user_id"></span></h6>
                             <span>消息:0</span>
                         </div>
                     </div>
@@ -124,14 +124,17 @@
 
                     </div>
                 </div>
-                <div class="row center_right_middle">
+                <div class="row center_right_middle my_house">
                     <div class="col-md-11 diary">
                         <h5>我的房屋</h5>
+                    </div>
+                    <div class="row house_info_text">
+
                     </div>
                     <div class="row house_list">
 
                     </div>
-                    <div class="row house_info_text">
+                    <div class="row change_houseInfo">
 
                     </div>
                     <div class="row ">
@@ -147,51 +150,42 @@
                     <div class="col-xs-11 diary">
                         <h5>我的个人资料</h5>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-11 progress">
-                            <span>个人资料完整度:</span>
-                            <div class="schedule">
-                                <div class="progress_bar">50%</div>
-                            </div>
-                            <span>完善QQ+20%，完善城市+10%</span>
-                        </div>
-                    </div>
-                    <div class="row">
+                    <div class="row info_container">
                         <table class="table table_info">
                             <tr>
+                                <td><span>个人资料完整度:</span></td>
+                                <td>
+                                    <div class="schedule_bar">
+                                        <div class="schedule">
+                                            <div class="progress_bar">50%</div>
+                                        </div>
+                                        <span class="detail">完善QQ+20%，完善地区+10%</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>用户名:</td>
-                                <td>遇事不决问春风</td>
+                                <td class="user_name">遇事不决问春风</td>
                             </tr>
                             <tr>
                                 <td>昵   称:</td>
-                                <td><input type="text" value="遇事不决问春风"></td>
+                                <td  class="user_nickname"><input type="text" value="遇事不决问春风"></td>
                             </tr>
                             <tr>
                                 <td>性   别:</td>
                                 <td>
-                                    <label><input name="sex" type="radio" value="" checked>男</label>
-                                    <label><input name="sex" type="radio" value="">女</label>
+                                    <label><input name="sex" type="radio" class="M" value="男">男</label>
+                                    <label><input name="sex" type="radio" class="F" value="女">女</label>
                                 </td>
                             </tr>
                             <tr>
                                 <td>QQ:</td>
-                                <td><input type="text"></td>
-                            </tr>
-                            <tr>
-                                <td>注册状态:</td>
-                                <td>
-                                    <select>
-                                        <option selected="selected">还没买房</option>
-                                        <option>已买房,未拿到钥匙</option>
-                                        <option>准备装修</option>
-                                        <option>已定装修公司</option>
-                                        <option>已装修</option>
-                                    </select></td>
+                                <td class="QQ"><input type="text" placeholder="提交时请填写正确的QQ号" ></td>
                             </tr>
                             <tr>
                                 <td>所在地区:</td>
-                                <td>
-                                    <select>
+                                <td class="address">
+                                    <select id="district">
                                         <option selected="selected">沧浪区</option>
                                         <option>金阊区</option>
                                         <option>吴中区</option>
@@ -202,16 +196,16 @@
                                         <option>高新区</option>
                                         <option>工业园区</option>
                                     </select>
-                                    <input type="text">
+                                    <input type="text" placeholder="请输入详细地址" id="village">
                                 </td>
                             </tr>
                             <tr>
                                 <td>当前头像:</td>
-                                <td><img src="../image/9_1x.jpg" height="100" width="100"/></td>
+                                <td><img src="../image/9_1x.jpg" height="100" width="100" class="icon"/></td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><button class="btn btn-default submit">提交</button></td>
+                                <td><button class="btn btn-default submit" id="add">提交</button><button class="btn submit btn-default change" id="change" >修改</button></td>
                             </tr>
                         </table>
                     </div>
@@ -226,38 +220,47 @@
                         <table class="table table_info ">
                             <tr>
                                 <td class="change_passwords">手机号码:</td>
-                                <td>187*****587</td>
+                                <td class="telephone">187*****587</td>
                             </tr>
                             <tr>
                                 <td class="change_passwords">验证码:</td>
-                                <td><input type="text" value="" class="input"></td>
+                                <td class="identifying_code"></td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input type="text" value="" class="input">
-                                    <button class="btn btn-default">发送验证码</button>
+                                    <input type="text" value="" class="input input_code">
+                                    <button class="btn btn-default" id="push_code">发送验证码</button>
+                                    <span class="check_result_s green"></span>
+                                    <span class="check_result_f red"></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="change_passwords">旧密码:</td>
-                                <td><input type="text" class="input"></td>
+                                <td>
+                                    <input type="password" class="input" id="old_password">
+                                    <span class="old_password_error red"></span>
+                                </td>
+
                             </tr>
                             <tr>
                                 <td class="change_passwords">新密码:</td>
                                 <td>
-                                    <input type="text" value="" class="input">
+                                    <input type="password" value="" class="input" id="new_password">
+                                    <span class="new_password_s green"></span>
+                                    <span class="new_password_error red"></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="change_passwords">确认密码:</td>
                                 <td>
-                                    <input type="text" class="input">
+                                    <input type="password" class="input" id="password_confirm">
+                                    <span class="password_error red"></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><button class="btn btn-default submit">提交</button></td>
+                                <td><button class="btn btn-default submit" id="change_password">提交</button></td>
                             </tr>
                         </table>
                     </div>

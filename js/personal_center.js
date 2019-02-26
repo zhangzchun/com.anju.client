@@ -109,88 +109,95 @@
         //  展开与收起
         var et=event.target;
         if((et.id==='my_data'  && flag) || (et.id==="my_collect" && flags)){
-            et.children[0].style.display='none';
-            et.children[1].style.display='inline';
-            et.children[3].style.display='block';
-            flag=false;
-            flags=false;
-        }else if((et.parentNode.id==='my_data'  && flag) || et.parentNode.id==='my_collect'  && flags){
-            et.parentNode.children[0].style.display='none';
-            et.parentNode.children[1].style.display='inline';
-            et.parentNode.children[3].style.display='block';
-            flag=false;
-            flags=false;
-        }else if((et.id==='my_data' && !flag) || (et.id==="my_collect" && !flags)){
-            et.children[0].style.display='inline';
-            et.children[1].style.display='none';
-            et.children[3].style.display='none';
-            flag=true;
-            flags=true;
-        }else if((et.parentNode.id==='my_data'  && !flag) || et.parentNode.id==='my_collect'  && !flags){
-            et.parentNode.children[0].style.display='inline';
-            et.parentNode.children[1].style.display='none';
-            et.parentNode.children[3].style.display='none';
-            flag=true;
-            flags=true;
+            et.children[0].style.display = 'none';
+            et.children[1].style.display = 'inline';
+            et.children[3].style.display = 'block';
+            flag = false;
+            flags = false;
+        } else if ((et.parentNode.id === 'my_data' && flag) || et.parentNode.id === 'my_collect' && flags) {
+            et.parentNode.children[0].style.display = 'none';
+            et.parentNode.children[1].style.display = 'inline';
+            et.parentNode.children[3].style.display = 'block';
+            flag = false;
+            flags = false;
+        } else if ((et.id === 'my_data' && !flag) || (et.id === "my_collect" && !flags)) {
+            et.children[0].style.display = 'inline';
+            et.children[1].style.display = 'none';
+            et.children[3].style.display = 'none';
+            flag = true;
+            flags = true;
+        } else if ((et.parentNode.id === 'my_data' && !flag) || et.parentNode.id === 'my_collect' && !flags) {
+            et.parentNode.children[0].style.display = 'inline';
+            et.parentNode.children[1].style.display = 'none';
+            et.parentNode.children[3].style.display = 'none';
+            flag = true;
+            flags = true;
         }
 
 
         // 点击左侧 右键对应的页面显示出来
-        for(var c of center_left.nextElementSibling.children ){
-            c.style.display='none';
+        for (var c of center_left.nextElementSibling.children) {
+            c.style.display = 'none';
         };
-        if(et.innerText==="个人中心首页"){
-            document.querySelector('.personal_index').style.display='block';
-        }else if(et.innerText==='个人资料'){
-            document.querySelector('.personal_info').style.display='block';
-        }else if(et.innerText==='修改密码'){
-            document.querySelector('.change_password').style.display='block';
-        }else if(et.innerText==='账号与安全'){
-            document.querySelector('.account_security').style.display='block';
-        }else if(et.innerText==='我的预约'){
-            document.querySelector('.personal_reservation').style.display='block';
-        }else if(et.innerText==='装修案例'){
-            document.querySelector('.decoration_case').style.display='block';
-        }else if(et.innerText==='装修公司'){
-            document.querySelector('.decoration_company').style.display='block';
-        }else if(et.innerText==='装修攻略'){
-            document.querySelector('.decoration_strategy').style.display='block';
-        }else if(et.innerText==='装修日记'){
-            document.querySelector('.decoration_diary').style.display='block';
-        }else if(et.innerText==='我的日记'){
-            document.querySelector('.personal_diary').style.display='block';
-        }else if(et.innerText==='消息中心'){
-            document.querySelector('.center_news').style.display='block';
-        }else if(et.id==='my_data' || et.parentNode.id==='my_data'){
-            document.querySelector('.personal_info').style.display='block';
-        }else if(et.id==='my_collect' || et.parentNode.id==="my_collect"){
-            document.querySelector('.decoration_case').style.display='block';
+        if (et.innerText === "个人中心首页") {
+            document.querySelector('.personal_index').style.display = 'block';
+        } else if (et.innerText === '个人资料') {
+            document.querySelector('.personal_info').style.display = 'block';
+        } else if (et.innerText === '修改密码') {
+            document.querySelector('.change_password').style.display = 'block';
+        } else if (et.innerText === '账号与安全') {
+            document.querySelector('.account_security').style.display = 'block';
+        } else if (et.innerText === '我的预约') {
+            document.querySelector('.personal_reservation').style.display = 'block';
+        } else if (et.innerText === '装修案例') {
+            document.querySelector('.decoration_case').style.display = 'block';
+        } else if (et.innerText === '装修公司') {
+            document.querySelector('.decoration_company').style.display = 'block';
+        } else if (et.innerText === '装修攻略') {
+            document.querySelector('.decoration_strategy').style.display = 'block';
+        } else if (et.innerText === '装修日记') {
+            document.querySelector('.decoration_diary').style.display = 'block';
+        } else if (et.innerText === '我的日记') {
+            document.querySelector('.personal_diary').style.display = 'block';
+        } else if (et.innerText === '消息中心') {
+            document.querySelector('.center_news').style.display = 'block';
+        } else if (et.id === 'my_data' || et.parentNode.id === 'my_data') {
+            document.querySelector('.personal_info').style.display = 'block';
+        } else if (et.id === 'my_collect' || et.parentNode.id === "my_collect") {
+            document.querySelector('.decoration_case').style.display = 'block';
         }
     };
 
 
 //    个人中心首页的房屋信息
-    var add_house=document.querySelector('.add_house');
-    var house_list=document.querySelector('.house_list');
-    var house_info=document.querySelector('.house_info_text');
-    add_house.onclick=function () {
-        document.querySelector('.no_house').style.display='none';
-        house_list.innerHTML+= `<table class="table table_info dis">
+    var my_house = document.querySelector('.my_house');
+    var no_house=document.querySelector('.no_house');
+    var house_list = document.querySelector('.house_list');
+    var house_info = document.querySelector('.house_info_text');
+    var change_houseInfo = document.querySelector('.change_houseInfo');
+    var f = true;
+    var m = true;
+    var user_id = window.localStorage.getItem('user_id');
+    // 个人中心首页
+    my_house.onclick = function (event) {
+        if (event.target.className === 'add_house' && f) {
+            document.querySelector('.no_house').style.display = 'none';
+            house_list.style.display = 'block';
+            house_list.innerHTML = `<table class="table table_info dis">
                             <tr>
                                 <td>房屋名:</td>
-                                <td><input type="text" value="" class="input" placeholder="取个名字"></td>
+                                <td><input type="text" value="" class="input house_name" placeholder="取个名字"></td>
                             </tr>
                             <tr>
                                 <td>面   积:</td>
-                                <td><input type="text" value=""  placeholder="m²" class="input"></td>
+                                <td><input type="text" value=""  placeholder="m²" class="input house_area"></td>
                             </tr>
                             <tr>
                                 <td>户   型:</td>
-                                <td>
-                                    <select>
-                                        <option selected="selected">小户型</option>
+                                <td><select id="house_type">
+                                        <option>小户型</option>
                                         <option>一居</option>
-                                        <option>二居</option>
+                                        <option selected="selected">二居</option>
                                         <option>三居</option>
                                         <option>四居</option>
                                         <option>复式</option>
@@ -202,7 +209,7 @@
                             <tr>
                                 <td>房屋状态:</td>
                                 <td>
-                                    <select>
+                                    <select id="reno_type">
                                         <option selected="selected">还没买房</option>
                                         <option>已买房,未拿到钥匙</option>
                                         <option>准备装修</option>
@@ -213,7 +220,7 @@
                             <tr>
                                 <td>所在地区:</td>
                                 <td>
-                                    <select>
+                                    <select id="district">
                                         <option selected="selected">沧浪区</option>
                                         <option>金阊区</option>
                                         <option>吴中区</option>
@@ -224,59 +231,103 @@
                                         <option>高新区</option>
                                         <option>工业园区</option>
                                     </select>
-                                    <input type="text" value="" class="input">
+                                    <input type="text" value="" class="input district">
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><button class="btn btn-default submit"  id="a_btn">保存</button></td>
+                                <td><button class="btn btn-default submit" id="save">保存</button></td>
                             </tr>
                         </table>`;
-        var submit=document.querySelector('#a_btn');
-        submit.onclick=function () {
-            document.querySelector('.no_house').style.display='none';
-            house_list.children[0].style.display='none';
-            house_info.innerHTML+=` <table class="table table_info dis">
-                            <tr>
-                                <td class="house_info">房屋信息:</td>
-                                <td><span>${this.parentNode.parentNode.parentNode.children[0].children[1].children[0].value}</span>  <span>丨</span>
-                                <span>${this.parentNode.parentNode.parentNode.children[1].children[1].children[0].value}</span> <span>丨</span>
-                                 <span>小户型</span> </td>
-                                <td><a href="#" class="editor">编辑</a></td>
-                            </tr>
+            f = false;
+        } else if (event.target.id === 'save') {
+            var house_type = document.querySelector('#house_type');
+            var status = document.querySelector('#reno_type');
+            var district = document.querySelector('#district');
+            var house_name = document.querySelector('.house_name');
+            var house_area = document.querySelector('.house_area');
+            var h_district = document.querySelector('.district');
+            var info = {
+                'house_name': house_name.value,
+                'area': house_area.value,
+                'house_type': house_type.value,
+                'house_status': status.value,
+                'address': district.value,
+                'village': h_district.value,
+                'user_id': user_id
+            };
+            // 判断输入的面积是否为数字
+            var re = /^[0-9]+.?[0-9]*/;
+            var t=re.test(house_area.value);
+            if(t){
+                house_list.style.display = 'none';
+                postData('http://127.0.0.1:8080/api/user/houseInfo/', info,null, function (results) {
+                    if (results && results['status_code'] === '10012') {
+                        //是渲染增加的那条还是将所有房屋都取出来渲染????
+                        //取所有的信息渲染,因为点击保存的时候还没有house_id
+
+                        let id={'user_id':user_id,'house_id':''};
+                        postData('http://127.0.0.1:8080/api/user/houseList/', id,{"token": token}, function (res) {
+                            if(res && res['status_code']==='10009'){
+                                if(res['content']){
+                                    no_house.style.display='none';
+                                    house_info.innerHTML='';
+                                    for(var r of res['content']){
+                                        house_info.innerHTML += ` <div id="${r['id']}"><table class="table table_info dis"">
+​                            <tr>
+​                                <td class="house_info">房屋信息:</td>
+​                                <td><span>${r['house_name']}</span>  <span>丨</span>
+​                                <span>${r['area']}m²</span> <span>丨</span>
+​                                 <span>${r['house_type']}</span> </td>
+​                                <td><a href="#" class="editor">编辑</a></td>
+​                            </tr>
 
                             <tr>
                                 <td>房屋状态:</td>
-                                <td>还没买房</td>
+                                <td>${r['house_status']}</td>
                             </tr>
                             <tr>
                                 <td>所在地区:</td>
                                 <td>
-                                    <span>沧浪区</span><span>${this.parentNode.parentNode.parentNode.children[4].children[1].children[1].value}</span>
-                                </td>
-                            </tr>
-                        </table>`;
-            var editor=document.querySelector('.editor');
-            editor.onclick=function () {
-                document.querySelector('.no_house').style.display='none';
-                house_info.children[0].style.display='none';
-                house_list.innerHTML+= `<table class="table table_info dis">
+                                    <span>${r['address']}</span><span>${r['village']}</span>
+​                                </td>
+​                            </tr></div>`;
+                                    }
+                                }
+                            }else if(res && res['status_code']==='10006'){
+                                location.href="login.html"
+                            }else {
+                                alert(res['status_text']);
+                            }
+                        })
+                    } else {
+                        alert(res['status_text']);
+                    }
+                });
+            }
+            else {
+                house_area.value='';
+                house_area.placeholder='请输入数字'
+            }
+            f = true;
+        } else if (event.target.className === 'editor' && m) {
+            //如何根据取出来的id判断所处的位置   下同此
+            event.target.parentNode.parentNode.parentNode.parentNode.parentNode.innerHTML = `<table class="table table_info dis">
                             <tr>
                                 <td>房屋名:</td>
-                                <td><input type="text" value="${this.parentNode.previousElementSibling.children[0].innerText}" class="input" placeholder="取个名字"></td>
+                                <td><input type="text" value="" class="input u_house_name" placeholder="取个名字"></td>
                             </tr>
                             <tr>
                                 <td>面   积:</td>
-                                <td><input type="text" value="${this.parentNode.previousElementSibling.children[2].innerText}"  placeholder="m²" class="input"></td>
+                                <td><input type="text" value=""  placeholder="m²" class="input u_house_area"></td>
                             </tr>
                             <tr>
                                 <td>户   型:</td>
-                                <td>
-                                    <select>
-                                        <option selected="selected">小户型</option>
+                                <td><select id="u_house_type">
+                                        <option>小户型</option>
                                         <option>一居</option>
                                         <option>二居</option>
-                                        <option>三居</option>
+                                        <option  selected="selected">三居</option>
                                         <option>四居</option>
                                         <option>复式</option>
                                         <option>别墅</option>
@@ -287,7 +338,7 @@
                             <tr>
                                 <td>房屋状态:</td>
                                 <td>
-                                    <select>
+                                    <select id="u_reno_type">
                                         <option selected="selected">还没买房</option>
                                         <option>已买房,未拿到钥匙</option>
                                         <option>准备装修</option>
@@ -298,7 +349,7 @@
                             <tr>
                                 <td>所在地区:</td>
                                 <td>
-                                    <select>
+                                    <select id="u_district">
                                         <option selected="selected">沧浪区</option>
                                         <option>金阊区</option>
                                         <option>吴中区</option>
@@ -309,17 +360,331 @@
                                         <option>高新区</option>
                                         <option>工业园区</option>
                                     </select>
-                                    <input type="text" value="${this.parentNode.parentNode.parentNode.children[2].children[1].children[1].innerText}" class="input">
+                                    <input type="text" value="" class="input u_district">
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><button class="btn btn-default submit"  id="a_btn">保存</button></td>
+                                <td><button class="btn btn-default submit" id="update">保存</button></td>
                             </tr>
                         </table>`;
-            }
-        };
+            m=false;
+        }else if (event.target.id === 'update'){
+            var u_house_type = document.querySelector('#u_house_type');
+            var u_status = document.querySelector('#u_reno_type');
+            var u_district = document.querySelector('#u_district');
+            var u_house_name = document.querySelector('.u_house_name');
+            var u_house_area = document.querySelector('.u_house_area');
+            var u_h_district = document.querySelector('.u_district');
+            var u_info = {
+                'house_name': u_house_name.value,
+                'area': u_house_area.value,
+                'house_type': u_house_type.value,
+                'house_status': u_status.value,
+                'address': u_district.value,
+                'village': u_h_district.value,
+                'house_id': event.target.parentNode.parentNode.parentNode.parentNode.parentNode.id
+            };
+            // 更新房屋信息
+            postData('http://127.0.0.1:8080/api/user/updateHouseInfo/', u_info,null, function (res) {
+                if (res && res['status_code'] === '10012') {
+                    let info_id={'user_id':user_id,'house_id':event.target.parentNode.parentNode.parentNode.parentNode.parentNode.id};
+                    postData('http://127.0.0.1:8080/api/user/houseList/', info_id,{"token": token},function (info) {
+                        if(info && info['status_code'] === '10009'){
+                            event.target.parentNode.parentNode.parentNode.parentNode.parentNode.innerHTML = ` <table class="table table_info dis">
+​                            <tr>
+​                                <td class="house_info">房屋信息:</td>
+​                                <td><span>${info['content'][0]['house_name']}</span>  <span>丨</span>
+​                                <span>${info['content'][0]['area']}m²</span> <span>丨</span>
+​                                 <span>${info['content'][0]['house_type']}</span> </td>
+​                                <td><a href="#" class="editor">编辑</a></td>
+​                            </tr>
+
+                            <tr>
+                                <td>房屋状态:</td>
+                                <td>${info['content'][0]['house_status']}</td>
+                            </tr>
+                            <tr>
+                                <td>所在地区:</td>
+                                <td>
+                                    <span>${info['content'][0]['address']}</span><span>${info['content'][0]['village']}</span>
+​                                </td>
+​                            </tr>`;
+                        }else if(res && res['status_code']==='10006'){
+                            location.href="login.html"
+                        }else {
+                            alert(info['status_text']);
+                        }
+                    })
+                } else {
+                    alert(res['status_text']);
+                }
+            });
+            m=true;
+        }
     };
+    //获取个人中心首页信息
+    let id={'user_id':user_id,'house_id':''};
+    postData('http://127.0.0.1:8080/api/user/getUserInfo/', id,null, function (res) {
+        if(res && res['status_code']==='10009'){
+            let user_icon=document.querySelector('.user_Icon');
+            let user_name=document.querySelectorAll('.user_name');
+            let user_nickname=document.querySelector('.user_nickname');
+            let user_Id=document.querySelector('.user_id');
+            let Man=document.querySelector('.M');
+            let Female=document.querySelector('.F');
+            let QQ=document.querySelector('.QQ');
+            let address=document.querySelector('.address');
+            let icon=document.querySelector('.icon');
+            let progress_bar=document.querySelector('.progress_bar');
+            let detail=document.querySelector('.detail');
+            let telephone=document.querySelector('.telephone');
+            user_icon.src.innerText=res['content'][0]['icon'];
+            user_name[0].innerText=res['content'][0]['nickname'];
+            user_name[1].innerText=res['content'][0]['nickname'];
+            user_nickname.innerHTML=`${res['content'][0]['nickname']}`;
+            user_Id.innerText=user_id;
+            telephone.innerText=res['content'][0]['telephone'].substring(0,3)+'*****'+res['content'][0]['telephone'].substring(8);
+            if(res['content'][0]['sex']==='男'){
+                Man.checked='checked';
+            }else {
+                Female.checked='checked';
+            }
+            if(res['content'][0]['QQ']){
+                QQ.innerHTML=`${res['content'][0]['QQ']}`
+            }
+            if(res['content'][0]['address']){
+                address.innerHTML=`${res['content'][0]['address']}`
+            }
+            icon.src.innerText=res['content'][0]['icon'];
+            if(Boolean(QQ.innerText) && !Boolean(address.innerText.substring(3))){
+                progress_bar.style.width='154px';
+                progress_bar.innerText='70%';
+                detail.innerText='完善地区+10%'
+            }else if(!Boolean(QQ.innerText) && Boolean(address.innerText.substring(3))){
+                progress_bar.style.width='132px';
+                progress_bar.innerText='60%';
+                detail.innerText='完善QQ+20%'
+            }else if(Boolean(QQ.innerText) && Boolean(address.innerText.substring(3))){
+                progress_bar.style.width='176px';
+                progress_bar.innerText='80%';
+                detail.innerText=''
+            }
+        }
+    });
+    // 获取房屋信息
+    postData('http://127.0.0.1:8080/api/user/houseList/', id,{"token": token}, function (res) {
+
+        if(res && res['status_code']==='10009'){
+            if(res['content']){
+                no_house.style.display='none'
+                for(var r of res['content']){
+                    house_info.innerHTML += ` <div id="${r['id']}"><table class="table table_info dis"">
+​                            <tr>
+​                                <td class="house_info">房屋信息:</td>
+​                                <td><span>${r['house_name']}</span>  <span>丨</span>
+​                                <span>${r['area']}m²</span> <span>丨</span>
+​                                 <span>${r['house_type']}</span> </td>
+​                                <td><a href="#" class="editor">编辑</a></td>
+​                            </tr>
+
+                            <tr>
+                                <td>房屋状态:</td>
+                                <td>${r['house_status']}</td>
+                            </tr>
+                            <tr>
+                                <td>所在地区:</td>
+                                <td>
+                                    <span>${r['address']}</span><span>${r['village']}</span>
+​                                </td>
+​                            </tr></div>`;
+                }
+            }
+        }else if(res && res['status_code']==='10006'){
+            location.href="login.html"
+        }
+
+    });
+    //个人资料点击事件
+    var info_container=document.querySelector('.info_container');
+    info_container.onclick=function (event) {
+        if(event.target.id==='add'){
+            let Man=document.querySelector('.M');
+            let Female=document.querySelector('.F');
+            let user_nickname=document.querySelector('.user_nickname');
+            let district=document.querySelector('#district');
+            let village=document.querySelector('#village');
+            let QQ=document.querySelector('.QQ');
+            var inputs=document.getElementsByName('sex');
+            var sex='';
+            var sex_id=0;
+            for(let input of inputs){
+                if(input.checked){
+                    sex=input.value
+                }
+            }
+            if(sex==='男'){
+                sex_id=0;
+            }else if(sex==='女'){
+                sex_id=1;
+            }
+            let con={'nickname':user_nickname.children[0].value,'sex_id':sex_id,'QQ':QQ.children[0].value,'address':district.value+village.value,'id':user_id}
+            postData('http://127.0.0.1:8080/api/user/changeUserInfo/',con,null,function (res) {
+                if(res && res['status_code']==='10012'){
+                    postData('http://127.0.0.1:8080/api/user/getUserInfo/', id,null, function (res) {
+                        if(res && res['status_code']==='10009'){
+                            let user_icon=document.querySelector('.user_Icon');
+                            let user_name=document.querySelectorAll('.user_name');
+                            let user_nickname=document.querySelector('.user_nickname');
+                            let user_Id=document.querySelector('.user_id');
+                            let Man=document.querySelector('.M');
+                            let Female=document.querySelector('.F');
+                            let QQ=document.querySelector('.QQ');
+                            let address=document.querySelector('.address');
+                            let icon=document.querySelector('.icon');
+                            let progress_bar=document.querySelector('.progress_bar');
+                            let detail=document.querySelector('.detail');
+                            user_icon.style.src.innerText=res['content'][0]['icon'];
+                            user_name[0].innerText=res['content'][0]['nickname'];
+                            user_name[1].innerText=res['content'][0]['nickname'];
+                            user_nickname.innerHTML=`${res['content'][0]['nickname']}`
+                            user_Id.innerText=user_id;
+                            if(res['content'][0]['sex']==='男'){
+                                Man.checked='checked';
+                            }else {
+                                Female.checked='checked';
+                            }
+                            if(res['content'][0]['QQ']){
+                                QQ.innerHTML=`${res['content'][0]['QQ']}`
+                            }
+                            if(res['content'][0]['address']){
+                                address.innerHTML=`${res['content'][0]['address']}`
+                            }
+                            icon.src.innerText=res['content'][0]['icon'];
+
+                            if(Boolean(QQ.innerText) && !Boolean(address.innerText.substring(3))){
+                                progress_bar.style.width='154px';
+                                progress_bar.innerText='70%';
+                                detail.innerText='完善地区+10%'
+                            }else if(!Boolean(QQ.innerText) && Boolean(address.innerText.substring(3))){
+                                progress_bar.style.width='132px';
+                                progress_bar.innerText='60%';
+                                detail.innerText='完善QQ+20%'
+                            }else if(Boolean(QQ.innerText) && Boolean(address.innerText.substring(3))){
+                                progress_bar.style.width='176px';
+                                progress_bar.innerText='80%';
+                                detail.innerText=''
+                            }
+                        }
+                    });
+                }else{
+                    alert(res['status_text'])
+                }
+            })
+        }else if(event.target.id==='change'){
+            let user_nickname=document.querySelector('.user_nickname');
+            let QQ=document.querySelector('.QQ');
+            let address=document.querySelector('.address');
+            user_nickname.innerHTML=`<input type="text"  class="user_nickname">`
+            QQ.innerHTML=`<input type="text" placeholder="提交时请填写正确的QQ号">`;
+            address.innerHTML=`<select id="district">
+                                        <option selected="selected">沧浪区</option>
+                                        <option>金阊区</option>
+                                        <option>吴中区</option>
+                                        <option>吴江区</option>
+                                        <option>相城区</option>
+                                        <option>虎丘区</option>
+                                        <option>平江区</option>
+                                        <option>高新区</option>
+                                        <option>工业园区</option>
+                                    </select>
+                                    <input type="text" placeholder="请输入详细地址" id="village">`
+        }
+    };
+
+
+//修改密码
+        // 获取验证码
+    var identify_code=document.querySelector('.identifying_code');
+    getData('http://127.0.0.1:8080/api/user/getIdentifyingCode/', null,null, function (res) {
+        if(res && res['status_code']==='10009'){
+            identify_code.innerHTML=`<img src="${res['content']['url_code']}" alt="" id="${res['content']['id']}"><a href="#" class="change_code">看不清,换一张</a>`
+        }
+    });
+        //修改密码点击事件
+    var changePassword=document.querySelector('.change_password');
+    var old_password=document.querySelector('#old_password');
+    var new_password=document.querySelector('#new_password');
+    var password_confirm=document.querySelector('#password_confirm');
+    var old_password_error=document.querySelector('.old_password_error');
+    var new_password_s=document.querySelector('.new_password_s');
+    var new_password_error=document.querySelector('.new_password_error');
+    var password_error=document.querySelector('.password_error');
+    changePassword.onclick=function (event) {
+        if(event.target.className==='change_code'){
+            getData('http://127.0.0.1:8080/api/user/getIdentifyingCode/', null,null, function (res) {
+                if(res && res['status_code']==='10009'){
+                    identify_code.innerHTML=`<img src="${res['content']['url_code']}" alt="" id="${res['content']['id']}"><a href="#" class="change_code">看不清,换一张</a>`
+                }
+            })
+        }else if(event.target.id==='push_code'){
+            let input=document.querySelector('.input_code');
+            var check_s=document.querySelector('.check_result_s');
+            var check_f=document.querySelector('.check_result_f');
+            let info={"code_id":identify_code.children[0].id,"content":input.value};
+            postData('http://127.0.0.1:8080/api/user/getIdentifyingCode/', info,null, function (res) {
+                if(res && res['status_code']==='10009'){
+                    check_s.innerText='√  验证成功';
+                    check_f.innerText=''
+                }else {
+                    check_s.innerText='';
+                    check_f.innerText='×  验证失败'
+                }
+            })
+        }else if(event.target.id==='change_password'){
+            if(checkPassword() && checkConfirm()){
+            let info={"user_id":user_id,"old_password":old_password.value,"new_password":new_password.value};
+            postData('http://127.0.0.1:8080/api/user/changePassword/', info,null, function (res) {
+                if(res && res['status_code']==='10012'){
+                    new_password_s.innerText='修改成功';
+                }else {
+                    old_password_error.innerText='密码错误';
+                }
+            })
+        }
+        }
+    };
+
+function checkPassword() {
+    let regMobile=/^\w{6,}$/;
+    if(new_password.value){
+        if(regMobile.test(new_password.value)){
+            new_password_error.innerText='';
+            return true;
+        }else {
+            new_password_error.innerText='*密码必须大于六位';
+            return false;
+        }
+    }else {
+        new_password_error.innerText='*密码不能为空';
+        return false;
+    }
+}
+
+function checkConfirm() {
+    if(password_confirm.value===new_password.value){
+        password_error.innerText='';
+        return true
+    }else {
+        password_error.innerText='*两次密码不一致';
+        return false;
+    }
+}
+
+
+
+
+
 
 
 // 预约

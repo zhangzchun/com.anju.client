@@ -50,7 +50,6 @@ body{
 }
 .container .row .start .liu .text_info :nth-child(2){
     text-align: left;
-    margin-left: -10px;
 }
 .container .row .start .liu .text_btn{
     text-align: center;
@@ -166,6 +165,7 @@ body{
     text-align: center;
     line-height: 50px;
     border: solid 1px rgba(203, 203, 203, 0.6);
+    cursor:pointer;
 }
 
 /*-----------------返回顶部结束-----------------*/

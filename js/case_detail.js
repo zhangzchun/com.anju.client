@@ -27,6 +27,7 @@
     var renovation=document.querySelector('.renovation');
     var village=document.querySelector('.village');
     var date=document.querySelector('.date');
+    var go_designer=document.querySelector('#go_designer');
 
     getData('http://127.0.0.1:8080/api/case/caseDetail/',{"case_id":case_id},null,function (res) {
         if(res && res['status_code']==='10009'){
@@ -44,7 +45,10 @@
             renovation.innerText=res['content'][0]['reno'];
             village.innerText=res['content'][0]['village'];
             date.innerText=res['content'][0]['date'];
-
+            alert(res['content'][0]['designer_id']);
+            go_designer.onclick=function () {
+                location.href="designer_detail.html?designer_id="+parseInt(res['content'][0]['designer_id']);
+            }
             for(var r of res['content']){
                 content.innerHTML+=`<div class="row start_img_small">
                     <div class="col-sm-12 col-xs-12 col-md-12">
@@ -58,6 +62,7 @@
                 </div>`
             }
         }
+
     });
 
 
@@ -75,6 +80,9 @@
             liu.style.display='none';
         }
     };
+
+
+
 
     // 收藏按钮-begin
     var pg_click=document.querySelector('#pg-block-click');
