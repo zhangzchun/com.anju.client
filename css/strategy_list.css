@@ -1,5 +1,5 @@
 body{
-    background-color: #f8f8f8;
+    background-color: #F1F1F1;
 }
 ul,li{
     padding: 0;
@@ -16,61 +16,56 @@ a{
 
 /*头部*/
 .strategy_diary{
-    padding: 20px 8%;
+    width: 90%;
+    margin: auto;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+.main_left{
+    width: 72%;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px #cbcbcb;
+}
+.main_right{
+    width: 26%;
 }
 .strategy_top{
-    border-bottom: solid 1px #CCCCCC;
-    margin-bottom: 50px;
+    width: 100%;
+    background: #F9F9F9;
 }
 
-.strategy_button{
-    color: #535353;
-    font-size: 18px;
-    border: 0;
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.strategy_button:hover {
-    color: #9d9d9d;
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.strategy_button:focus,
-.strategy_button:active:focus,
-.strategy_button.active:focus,
-.strategy_button.focus,
-.strategy_button:active.focus,
-.strategy_button.active.focus {
-    outline: none;
-    box-shadow: none;
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.strategy_ul{
-    border-bottom: solid 1px #CCCCCC;
-    padding: 0;
-    box-sizing: border-box;
-}
-.strategy_ul li{
+.strategy_diary_ul{
+    display: flex;
     font-size: 16px;
-    padding: 5px 0px;
-    display: inline-block;
-    box-sizing: border-box;
-    margin-left: 0;
 }
-.strategy_ul li:first-child~li{
-    border-left:solid 1px #CCCCCC ;
-    box-sizing: border-box;
+.strategy_li,.diary_li{
+    flex: 1;
+    text-align: center;
+    padding: 15px 0;
+    cursor: pointer;
+    border-right: solid 1px #DDDDDD;
+}
+.strategy_li{
+    background: #FFFFFF;
+}
+.diary_li{
+    border-bottom: solid 1px #DDDDDD;
+}
+.strategy_diary_ul li:nth-child(3){
+    flex: 6;
+    border-bottom: solid 1px #DDDDDD;
 }
 
 /*攻略*/
 .strategy{
+    padding: 0 50px;
     display: block;
 }
 .strategy_main{
     background-color: white;
-    margin-top: 20px;
+    padding: 30px 0;
+    border-bottom: dotted 1px #b4b4b4;
 }
 .strategy_img{
     padding: 0;
@@ -104,13 +99,13 @@ a{
 
 /*日记*/
 .diary{
+    padding: 0 50px;
     display: none;
 }
 .diary_main{
     background-color: white;
-    margin-top: 20px;
-    padding: 20px 0;
-    box-sizing: border-box;
+    padding: 30px 0;
+    border-bottom: dotted 1px #b4b4b4;
 }
 
 .user_icon01{
@@ -160,10 +155,11 @@ a{
 
 .diary_info .diary_image{
     margin-top: 10px;
+    padding-left: 20px;
 }
 .diary_info .diary_image img{
-    width: 170px;
-    height: 170px;
+    width: 100px;
+    height: 100px;
     margin-right: 10px;
     margin-bottom: 10px;
 }
@@ -194,11 +190,6 @@ a{
 
 
 
-
-
-
-
-
 @media (max-width: 768px){
     .nickname,.diary_image,.public_time{
         display: none;
@@ -218,8 +209,8 @@ a{
 }
 @media (max-width: 1200px){
     .diary_info .diary_image img{
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
     }
     .diary_info .diary_image img:last-child{
         display: none;
@@ -229,21 +220,31 @@ a{
     .diary_info .diary_image img:nth-child(3){
         display: none;
     }
+    .main_left{
+        width: 100%;
+    }
+    .main_right{
+        display: none;
+    }
+    .strategy_diary_ul li:nth-child(3){
+        flex: 2;
+    }
 }
 
 /*更多*/
 .more{
-    margin-top: 50px;
+    margin: 30px 0;
     text-align: center;
 }
-.more a{
+#more_strategy,#more_diary{
     font-size: 18px;
     padding: 5px 50px;
     display: inline-block;
+    margin: auto;
     box-sizing: border-box;
     border: solid 1px #CCC;
 }
-.more a:hover{
+#more_strategy:hover,#more_diary:hover{
     text-decoration: none;
     background-color: #C4AD4F;
 }
@@ -256,4 +257,162 @@ a{
     .strategy_text p,.author{
         display: none;
     }
+}
+
+
+/*热门攻略*/
+.hot_strategy{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px #cbcbcb;
+    padding:10px 0 30px;
+}
+.hot_top{
+    border-left: solid 4px #00ba00;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 4px 20px;
+}
+
+.hot_content{
+    padding: 0 20px;
+}
+.hot_content div{
+    display: flex;
+    margin-top: 5px;
+}
+.number{
+    width: 30px;
+    height: 20px;
+}
+.hot_title{
+    flex: 1;
+    padding-top: 5px;
+}
+.hot_title span{
+    cursor: pointer;
+}
+.hot_title span:hover{
+    color: #00ba00;
+}
+.hot_content .hot_image{
+    text-align: center;
+}
+.hot_image img{
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+}
+
+/*热门日记*/
+.hot_diary{
+    margin-top: 20px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px #cbcbcb;
+    padding:10px 0 30px;
+}
+
+/*lunbo*/
+.carousel{
+    /*padding: 0;*/
+}
+.carousel ul{
+    position: relative;
+    left: 0;
+    list-style: none;
+    padding: 0;
+}
+.wrap{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.img-list{
+    display: flex;
+    margin: 0;
+    width: 300%;
+    height: 100%;
+}
+
+.img-list li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:0 40px 20px 0;
+}
+.img-list li div{
+    width: 84%;
+    margin-top: 10px;
+}
+.img-list li div:first-child img{
+    width: 264px;
+    height: 125px;
+}
+.hot_item{
+    display: flex;
+}
+.hot_item img{
+    width: 90px;
+    height: 70px;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+.hot_item span{
+    flex: 1;
+}
+
+.tab-list-div{
+    position: absolute;
+    z-index: 20;
+    top: 96%;
+    left: 50%;
+    margin-left: -10px;
+}
+.tab-list:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.tab-list li{
+    float: left;
+    transition: 1s;
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+}
+.tab-list li:hover{
+    cursor: pointer;
+}
+.tab-list li:first-child{
+    margin-left: 0;
+}
+.tab-list .on {
+    background-color: #00ba00;
+}
+
+
+/*关注我们*/
+.QR{
+    margin-top: 20px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px #cbcbcb;
+    padding:10px 0 30px;
+}
+.QR .QR_content{
+    margin-top: 10px;
+    text-align: center;
+}
+.QR .QR_content span{
+    display: block;
+    padding: 2px 25px;
+    color: #00ba00;
+}
+
+.QR .QR_content img{
+    width: 130px;
+    height: 130px;
+
 }

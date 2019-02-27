@@ -115,7 +115,7 @@
     var second_floor=document.querySelectorAll(".second_floor");
     // 动态生成评论
     function getCommentData(){
-        getData("http://127.0.0.1:8080/api/comment/comments/",{"strategy_id":strategy_id},null,function (res) {
+        getData("http://127.0.0.1:8080/api/comment/getComment/",{"strategy_id":strategy_id},null,function (res) {
             if (res && res["status_code"]==="10009") {
                 for(var i=0;i< res["content"].length;i++){
                     if(res["content"][i]["comment_num"]){
@@ -129,7 +129,7 @@
 
                 for (var ff1 of first_floor){
                     var comment_id = ff1.id;
-                    getData("http://127.0.0.1:8080/api/comment/replys/",{"comment_id":comment_id},null,function (res) {
+                    getData("http://127.0.0.1:8080/api/comment/getReply/",{"comment_id":comment_id},null,function (res) {
                         if (res && res["status_code"]==="10009") {
                             for (var ff2 of first_floor){
                                 for(var r of res["content"]){
@@ -159,7 +159,7 @@
         if (token){
             if (comment_txt.value) {
                 var data = {"from_uid": user_id, "comment_content": comment_txt.value, "comment_time": getNowFormatDate(),"comment_type_id":1,"comment_obj_id":strategy_id};
-                postData("http://127.0.0.1:8080/api/comment/comments/", data,null, function (res) {
+                postData("http://127.0.0.1:8080/api/comment/postComment/", data,{"token": token}, function (res) {
                     if (res && res["status_code"] === "10010") {
                         comment_content.innerHTML="";
                         getCommentData();
@@ -207,7 +207,7 @@
                     var reply_content=node.previousElementSibling.value;
                     var to_unickname=node.parentElement.parentElement.parentElement.parentElement.children[1].children[0].innerText;
                     var data = {"from_uid": user_id, "comment_id":comment_id, "reply_id":"null", "reply_type_id":1,"reply_content": reply_content, "to_uid":to_uid, "to_unickname":to_unickname,"reply_time": getNowFormatDate()};
-                    postData("http://127.0.0.1:8080/api/comment/replys/", data,null, function (res) {
+                    postData("http://127.0.0.1:8080/api/comment/postReply/", data,{"token": token}, function (res) {
                         if (res && res["status_code"] === "10010") {
                             comment_content.innerHTML="";
                             getCommentData();
@@ -232,7 +232,7 @@
                     reply_content=node.previousElementSibling.value;
                     to_unickname=node.parentElement.parentElement.parentElement.children[0].children[0].innerText;
                     data = {"from_uid": user_id, "comment_id":comment_id, "reply_id":reply_id, "reply_type_id":2,"reply_content": reply_content, "to_uid":to_uid, "to_unickname":to_unickname,"reply_time": getNowFormatDate()};
-                    postData("http://127.0.0.1:8080/api/comment/replys/", data,null, function (res) {
+                    postData("http://127.0.0.1:8080/api/comment/postReply/", data,{"token": token}, function (res) {
                         if (res && res["status_code"] === "10010") {
                             comment_content.innerHTML="";
                             getCommentData();
