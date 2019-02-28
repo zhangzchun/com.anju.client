@@ -49,7 +49,7 @@
                             <div class="img-ct">
                                 <img src="${res['content'][i]['img_url']}"/></div>
                             <div class="card-info">
-                                <p class="card-name ect">${res['content'][i]['des_name']}</p>
+                                <p class="card-name ect">${res['content'][i]['case_name']}</p>
                                 <p class="card-detail">${res['content'][i]['area']}m² /
                                                     ${res['content'][i]['house_type']} /
                                                     ${res['content'][i]['style']} /
@@ -69,7 +69,7 @@
                             <div class="img-ct">
                                 <img src="${res['content'][i+1]['img_url']}"/></div>
                             <div class="card-info">
-                                <p class="card-name ect">${res['content'][i+1]['des_name']}</p>
+                                <p class="card-name ect">${res['content'][i+1]['case_name']}</p>
                                 <p class="card-detail">${res['content'][i+1]['area']}m² /
                                                         ${res['content'][i+1]['house_type']} /
                                                         ${res['content'][i+1]['style']} /
@@ -89,7 +89,7 @@
                             <div class="img-ct">
                                 <img src="${res['content'][i+2]['img_url']}"/></div>
                             <div class="card-info">
-                                <p class="card-name ect">${res['content'][i+2]['des_name']}</p>
+                                <p class="card-name ect">${res['content'][i+2]['case_name']}</p>
                                 <p class="card-detail">${res['content'][i+2]['area']}m² /
                                                         ${res['content'][i+2]['house_type']} /
                                                         ${res['content'][i+2]['style']} /
@@ -111,7 +111,7 @@
 
                 goPage(1);
                 let card_bx=document.querySelectorAll(".card-bx");
-                for (var c of card-bx){
+                for (var c of card_bx){
                     c.onclick=function () {
                         location.href="case_detail.html?case_id="+this.id;
                     }

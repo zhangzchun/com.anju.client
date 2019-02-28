@@ -174,7 +174,7 @@
             modal.style.display = "block";
             if (token) {
                 // 登录过
-                postData("http://127.0.0.1:8080/api/user/houseList/", {"user_id": user_id}, {"token": token},
+                postData("http://127.0.0.1:8080/api/user/houseList/", {"user_id": user_id,"house_id":""}, {"token": token},
                     function (res) {
                         if (res && res["status_code"] === "10006") {
                             // 登录过期
@@ -188,6 +188,9 @@
                             virtual_login.style.display = "none";
                             virtual_info.style.display="none";
                             select_house.style.display = "block";
+                            // 选择栏第一行
+                            house_select.innerHTML=`<option value="0">选择房屋信息....</option>`;
+                            // 渲染用户房屋
                             for (var i = 0; i < res['content'].length; i++) {
                                 house_select.innerHTML += `<option value="${res['content'][i]['id']}" >
                                                     ${res['content'][i]['house_name']}</option>`;
@@ -217,6 +220,7 @@
 
 
     // 房屋选择-begin
+    var submit_btn=document.querySelector('.submit_btn');
     var house_select=document.querySelector('#house_select');
     house_select.onchange=function () {
         if(this.value==0) {
@@ -230,11 +234,11 @@
     // 房屋选择-end
 
 
-    var house_id=house_select.value;
     // 立即预约按钮-begin
     var submit_btn=document.querySelector('.submit_btn');
     submit_btn.onclick=function () {
-        // 预约公司
+        var house_id=house_select.value;
+        // 预约信息
         var appoint={"house_id":house_id,"company_id":company_id,"user_id":user_id};
         postData('http://127.0.0.1:8080/api/user/makeAppointment/',appoint,{"token": token},
             function (res) {
@@ -253,6 +257,13 @@
 
     // 预约模态框关闭-begin
     var close = document.querySelector('.close');
+    var modal = document.getElementById('modal');
+
+    modal.onclick = function (event) {
+        if (event.target.id === 'modal') {
+            modal.style.display = "none";
+        }
+    };
 
     close.onclick= function(){
         modal.style.display = "none";
@@ -364,7 +375,7 @@
         // var s = document.body.scroll || document.documentElement.scrollTop;
         if (s > H) {
 
-            company_right.style = "position:fixed;top:80px;left:71.45%;right:auto; width:18.6%;";
+            company_right.style = "position:fixed;top:120px;left:71.45%;right:auto; width:18.6%;";
             // company_right.style = "position:fixed;top: 120px; left: auto; right: auto; margin-left: 20px;"
         } else {
             company_right.style = "position: relative; top: 0px; left: auto; right: auto; margin-left: 20px;"
