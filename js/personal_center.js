@@ -853,7 +853,7 @@ function checkConfirm() {
                                         <span>联系电话 :</span>
                                         <span class="tel">${r["contact_tel"]}</span>
                                         <div class="collection_time">
-                                            <span>${r["contact_tel"]}</span>
+                                            <span>${r["collect_date"]}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -945,7 +945,7 @@ function checkConfirm() {
                                 <div class="check">
                                     <input type="checkbox" class="chk_diary">
                                 </div>
-                                <div class="collection_content diary_content">
+                                <div class="collection_content diary_contents">
                                     <div class="user_info">
                                         <img src="${r["icon"]}" alt="">
                                         <span>${r["nickname"]}</span>
@@ -981,8 +981,8 @@ function checkConfirm() {
             chk_all(chk_all_diary, chk_diary);
             delete_collect(delete_diary, ".chk_diary", collection_diary, default_diary, diary_chk);
 
-            var diary_content = document.querySelectorAll(".diary_content");
-            for (var dc of diary_content) {
+            var diary_contents = document.querySelectorAll(".diary_contents");
+            for (var dc of diary_contents) {
                 dc.onclick = function () {
                     location.href = "diary_info.html?diary_id=" + this.parentElement.id;
                 }

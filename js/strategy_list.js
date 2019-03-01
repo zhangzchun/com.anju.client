@@ -148,7 +148,7 @@
                     }
                 }
             } else if (res && res["status_code"] === '10008') {
-                strategy_items.innerHTML += `<h3 style="display: flex;justify-content: center;padding: 20px 0;">未找到相关数据~~~</h3>`
+                strategy_items.innerHTML += `<img src="../image/no-strategy.png" style="width: 100%;">`;
                 more_strategy.style.display = "none"
             } else {
                 console.log(res.status_text);
@@ -253,7 +253,7 @@
                     }
                 }
             } else if (res && res["status_code"] === '10008') {
-                diary_items.innerHTML += `<h3 style="display: flex;justify-content: center;padding: 20px 0;">未找到相关数据~~~</h3>`
+                diary_items.innerHTML += `<img src="../image/no-strategy.png" style="width: 100%;">`;
                 more_diary.style.display = "none"
             } else {
                 console.log(res["status_text"])

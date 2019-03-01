@@ -25,12 +25,18 @@
         if(checkTelphone() && checkName() &&checkPassword() && checkAgree()){
             //  开始提交后台
             var user={"telephone":tel.value,"nickname":name.value, "password":password.value};
-            postData('http://192.168.2.85:8080/api/user/regist/',user,null,function (res) {
+            postData('http://127.0.0.1:8080/api/user/regist/',user,null,function (res) {
                 if(res && res.status_code=='10001'){
 
                     localStorage.setItem('token',res.token);
                     localStorage.setItem('user_id',res.user_id);
                     localStorage.setItem('nickname',res.nickname);
+
+                    if(sessionStorage.getItem('from')){
+                        location.href=sessionStorage.getItem('from');
+                    }else {
+                        location.href='../index.html';
+                    }
 
                 }else {
                     console.log(res.status_text);

@@ -157,7 +157,6 @@ body{
     border-radius: 50%;
 }
 .container .row .img{
-    border-bottom: dotted 1px #b4b4b4;
     padding-bottom: 20px;
     margin-top: 15px;
 }
