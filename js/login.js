@@ -34,8 +34,13 @@
                         location.href='../index.html';
                     }
 
+                }else if(res && res.status_code=='10004'){
+                    tel_error.innerText=res.status_text;
+
+                }else if(res && res.status_code=='10005') {
+                    password_error.innerText=res.status_text;
                 }else {
-                    console.log(res.status_text);
+                    console.log(res.status_text)
                 }
             })
         }

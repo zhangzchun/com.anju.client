@@ -167,6 +167,7 @@
     var select_house = document.querySelector('.select-house');
 
     // 预约模态框按钮--begin
+    var modal = document.getElementById('modal');
     var replay_btn = document.querySelectorAll('.replay_btn');
     for (var replay of replay_btn) {
         // 预约模态框页
@@ -245,6 +246,7 @@
                 if(res && res["status_code"]==="10020"){
                     // 预约成功
                     alert(res["status_text"]);
+                    modal.style.display = "block";
 
                 }else {
                     // 预约失败
@@ -257,7 +259,6 @@
 
     // 预约模态框关闭-begin
     var close = document.querySelector('.close');
-    var modal = document.getElementById('modal');
 
     modal.onclick = function (event) {
         if (event.target.id === 'modal') {

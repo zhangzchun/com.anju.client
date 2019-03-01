@@ -38,6 +38,9 @@
                         location.href='../index.html';
                     }
 
+                }else if(res && res.status_code=='10002'){
+                    tel_error.innerText=res.status_text;
+
                 }else {
                     console.log(res.status_text);
                 }
