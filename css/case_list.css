@@ -8,6 +8,10 @@ body{
 
 
 /*-----------筛选条件开始--------------------*/
+.screen{
+    padding: 0;
+    margin-bottom: 20px;
+}
 .container .row .col-md-12 .table{
     background: white;
 }
@@ -125,8 +129,9 @@ body{
 
 
 /*-----------案例列表开始-------------*/
-#idData tr{
+#idData {
     background: white;
+    min-height: 360px;
 }
 .module-cont .card-bx {
     padding: 9px 10px;
@@ -136,7 +141,7 @@ body{
 }
 .module-cont .card-bx img {
     width: 100%;
-    height: 100%;
+    height: 180px;
 }
 
 .module-cont .card-info {
@@ -181,9 +186,21 @@ body{
 
 /*------------分页开始--------------*/
 #barcon{
-    margin-left: 33%;
+    /*margin-left: 40%;*/
+    /*margin-top: 2%;*/
+    text-align: center;
+    padding: 15px;
 }
-
+.no_case{
+    width: 100%;
+}
+#active{
+    background: #0CB469;
+    color: white;
+}
+#barcon .page_1{
+    margin: 5px;
+}
 @media (max-width: 993px) {
     #barcon{
         margin-left: 25%;

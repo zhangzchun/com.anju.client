@@ -7,6 +7,7 @@
     var table=document.querySelector('.font');
     var con = document.querySelectorAll(".condition");
     var idData=document.querySelector('#idData');
+    var page=document.querySelector("#barcon");
     var sort=document.querySelector('.sorted');
     for (var c of con){
         c.style.display="none";
@@ -16,6 +17,7 @@
     function getCompanyData(url,args){
         getData(url,args,null,function (res) {
             if(res && res['status_code']==='10009'){
+                idData.innerHTML="";
                 for(let r of res['content']){
                     idData.innerHTML+=`<tr><td><div class="row company_item" id="${r['id']}">
         <div class="col-lg-12">
@@ -69,7 +71,8 @@
                     }
                 }
             }else if(res['status_code']==='10008') {
-                idData.innerHTML+=""
+                idData.innerHTML=`<img src="../image/no-case.png" alt="" class="no_case">`;
+                page.innerHTML=''
             }
 
         });
@@ -77,6 +80,7 @@
     function postCompanyData(url,args){
         postData(url,args,null,function (res) {
             if(res && res['status_code']==='10009'){
+                idData.innerHTML='';
                 for(let r of res['content']){
                     idData.innerHTML+=`<tr><td><div class="row company_item" id="${r['id']}">
         <div class="col-lg-12">
@@ -130,7 +134,8 @@
                     }
                 }
             }else if(res['status_code']==='10008') {
-                idData.innerHTML+=""
+                idData.innerHTML=`<img src="../image/no-case.png" alt="" class="no_case">`;
+                page.innerHTML=''
             }
 
         });
@@ -178,11 +183,14 @@
         }
         idData.innerHTML="";
         var condition={"price_name":con[0].innerText,"style_name":con[1].innerText,"district":con[2].innerText};
-        postCompanyData('http://127.0.0.1:8080/api/company/companyScreen/',condition);
+
 
         if(con[0].style.display==='none' && con[1].style.display==='none' && con[2].style.display==='none') {
+            idData.innerHTML="";
             getCompanyData('http://127.0.0.1:8080/api/company/companyList/',null);
-        };
+        }else{
+            postCompanyData('http://127.0.0.1:8080/api/company/companyScreen/',condition);
+        }
     };
     // 排序
     sort.onclick=function (event) {

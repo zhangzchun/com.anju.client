@@ -137,6 +137,9 @@ body{
 /*----------排序结束------------*/
 
 /*-----------公司列表开始-------------*/
+#idData{
+    min-height: 1000px;
+}
 #idData tr{
     background: white;
 }
@@ -228,7 +231,9 @@ body{
 #barcon{
     margin-left: 36%;
 }
-
+.no_case{
+    width: 100%;
+}
 @media (max-width: 993px) {
     #barcon{
         margin-left: 30%;

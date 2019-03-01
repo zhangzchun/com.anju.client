@@ -45,8 +45,9 @@
             renovation.innerText=res['content'][0]['reno'];
             village.innerText=res['content'][0]['village'];
             date.innerText=res['content'][0]['date'];
-            alert(res['content'][0]['designer_id']);
+
             go_designer.onclick=function () {
+                alert(res['content'][0]['designer_id']);
                 location.href="designer_detail.html?designer_id="+parseInt(res['content'][0]['designer_id']);
             }
             for(var r of res['content']){
