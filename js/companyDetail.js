@@ -7,7 +7,7 @@
     // 公司id
     var company_id=parseInt(location.href.split("?company_id=")[1]);
     // ajax获取公司数据,渲染
-    getData("http://127.0.0.1:8080/api/company/companyDetail/", {"company_id":company_id}, null,
+    getData("http://47.102.45.80:8080/api/company/companyDetail/", {"company_id":company_id}, null,
         function (res) {
             if (res && res["status_code"] === "10009") {
 
@@ -175,7 +175,7 @@
             modal.style.display = "block";
             if (token) {
                 // 登录过
-                postData("http://127.0.0.1:8080/api/user/houseList/", {"user_id": user_id,"house_id":""}, {"token": token},
+                postData("http://47.102.45.80:8080/api/user/houseList/", {"user_id": user_id,"house_id":""}, {"token": token},
                     function (res) {
                         if (res && res["status_code"] === "10006") {
                             // 登录过期
@@ -241,7 +241,7 @@
         var house_id=house_select.value;
         // 预约信息
         var appoint={"house_id":house_id,"company_id":company_id,"user_id":user_id};
-        postData('http://127.0.0.1:8080/api/user/makeAppointment/',appoint,{"token": token},
+        postData('http://47.102.45.80:8080/api/user/makeAppointment/',appoint,{"token": token},
             function (res) {
                 if(res && res["status_code"]==="10020"){
                     // 预约成功
@@ -281,7 +281,7 @@
 
     //渲染收藏信息--begin
     if (token) {
-        postData('http://127.0.0.1:8080/api/user/collectDetail/',collect,{"token":token},
+        postData('http://47.102.45.80:8080/api/user/collectDetail/',collect,{"token":token},
             function (res) {
                 if (res && res["status_code"]==="10009") {
                     span.classList.toggle('collect-icon');
@@ -304,7 +304,7 @@
             if (txt.nodeValue==='已收藏') {
                 // txt.nodeValue='收藏';
                 // 取消收藏公司
-                postData('http://127.0.0.1:8080/api/user/cutCollect/',collect,{"token": token},
+                postData('http://47.102.45.80:8080/api/user/cutCollect/',collect,{"token": token},
                     function (res) {
                         if (res && res["status_code"]==="10040") {
                             // 取消收藏公司成功
@@ -321,7 +321,7 @@
             }else {
                 // txt.nodeValue='已收藏';
                 // 收藏公司
-                postData('http://127.0.0.1:8080/api/user/makeCollect/',collect,{"token": token},
+                postData('http://47.102.45.80:8080/api/user/makeCollect/',collect,{"token": token},
                     function (res) {
                         if (res && res["status_code"]==="10030") {
                             // 收藏公司成功

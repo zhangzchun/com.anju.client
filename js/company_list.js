@@ -187,9 +187,9 @@
 
         if(con[0].style.display==='none' && con[1].style.display==='none' && con[2].style.display==='none') {
             idData.innerHTML="";
-            getCompanyData('http://127.0.0.1:8080/api/company/companyList/',null);
+            getCompanyData('http://47.102.45.80:8080/api/company/companyList/',null);
         }else{
-            postCompanyData('http://127.0.0.1:8080/api/company/companyScreen/',condition);
+            postCompanyData('http://47.102.45.80:8080/api/company/companyScreen/',condition);
         }
     };
     // 排序
@@ -198,7 +198,7 @@
         if (et.nodeName === 'A') {
             var c = {"detail": et.innerText};
             idData.innerHTML="";
-            postCompanyData('http://127.0.0.1:8080/api/company/companySort/', c);
+            postCompanyData('http://47.102.45.80:8080/api/company/companySort/', c);
         }
         ;
     }
@@ -227,9 +227,9 @@
 
     if (location.href.indexOf("search_content") !== -1){
         var myurl01 = location.href.split("=")[1];
-        getCompanyData("http://127.0.0.1:8080/api/search/", {"search_content": decodeURI(myurl01), "search_condition": "装修公司"})
+        getCompanyData("http://47.102.45.80:8080/api/search/", {"search_content": decodeURI(myurl01), "search_condition": "装修公司"})
     }else if(con[0].style.display==='none' && con[1].style.display==='none' && con[2].style.display==='none') {{
-            getCompanyData('http://127.0.0.1:8080/api/company/companyList/',null);
+            getCompanyData('http://47.102.45.80:8080/api/company/companyList/',null);
         }
     }
 

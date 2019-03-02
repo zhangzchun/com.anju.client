@@ -99,7 +99,7 @@ function goPage(condition) {
     let go_page = document.getElementById("barcon");
 
     caseList.innerHTML='';
-    postData('http://127.0.0.1:8080/api/case/caseList/',condition,null,function (res) {
+    postData('http://47.102.45.80:8080/api/case/caseList/',condition,null,function (res) {
         if(res && res['status_code']==='10009') {
             caseList.innerHTML='';
             for (let r of res['content']) {
@@ -131,7 +131,7 @@ function goPage(condition) {
         }
     });
     //总共分几页
-    postData('http://127.0.0.1:8080/api/case/caseNumber/',condition,null,function (res) {
+    postData('http://47.102.45.80:8080/api/case/caseNumber/',condition,null,function (res) {
         if(res && res['status_code']==='10009'){
             go_page.innerHTML='';
             for(let i=1;i<=Math.ceil(res['content']['case_num']/20);i++){
@@ -147,7 +147,7 @@ function goPage(condition) {
         if(Boolean(event.target.innerText) && event.target.nodeName==='SPAN'){
             event.target.id='active';
             condition.pageNum=event.target.innerText;
-            postData('http://127.0.0.1:8080/api/case/caseList/',condition,null,function (res) {
+            postData('http://47.102.45.80:8080/api/case/caseList/',condition,null,function (res) {
                 if(res && res['status_code']==='10009'){
                     caseList.innerHTML='';
                     for(let r of res['content']){
@@ -178,6 +178,14 @@ function goPage(condition) {
             });
         }
 
+        var scroll_h = document.documentElement.scrollTop || document.body.scrollTop;
+        var inter = setInterval(function () {
+            scroll_h -= 50;
+            window.scrollTo(0, scroll_h);
+            if (scroll_h <= 0) {
+                clearInterval(inter);
+            }
+        }, 0);
     }
 
 }
@@ -189,7 +197,7 @@ function screenPage(condition){
 
 
     caseList.innerHTML='';
-    postData('http://127.0.0.1:8080/api/case/caseScreen/',condition,null,function (res) {
+    postData('http://47.102.45.80:8080/api/case/caseScreen/',condition,null,function (res) {
         if(res && res['status_code']==='10009'){
             caseList.innerHTML='';
             for(let r of res['content']){
@@ -222,7 +230,7 @@ function screenPage(condition){
     });
 
     //总共分几页
-    postData('http://127.0.0.1:8080/api/case/caseNumber/',condition,null,function (res) {
+    postData('http://47.102.45.80:8080/api/case/caseNumber/',condition,null,function (res) {
         if(res && res['status_code']==='10009'){
             go_page.innerHTML='';
             for(let i=1;i<=Math.ceil(res['content']['case_num']/20);i++){
@@ -238,7 +246,7 @@ function screenPage(condition){
         if(Boolean(event.target.innerText) && event.target.nodeName==='SPAN'){
             event.target.id='active';
             condition.pageNum=event.target.innerText;
-            postData('http://127.0.0.1:8080/api/case/caseScreen/',condition,null,function (res) {
+            postData('http://47.102.45.80:8080/api/case/caseScreen/',condition,null,function (res) {
                 if(res && res['status_code']==='10009'){
                     caseList.innerHTML='';
                     for(let r of res['content']){

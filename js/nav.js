@@ -89,7 +89,7 @@
     var nickname=window.localStorage && window.localStorage.getItem('nickname');
 
     if (token) {
-        getData("http://127.0.0.1:8080/api/user/checkToken/", null,{"token": token}, function (res) {
+        getData("http://47.102.45.80:8080/api/user/checkToken/", null,{"token": token}, function (res) {
             if (res && res["status_code"] === "10003") {
                 login.style.display="none";
                 register.style.display="none";
@@ -99,7 +99,7 @@
                 nick_name.onclick=function () {
                     token=window.localStorage && window.localStorage.getItem('token');
                     if(token){
-                        getData("http://127.0.0.1:8080/api/user/checkToken/", null,{"token": token}, function (res) {
+                        getData("http://47.102.45.80:8080/api/user/checkToken/", null,{"token": token}, function (res) {
                             if (res && res["status_code"] === "10003") {
                                 location.href = "personal_center.html?user_id=" + user_id
                             }else{

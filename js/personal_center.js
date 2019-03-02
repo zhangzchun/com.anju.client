@@ -261,13 +261,13 @@
             var t=re.test(house_area.value);
             if(t){
                 house_list.style.display = 'none';
-                postData('http://127.0.0.1:8080/api/user/houseInfo/', info,null, function (results) {
+                postData('http://47.102.45.80:8080/api/user/houseInfo/', info,null, function (results) {
                     if (results && results['status_code'] === '10012') {
                         //是渲染增加的那条还是将所有房屋都取出来渲染????
                         //取所有的信息渲染,因为点击保存的时候还没有house_id
 
                         let id={'user_id':user_id,'house_id':''};
-                        postData('http://127.0.0.1:8080/api/user/houseList/', id,{"token": token}, function (res) {
+                        postData('http://47.102.45.80:8080/api/user/houseList/', id,{"token": token}, function (res) {
                             if(res && res['status_code']==='10009'){
                                 if(res['content']){
                                     no_house.style.display='none';
@@ -386,10 +386,10 @@
                 'house_id': event.target.parentNode.parentNode.parentNode.parentNode.parentNode.id
             };
             // 更新房屋信息
-            postData('http://127.0.0.1:8080/api/user/updateHouseInfo/', u_info,null, function (res) {
+            postData('http://47.102.45.80:8080/api/user/updateHouseInfo/', u_info,null, function (res) {
                 if (res && res['status_code'] === '10012') {
                     let info_id={'user_id':user_id,'house_id':event.target.parentNode.parentNode.parentNode.parentNode.parentNode.id};
-                    postData('http://127.0.0.1:8080/api/user/houseList/', info_id,{"token": token},function (info) {
+                    postData('http://47.102.45.80:8080/api/user/houseList/', info_id,{"token": token},function (info) {
                         if(info && info['status_code'] === '10009'){
                             event.target.parentNode.parentNode.parentNode.parentNode.parentNode.innerHTML = ` <table class="table table_info dis">
 ​                            <tr>
@@ -425,7 +425,7 @@
     };
     //获取个人中心首页信息
     let id={'user_id':user_id,'house_id':''};
-    postData('http://127.0.0.1:8080/api/user/getUserInfo/', id,null, function (res) {
+    postData('http://47.102.45.80:8080/api/user/getUserInfo/', id,null, function (res) {
         if(res && res['status_code']==='10009'){
             let user_icon=document.querySelector('.user_Icon');
             let user_name=document.querySelectorAll('.user_name');
@@ -473,7 +473,7 @@
         }
     });
     // 获取房屋信息
-    postData('http://127.0.0.1:8080/api/user/houseList/', id,{"token": token}, function (res) {
+    postData('http://47.102.45.80:8080/api/user/houseList/', id,{"token": token}, function (res) {
 
         if(res && res['status_code']==='10009'){
             if(res['content']){
@@ -529,9 +529,9 @@
                 sex_id=1;
             }
             let con={'nickname':user_nickname.children[0].value,'sex_id':sex_id,'QQ':QQ.children[0].value,'address':district.value+village.value,'id':user_id}
-            postData('http://127.0.0.1:8080/api/user/changeUserInfo/',con,null,function (res) {
+            postData('http://47.102.45.80:8080/api/user/changeUserInfo/',con,null,function (res) {
                 if(res && res['status_code']==='10012'){
-                    postData('http://127.0.0.1:8080/api/user/getUserInfo/', id,null, function (res) {
+                    postData('http://47.102.45.80:8080/api/user/getUserInfo/', id,null, function (res) {
                         if(res && res['status_code']==='10009'){
                             let user_icon=document.querySelector('.user_Icon');
                             let user_name=document.querySelectorAll('.user_name');
@@ -606,7 +606,7 @@
 //修改密码
         // 获取验证码
     var identify_code=document.querySelector('.identifying_code');
-    getData('http://127.0.0.1:8080/api/user/getIdentifyingCode/', null,null, function (res) {
+    getData('http://47.102.45.80:8080/api/user/getIdentifyingCode/', null,null, function (res) {
         if(res && res['status_code']==='10009'){
             identify_code.innerHTML=`<img src="${res['content']['url_code']}" alt="" id="${res['content']['id']}"><a href="#" class="change_code">看不清,换一张</a>`
         }
@@ -620,19 +620,19 @@
     var new_password_s=document.querySelector('.new_password_s');
     var new_password_error=document.querySelector('.new_password_error');
     var password_error=document.querySelector('.password_error');
+    var check_s=document.querySelector('.check_result_s');
+    var check_f=document.querySelector('.check_result_f');
     changePassword.onclick=function (event) {
         if(event.target.className==='change_code'){
-            getData('http://127.0.0.1:8080/api/user/getIdentifyingCode/', null,null, function (res) {
+            getData('http://47.102.45.80:8080/api/user/getIdentifyingCode/', null,null, function (res) {
                 if(res && res['status_code']==='10009'){
                     identify_code.innerHTML=`<img src="${res['content']['url_code']}" alt="" id="${res['content']['id']}"><a href="#" class="change_code">看不清,换一张</a>`
                 }
             })
         }else if(event.target.id==='push_code'){
             let input=document.querySelector('.input_code');
-            var check_s=document.querySelector('.check_result_s');
-            var check_f=document.querySelector('.check_result_f');
             let info={"code_id":identify_code.children[0].id,"content":input.value};
-            postData('http://127.0.0.1:8080/api/user/getIdentifyingCode/', info,null, function (res) {
+            postData('http://47.102.45.80:8080/api/user/getIdentifyingCode/', info,null, function (res) {
                 if(res && res['status_code']==='10009'){
                     check_s.innerText='√  验证成功';
                     check_f.innerText=''
@@ -641,17 +641,20 @@
                     check_f.innerText='×  验证失败'
                 }
             })
-        }else if(event.target.id==='change_password'){
+        }else if(event.target.id==='change_password' && check_s.innerText!==''){
             if(checkPassword() && checkConfirm()){
             let info={"user_id":user_id,"old_password":old_password.value,"new_password":new_password.value};
-            postData('http://127.0.0.1:8080/api/user/changePassword/', info,null, function (res) {
+            postData('http://47.102.45.80:8080/api/user/changePassword/', info,null, function (res) {
                 if(res && res['status_code']==='10012'){
                     new_password_s.innerText='修改成功';
+                    location.href="personal_center.html?user_id="+user_id;
                 }else {
                     old_password_error.innerText='密码错误';
                 }
             })
         }
+        }else if(event.target.id==='change_password' && check_s.innerText===''){
+            check_f.innerText='请输入验证码'
         }
     };
 
@@ -691,7 +694,7 @@ function checkConfirm() {
 // 动态生成预约
     var tbody=document.querySelector(".reservation tbody");
     var default_reservation=document.querySelector(".default_reservation");
-    getData("http://127.0.0.1:8080/api/user/getAppointments/",{"user_id":user_id},null,function (res) {
+    getData("http://47.102.45.80:8080/api/user/getAppointments/",{"user_id":user_id},null,function (res) {
         if (res && res["status_code"]=="10009"){
             for(var r of res["content"]){
                 tbody.innerHTML +=`<tr id="${r["id"]}">
@@ -749,7 +752,7 @@ function checkConfirm() {
             for (var c of cancel_btn){
                 c.onclick=function (event) {
                     var a_id=event.target.parentElement.parentElement.id;
-                    getData("http://127.0.0.1:8080/api/user/cutAppointment/",{"id":a_id},null,function (res) {
+                    getData("http://47.102.45.80:8080/api/user/cutAppointment/",{"id":a_id},null,function (res) {
                         if (res && res["status_code"]=="10020") {
 
                             tbody.removeChild(event.target.parentElement.parentElement);
@@ -776,7 +779,7 @@ function checkConfirm() {
     var collection_case = document.querySelector(".collection_case");
     var default_case = document.querySelector(".default_case");
     var case_chk=document.querySelector(".case_chk");
-    getData("http://127.0.0.1:8080/api/user/collectList/",{"collect_type":"case","user_id":user_id},null,function (res) {
+    getData("http://47.102.45.80:8080/api/user/collectList/",{"collect_type":"case","user_id":user_id},null,function (res) {
         if(res && res["status_code"]==="10009"){
             for (var r of res["content"]) {
                 collection_case.innerHTML += `<div class="collection_main case_main" id="${r["id"]}">
@@ -831,7 +834,7 @@ function checkConfirm() {
     var collection_company = document.querySelector(".collection_company");
     var default_company = document.querySelector(".default_company");
     var company_chk=document.querySelector(".company_chk");
-    getData("http://127.0.0.1:8080/api/user/collectList/",{"collect_type":"company","user_id":user_id},null,function (res){
+    getData("http://47.102.45.80:8080/api/user/collectList/",{"collect_type":"company","user_id":user_id},null,function (res){
         if(res && res["status_code"]==="10009") {
             for (var r of res["content"]) {
                 collection_company.innerHTML += `<div class="collection_main company_main" id="${r["id"]}">
@@ -883,7 +886,7 @@ function checkConfirm() {
     var collection_strategy=document.querySelector(".collection_strategy");
     var default_strategy = document.querySelector(".default_strategy");
     var strategy_chk=document.querySelector(".strategy_chk");
-    getData("http://127.0.0.1:8080/api/user/collectList/",{"collect_type":"strategy","user_id":user_id},null,function (res) {
+    getData("http://47.102.45.80:8080/api/user/collectList/",{"collect_type":"strategy","user_id":user_id},null,function (res) {
         if(res && res["status_code"]==="10009") {
             for (var r of res["content"]) {
                 collection_strategy.innerHTML += `<div class="collection_main strategy_main" id="${r["id"]}">
@@ -934,7 +937,7 @@ function checkConfirm() {
     var collection_diary=document.querySelector(".collection_diary");
     var default_diary = document.querySelector(".default_diary");
     var diary_chk = document.querySelector(".diary_chk");
-    getData("http://127.0.0.1:8080/api/user/collectList/",{"collect_type":"diary","user_id":user_id},null,function (res) {
+    getData("http://47.102.45.80:8080/api/user/collectList/",{"collect_type":"diary","user_id":user_id},null,function (res) {
         if(res && res["status_code"]==="10009") {
             for (var r of res["content"]) {
                 var s = "";
@@ -983,6 +986,7 @@ function checkConfirm() {
 
             var diary_contents = document.querySelectorAll(".diary_contents");
             for (var dc of diary_contents) {
+
                 dc.onclick = function () {
                     location.href = "diary_info.html?diary_id=" + this.parentElement.id;
                 }
@@ -1066,7 +1070,7 @@ function checkConfirm() {
                         collect_type_id=4
                     }
                     var collect={"content_id":content_id,"collect_type_id":collect_type_id,"user_id":user_id};
-                    postData('http://127.0.0.1:8080/api/user/cutCollect/',collect,{"token": token}, function (res) {
+                    postData('http://47.102.45.80:8080/api/user/cutCollect/',collect,{"token": token}, function (res) {
                         if (res && res["status_code"]==="10040") {
                             collection.removeChild(ck.parentElement.parentElement);
                             if (collection.innerHTML === "") {
@@ -1097,7 +1101,7 @@ function checkConfirm() {
     var no_diary=document.querySelector(".no_diary");
 
     // ajax渲染用户日记--begin
-    getData("http://127.0.0.1:8080/api/user/userDiary/",{"user_id":user_id},null,
+    getData("http://47.102.45.80:8080/api/user/userDiary/",{"user_id":user_id},null,
         function (res) {
             if (res && res["status_code"] === "10009") {
                 no_diary.style.display="none";
@@ -1154,21 +1158,30 @@ function checkConfirm() {
                             </div>`;
 
                 }
+                diary_content.innerHTML+=`
+                            <div class=" create_diary">
+                                <a href="#" class="btn_create">+新建装修日记</a>
+                            </div>`;
 
                 //日记标题点击事件--begin
                 let diary_info = document.querySelectorAll(".diary_info");
                 for (var di of diary_info) {
                     di.onclick = function () {
-                        location.href = "diary_info.html?case_id=" + this.id;
+                        location.href = "diary_info.html?diary_id=" + this.id;
+                    }
+                }
+
+                var btn_continue = document.querySelectorAll(".btn_continue");
+                for (var bc of btn_continue){
+                    bc.onclick = function () {
+                        var d_id=this.parentElement.parentElement.parentElement.children[0].children[0].children[0].id;
+                        location.href="writeDiary.html?diary_id="+d_id;
                     }
                 }
                 //日记标题点击事件--end
 
 
-                diary_content.innerHTML+=`
-                            <div class=" create_diary">
-                                <a href="#" class="btn_create">+新建装修日记</a>
-                            </div>`;
+
 
                 // 新建日记事件--begin
 

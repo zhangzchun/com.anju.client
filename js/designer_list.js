@@ -9,7 +9,7 @@
     var company_id=parseInt(location.href.split("?company_id=")[1]);
 
     // ajax获取公司所有设计师数据,渲染--begin
-    getData("http://127.0.0.1:8080/api/designer/designerList/",{"company_id":company_id},null,
+    getData("http://47.102.45.80:8080/api/designer/designerList/",{"company_id":company_id},null,
         function (res) {
             if (res && res["status_code"] === "10009") {
                 // 找到数据

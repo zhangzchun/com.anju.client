@@ -27,11 +27,11 @@
         var valiable = url.split("?")[0];
         window.history.pushState({},0,valiable);
         if (strategy_items.innerHTML === "") {
-            getStrategyData("http://127.0.0.1:8080/api/strategy/strategyList/", null)
+            getStrategyData("http://47.102.45.80:8080/api/strategy/strategyList/", null)
         } else if (strategy_items.contains(document.getElementsByTagName("h3")[0])) {
             document.getElementsByTagName("h3")[0].style.display = "none";
             more_strategy.style.display="inline";
-            getStrategyData("http://127.0.0.1:8080/api/strategy/strategyList/", null)
+            getStrategyData("http://47.102.45.80:8080/api/strategy/strategyList/", null)
         }
     };
     diary_li.onclick = function () {
@@ -46,11 +46,11 @@
         var valiable = url.split("?")[0];
         window.history.pushState({},0,valiable);
         if (diary_items.innerHTML === "") {
-            getDiaryData("http://127.0.0.1:8080/api/diary/diaryList/", null)
+            getDiaryData("http://47.102.45.80:8080/api/diary/diaryList/", null)
         } else if (diary_items.contains(document.getElementsByTagName("h3")[0])) {
             document.getElementsByTagName("h3")[0].style.display = "none";
             more_diary.style.display="inline";
-            getDiaryData("http://127.0.0.1:8080/api/diary/diaryList/", null)
+            getDiaryData("http://47.102.45.80:8080/api/diary/diaryList/", null)
         }
     };
 
@@ -58,7 +58,7 @@
     // 请求数据
     if (decodeURI(location.href).indexOf("search_condition=装修攻略") !== -1) {
         var myurl = location.href.split("&")[0].split("?")[1].split("=")[1];
-        getStrategyData("http://127.0.0.1:8080/api/search/", {
+        getStrategyData("http://47.102.45.80:8080/api/search/", {
             "search_content": decodeURI(myurl),
             "search_condition": "装修攻略"
         })
@@ -70,7 +70,7 @@
         diary_li.style.borderBottom = "0";
         strategy_li.style.borderBottom = "solid 1px #DDDDDD";
         diary_li.style.background = "#FFFFFF";
-        getDiaryData("http://127.0.0.1:8080/api/search/", {
+        getDiaryData("http://47.102.45.80:8080/api/search/", {
             "search_content": decodeURI(myurl),
             "search_condition": "装修日记"
         });
@@ -82,9 +82,9 @@
         diary_li.style.borderBottom = "0";
         strategy_li.style.borderBottom = "solid 1px #DDDDDD";
         diary_li.style.background = "#FFFFFF";
-        getDiaryData("http://127.0.0.1:8080/api/diary/diaryList/", null)
+        getDiaryData("http://47.102.45.80:8080/api/diary/diaryList/", null)
     } else {
-        getStrategyData("http://127.0.0.1:8080/api/strategy/strategyList/", null)
+        getStrategyData("http://47.102.45.80:8080/api/strategy/strategyList/", null)
     }
 
     // 动态生成攻略页面方法

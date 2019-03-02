@@ -7,7 +7,7 @@
     var designer_id=parseInt(location.href.split("?designer_id=")[1]);
 
     // ajax获取设计师数据,渲染
-    getData("http://127.0.0.1:8080/api/designer/designerDetail/",{"designer_id":designer_id},null,
+    getData("http://47.102.45.80:8080/api/designer/designerDetail/",{"designer_id":designer_id},null,
         function(res){
             if (res && res["status_code"]==="10009") {
 

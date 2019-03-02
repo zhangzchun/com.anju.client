@@ -22,7 +22,7 @@
         if(checkPassword() && checkTelphone()){
             //    开始提交后台
             var user={"telephone":tel.value,"password":password.value};
-            postData('http://127.0.0.1:8080/api/user/login/',user,null,function (res) {
+            postData('http://47.102.45.80:8080/api/user/login/',user,null,function (res) {
                 if(res && res.status_code=='10003'){
                     localStorage.setItem('token',res.token);
                     localStorage.setItem('user_id',res.user_id);

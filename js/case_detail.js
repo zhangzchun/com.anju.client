@@ -29,7 +29,7 @@
     var date=document.querySelector('.date');
     var go_designer=document.querySelector('#go_designer');
 
-    getData('http://127.0.0.1:8080/api/case/caseDetail/',{"case_id":case_id},null,function (res) {
+    getData('http://47.102.45.80:8080/api/case/caseDetail/',{"case_id":case_id},null,function (res) {
         if(res && res['status_code']==='10009'){
             case_name[0].innerText=res['content'][0]['name'];
             case_name[1].innerText=res['content'][0]['name'];
@@ -93,7 +93,7 @@
 
     //渲染收藏信息--begin
     if (token) {
-        postData('http://127.0.0.1:8080/api/user/collectDetail/',collect,{"token":token},
+        postData('http://47.102.45.80:8080/api/user/collectDetail/',collect,{"token":token},
             function (res) {
                 if (res && res["status_code"]==="10009") {
                     span.classList.toggle('collect-icon');
@@ -116,7 +116,7 @@
             if (txt.nodeValue==='已收藏') {
                 // txt.nodeValue='收藏';
                 // 取消收藏公司
-                postData('http://127.0.0.1:8080/api/user/cutCollect/',collect,{"token": token},
+                postData('http://47.102.45.80:8080/api/user/cutCollect/',collect,{"token": token},
                     function (res) {
                         if (res && res["status_code"]==="10040") {
                             // 取消收藏公司成功
@@ -133,7 +133,7 @@
             }else {
                 // txt.nodeValue='已收藏';
                 // 收藏公司
-                postData('http://127.0.0.1:8080/api/user/makeCollect/',collect,{"token": token},
+                postData('http://47.102.45.80:8080/api/user/makeCollect/',collect,{"token": token},
                     function (res) {
                         if (res && res["status_code"]==="10030") {
                             // 收藏公司成功

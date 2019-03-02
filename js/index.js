@@ -39,7 +39,7 @@
     var nickname=window.localStorage && window.localStorage.getItem('nickname');
 
     if (token) {
-        getData("http://127.0.0.1:8080/api/user/checkToken/", null,{"token": token}, function (res) {
+        getData("http://47.102.45.80:8080/api/user/checkToken/", null,{"token": token}, function (res) {
             if (res && res["status_code"] === "10003") {
                 login.style.display="none";
                 register.style.display="none";
@@ -49,7 +49,7 @@
                 nick_name.onclick=function () {
                     token=window.localStorage && window.localStorage.getItem('token');
                     if(token){
-                        getData("http://127.0.0.1:8080/api/user/checkToken/", null,{"token": token}, function (res) {
+                        getData("http://47.102.45.80:8080/api/user/checkToken/", null,{"token": token}, function (res) {
                             if (res && res["status_code"] === "10003") {
                                 location.href = "./pages/personal_center.html?user_id=" + user_id
                             }else{
@@ -247,7 +247,7 @@
 
     // 公司
     var company_main=document.querySelector(".company_main");
-    getData('http://127.0.0.1:8080/api/company/indexCompanyList/',null,null,function (res) {
+    getData('http://47.102.45.80:8080/api/company/indexCompanyList/',null,null,function (res) {
         if(res && res['status_code']==='10009'){
             for(let r of res['content']){
                 company_main.innerHTML+=`<div class="col-xs-12 col-sm-6 col-md-3 my_company" id="${r["id"]}">
@@ -281,7 +281,7 @@
 
     // 日记
     var user_icon02=document.querySelector(".user_icon02");
-    getData('http://127.0.0.1:8080/api/diary/diaryUserIcon/',null,null,function (res){
+    getData('http://47.102.45.80:8080/api/diary/diaryUserIcon/',null,null,function (res){
         if(res && res['status_code']==='10009'){
             for(let r of res['content']){
                 user_icon02.innerHTML+=`<div class="col-xs-12 user_item" id="${r["id"]}">
@@ -293,7 +293,7 @@
             var user_items=document.querySelectorAll(".user_item");
             var first_diary_id=user_items[0].id;
             function getDiaryData(args) {
-                getData("http://127.0.0.1:8080/api/diary/diaryItem/",{"diary_id":args},null,function (res) {
+                getData("http://47.102.45.80:8080/api/diary/diaryItem/",{"diary_id":args},null,function (res) {
                     if (res && res['status_code']==='10009') {
                         var diary_text = document.querySelector(".diary_text");
                         var diary_title = document.querySelector(".diary_title span");
@@ -342,7 +342,7 @@
     var strategy_content_text=document.querySelector(".strategy_content_text");
     var diary_content_text=document.querySelector(".diary_content_text");
 
-    getData('http://127.0.0.1:8080/api/strategy/strategyTitle/',null,null,function (res) {
+    getData('http://47.102.45.80:8080/api/strategy/strategyTitle/',null,null,function (res) {
         if(res && res['status_code']==='10009'){
             for (var r of res["content"]){
                 strategy_content_text.innerHTML+=`<a href="###" class="strategy_txt" id="${r["strategy_id"]}">${r["strategy_title"]}</a>`
@@ -359,7 +359,7 @@
         }
     });
 
-    getData('http://127.0.0.1:8080/api/diary/diaryTitle/',null,null,function (res) {
+    getData('http://47.102.45.80:8080/api/diary/diaryTitle/',null,null,function (res) {
         if(res && res['status_code']==='10009'){
             for (var r of res["content"]){
                 diary_content_text.innerHTML+=`<a href="#" class="diary_txt" id="${r["diary_id"]}">${r["diary_title"]}</a>`
